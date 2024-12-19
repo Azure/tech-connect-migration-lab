@@ -11,7 +11,7 @@ cd /home/mysqladmin/data
 curl -Lv https://downloads.mysql.com/docs/sakila-db.tar.gz -o sakila-db.tar.gz --stderr data_curl.log
 tar -xzvf sakila-db.tar.gz
 cd /home/mysqladmin/data/sakila-db
-sudo mysql -h localhost </home/mysqladmin/data/sakila-db/sakila-schema.sql
-sudo mysql -h localhost </home/mysqladmin/data/sakila-db/sakila-data.sql
+sudo mysql -h localhost <sakila-schema.sql
+sudo mysql -h localhost <sakila-data.sql
 sudo systemctl enable mysql
 chown -R mysqladmin:mysqladmin /home/mysqladmin
