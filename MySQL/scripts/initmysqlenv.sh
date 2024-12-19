@@ -15,3 +15,4 @@ cd /home/mysqladmin/data/sakila-db
 sudo mysql -h localhost </home/mysqladmin/data/sakila-db/sakila-schema.sql
 sudo mysql -h localhost </home/mysqladmin/data/sakila-db/sakila-data.sql
 sudo systemctl enable mysql
+chown -R mysqladmin:mysqladmin /home/mysqladmin
