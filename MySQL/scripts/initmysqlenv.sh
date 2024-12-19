@@ -1,6 +1,6 @@
-sudo apt -qq update
-sudo apt -qq upgrade
-sudo apt -qq install mysql-server
+sudo apt-get -y -qq update
+sudo apt-get -y -qq upgrade
+sudo apt-get -y -qq install mysql-server
 sudo systemctl start mysql
 mkdir /home/mysqladmin/data
 mkdir /home/mysqladmin/percona
