@@ -16,6 +16,7 @@ cd /home/mysqladmin/data
 curl -Lv https://downloads.mysql.com/docs/sakila-db.tar.gz -o sakila-db.tar.gz --stderr data_curl.log
 curl -Lv https://raw.githubusercontent.com/Azure/tech-connect-migration-lab/refs/heads/main/MySQL/scripts/create_role.sql --stderr role_curl.log
 tar -xzvf sakila-db.tar.gz
+sudo mysql -h localhost <create_role.sql
 cd /home/mysqladmin/data/sakila-db
 sudo mysql -h localhost <sakila-schema.sql
 sudo mysql -h localhost <sakila-data.sql
