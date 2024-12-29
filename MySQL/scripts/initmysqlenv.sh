@@ -1,5 +1,6 @@
 
 mkdir /home/mysqladmin/data
+mkdir /home/mysqladmin/data/backup
 mkdir /home/mysqladmin/percona
 mkdir /home/mysqladmin/mysql_pkg
 cd /home/mysqladmin/mysql_pkg
