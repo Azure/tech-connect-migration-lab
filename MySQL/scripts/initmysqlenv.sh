@@ -12,6 +12,7 @@ sudo systemctl start mysql
 cd /home/mysqladmin/percona
 curl -Lv https://downloads.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.35-30/binary/tarball/percona-xtrabackup-8.0.35-30-Linux-x86_64.glibc2.17.tar.gz -o percona-xtrabackup-8.0.35-30-Linux-x86_64.glibc2.17.tar.gz --stderr percona_curl.log
 tar -xzvf percona-xtrabackup-8.0.35-30-Linux-x86_64.glibc2.17.tar.gz
+mv percona-xtrabackup-8.0.35-30-Linux-x86_64.glibc2.17 percona-xtrabackup
 cd /home/mysqladmin/data
 curl -Lv https://downloads.mysql.com/docs/sakila-db.tar.gz -o sakila-db.tar.gz --stderr data_curl.log
 curl -Lv https://raw.githubusercontent.com/Azure/tech-connect-migration-lab/refs/heads/main/MySQL/scripts/create_role.sql -O --stderr role_curl.log
