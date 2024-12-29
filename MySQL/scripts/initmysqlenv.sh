@@ -8,6 +8,7 @@ tar -xvf mysql-server_8.0.37-1ubuntu24.04_amd64.deb-bundle.tar
 sudo apt-get -y -qq install libaio1
 sudo dpkg-preconfigure --frontend=noninteractive --priority=critical mysql-community-server_*.deb
 sudo DEBIAN_FRONTEND=noninteractive dpkg -i --force-all mysql-{common,community-client-plugins,community-client-core,community-client,client,community-server-core,community-server,server}_*.deb
+sudo DEBIAN_FRONTEND=noninteractive dpkg -i --force-all mysql-{common,community-client-plugins,community-client-core,community-client,client,community-server-core,community-server,server}_*.deb
 sudo systemctl start mysql
 cd /home/mysqladmin/percona
 curl -Lv https://downloads.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.35-30/binary/tarball/percona-xtrabackup-8.0.35-30-Linux-x86_64.glibc2.17.tar.gz -o percona-xtrabackup-8.0.35-30-Linux-x86_64.glibc2.17.tar.gz --stderr percona_curl.log
