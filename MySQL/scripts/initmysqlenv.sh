@@ -1,4 +1,3 @@
-
 mkdir /home/mysqladmin/data
 mkdir /home/mysqladmin/data/backup
 mkdir /home/mysqladmin/percona
