@@ -4,6 +4,7 @@ mkdir /home/mysqladmin/data/backup
 mkdir /home/mysqladmin/percona
 mkdir /home/mysqladmin/mysql_pkg
 mkdir /home/mysqladmin/azcopy
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 cd /home/mysqladmin/mysql_pkg
 curl -L https://downloads.mysql.com/archives/get/p/23/file/mysql-server_8.0.37-1ubuntu24.04_amd64.deb-bundle.tar -O
 tar -xvf mysql-server_8.0.37-1ubuntu24.04_amd64.deb-bundle.tar
