@@ -3,6 +3,7 @@ mkdir /home/mysqladmin/data
 mkdir /home/mysqladmin/data/backup
 mkdir /home/mysqladmin/percona
 mkdir /home/mysqladmin/mysql_pkg
+mkdir /home/mysqladmin/azcopy
 cd /home/mysqladmin/mysql_pkg
 curl -L https://downloads.mysql.com/archives/get/p/23/file/mysql-server_8.0.37-1ubuntu24.04_amd64.deb-bundle.tar -O
 tar -xvf mysql-server_8.0.37-1ubuntu24.04_amd64.deb-bundle.tar
@@ -23,4 +24,7 @@ cd /home/mysqladmin/data/sakila-db
 sudo mysql -h localhost <sakila-schema.sql
 sudo mysql -h localhost <sakila-data.sql
 sudo systemctl enable mysql
+cd /home/mysqladmin/azcopy
+curl -L https://aka.ms/downloadazcopy-v10-linux -o azcopy_linux_amd64_10.27.1.tar.gz
+tar -xzvf azcopy_linux_amd64_10.27.1.tar.gz
 chown -R mysqladmin:mysqladmin /home/mysqladmin
