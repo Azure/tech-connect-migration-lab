@@ -28,5 +28,5 @@ sudo systemctl enable mysql
 cd /home/mysqladmin/azcopy
 curl -L https://aka.ms/downloadazcopy-v10-linux -o azcopy_linux_amd64_10.27.1.tar.gz
 tar -xzvf azcopy_linux_amd64_10.27.1.tar.gz
- mv /home/mysqladmin/azcopy/azcopy_linux_amd64_10.27.1 /home/mysqladmin/azcopy/bin
+mv /home/mysqladmin/azcopy/azcopy_linux_amd64_10.27.1 /home/mysqladmin/azcopy/bin
 chown -R mysqladmin:mysqladmin /home/mysqladmin
