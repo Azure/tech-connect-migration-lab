@@ -21,8 +21,8 @@ sudo mysqld --defaults-file=/etc/mysql/my.cnf --initialize --lower_case_table_na
 sudo service mysql start
 sudo systemctl enable mysql
 echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '';" |tee /home/mysqladmin/data/changepwd.sql
-pwd=`sudo grep 'temporary password' /var/log/mysql/error.log|sed 's/.* //'`
-sudo mysql -h localhost -u root -p$pwd < /home/mysqladmin/data/changepwd.sql
+passwd=`sudo grep 'temporary password' /var/log/mysql/error.log|sed 's/.* //'`
+sudo mysql -h localhost -u root -p$passwd < /home/mysqladmin/data/changepwd.sql
 cd /home/mysqladmin/percona
 curl -Lv https://downloads.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.35-30/binary/tarball/percona-xtrabackup-8.0.35-30-Linux-x86_64.glibc2.17.tar.gz -o percona-xtrabackup-8.0.35-30-Linux-x86_64.glibc2.17.tar.gz --stderr percona_curl.log
 tar -xzvf percona-xtrabackup-8.0.35-30-Linux-x86_64.glibc2.17.tar.gz
