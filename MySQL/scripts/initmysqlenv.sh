@@ -17,7 +17,7 @@ sudo mkdir /var/lib/mysql
 sudo chown mysql:mysql /var/lib/mysql
 sudo chmod 700 /var/lib/mysql
 echo "lower_case_table_names = 1" | sudo tee -a /etc/mysql/mysql.conf.d/mysqld.cnf
-sudo mysqld --defaults-file=/etc/mysql/my.cnf --initialize --lower_case_table_names=1 --user=mysql --console
+sudo mysqld --defaults-file=/etc/mysql/my.cnf --initialize-insecure=ON --lower_case_table_names=1 --user=mysql --console
 sudo service mysql start
 sudo systemctl enable mysql
 echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '';" |tee /home/mysqladmin/data/changepwd.sql
