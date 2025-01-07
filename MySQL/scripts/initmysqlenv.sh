@@ -11,6 +11,18 @@ sudo apt-get -y -qq install libaio1
 sudo dpkg-preconfigure --frontend=noninteractive --priority=critical mysql-community-server_*.deb
 sudo DEBIAN_FRONTEND=noninteractive dpkg -i --log=mysql_install.log --force-all mysql-{common,community-client-plugins,community-client-core,community-client,client,community-server-core,community-server,server}_*.deb
 sudo systemctl start mysql
+sudo service mysql stop
+sudo rm -rf /var/lib/mysql
+sudo mkdir /var/lib/mysql    
+sudo chown mysql:mysql /var/lib/mysql
+sudo chmod 700 /var/lib/mysql
+echo "lower_case_table_names = 1" | sudo tee -a /etc/mysql/mysql.conf.d/mysqld.cnf
+sudo mysqld --defaults-file=/etc/mysql/my.cnf --initialize --lower_case_table_names=1 --user=mysql --console
+sudo service mysql start
+sudo systemctl enable mysql
+echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '';" |tee /home/mysqladmin/data/changepwd.sql
+pwd=`sudo grep 'temporary password' /var/log/mysql/error.log|sed 's/.* //'`
+sudo mysql -h localhost -u root -p$pwd < /home/mysqladmin/data/changepwd.sql
 cd /home/mysqladmin/percona
 curl -Lv https://downloads.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.35-30/binary/tarball/percona-xtrabackup-8.0.35-30-Linux-x86_64.glibc2.17.tar.gz -o percona-xtrabackup-8.0.35-30-Linux-x86_64.glibc2.17.tar.gz --stderr percona_curl.log
 tar -xzvf percona-xtrabackup-8.0.35-30-Linux-x86_64.glibc2.17.tar.gz
