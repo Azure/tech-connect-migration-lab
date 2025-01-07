@@ -262,6 +262,32 @@
             }
         },
         {
+            "type": "Microsoft.Storage/storageAccounts/queueServices",
+            "apiVersion": "2023-05-01",
+            "name": "techconnectmysqlstorage/default",
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts', 'techconnectmysqlstorage')]"
+            ],
+            "properties": {
+                "cors": {
+                    "corsRules": []
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts/tableServices",
+            "apiVersion": "2023-05-01",
+            "name": "techconnectmysqlstorage/default",
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts', 'techconnectmysqlstorage')]"
+            ],
+            "properties": {
+                "cors": {
+                    "corsRules": []
+                }
+            }
+        },
+        {
             "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
             "apiVersion": "2023-05-01",
             "name": "techconnectmysqlstorage/default/mysql-backup",
