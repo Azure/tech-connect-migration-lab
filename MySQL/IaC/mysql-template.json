@@ -64,7 +64,7 @@
         {
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2023-05-01",
-            "name": "techconnectmysqlstorage",
+            "name": "[concat('techconstg',uniqueString(deployer().objectId))]",
             "location": "eastus2",
             "sku": {
                 "name": "Standard_LRS",
@@ -219,9 +219,9 @@
         {
             "type": "Microsoft.Storage/storageAccounts/blobServices",
             "apiVersion": "2023-05-01",
-            "name": "techconnectmysqlstorage/default",
+            "name": "[concat('techconstg',uniqueString(deployer().objectId),'/default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', 'techconnectmysqlstorage')]"
+                "[resourceId('Microsoft.Storage/storageAccounts', concat('techconstg',uniqueString(deployer().objectId)))]"
             ],
             "sku": {
                 "name": "Standard_LRS",
@@ -240,9 +240,9 @@
         {
             "type": "Microsoft.Storage/storageAccounts/fileServices",
             "apiVersion": "2023-05-01",
-            "name": "techconnectmysqlstorage/default",
+            "name": "[concat('techconstg',uniqueString(deployer().objectId),'/default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', 'techconnectmysqlstorage')]"
+                "[resourceId('Microsoft.Storage/storageAccounts', concat('techconstg',uniqueString(deployer().objectId)))]"
             ],
             "sku": {
                 "name": "Standard_LRS",
@@ -264,9 +264,9 @@
         {
             "type": "Microsoft.Storage/storageAccounts/queueServices",
             "apiVersion": "2023-05-01",
-            "name": "techconnectmysqlstorage/default",
+            "name": "[concat('techconstg',uniqueString(deployer().objectId),'/default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', 'techconnectmysqlstorage')]"
+                "[resourceId('Microsoft.Storage/storageAccounts', concat('techconstg',uniqueString(deployer().objectId)))]"
             ],
             "properties": {
                 "cors": {
@@ -277,9 +277,9 @@
         {
             "type": "Microsoft.Storage/storageAccounts/tableServices",
             "apiVersion": "2023-05-01",
-            "name": "techconnectmysqlstorage/default",
+            "name": "[concat('techconstg',uniqueString(deployer().objectId),'/default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', 'techconnectmysqlstorage')]"
+                "[resourceId('Microsoft.Storage/storageAccounts', concat('techconstg',uniqueString(deployer().objectId)))]"
             ],
             "properties": {
                 "cors": {
@@ -290,10 +290,10 @@
         {
             "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
             "apiVersion": "2023-05-01",
-            "name": "techconnectmysqlstorage/default/mysql-backup",
+            "name": "[concat('techconstg',uniqueString(deployer().objectId),'/default/mysql-backup')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts/blobServices', 'techconnectmysqlstorage', 'default')]",
-                "[resourceId('Microsoft.Storage/storageAccounts', 'techconnectmysqlstorage')]"
+                "[resourceId('Microsoft.Storage/storageAccounts/blobServices', concat('techconstg',uniqueString(deployer().objectId)), 'default')]",
+                "[resourceId('Microsoft.Storage/storageAccounts', concat('techconstg',uniqueString(deployer().objectId)))]"
             ],
             "properties": {
                 "defaultEncryptionScope": "$account-encryption-key",
