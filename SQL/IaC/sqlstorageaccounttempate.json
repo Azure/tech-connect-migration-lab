@@ -33,7 +33,7 @@
     {
       "type": "Microsoft.Storage/storageAccounts",
       "apiVersion": "2023-01-01",
-      "name": "[parameters('storageAccountName')]",
+      "name": "[concat(parameters('storageAccountName'),uniqueString(deployer().objectId))]",
       "location": "[parameters('location')]",
       "sku": {
         "name": "Standard_LRS"
@@ -46,17 +46,17 @@
     {
       "type": "Microsoft.Storage/storageAccounts/blobServices",
       "apiVersion": "2023-01-01",
-      "name": "[format('{0}/{1}', parameters('storageAccountName'), 'default')]",
+      "name": "[format('{0}/{1}',concat(parameters('storageAccountName'),uniqueString(deployer().objectId)), 'default')]",
       "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+        "[resourceId('Microsoft.Storage/storageAccounts', concat(parameters('storageAccountName'),uniqueString(deployer().objectId)))]"
       ]
     },
     {
       "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
       "apiVersion": "2023-01-01",
-      "name": "[format('{0}/{1}/{2}', parameters('storageAccountName'), 'default', parameters('containerName'))]",
+      "name": "[format('{0}/{1}/{2}', concat(parameters('storageAccountName'),uniqueString(deployer().objectId)), 'default', parameters('containerName'))]",
       "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts/blobServices', parameters('storageAccountName'), 'default')]"
+        "[resourceId('Microsoft.Storage/storageAccounts/blobServices',concat(parameters('storageAccountName'),uniqueString(deployer().objectId)), 'default')]"
       ]
     }
   ]
