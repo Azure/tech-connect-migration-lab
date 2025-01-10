@@ -1,3 +1,5 @@
+# Migrate SQL Server on a VM to Azure SQL Managed Instance
+
 # Executive Summary
 
 ## Objective
