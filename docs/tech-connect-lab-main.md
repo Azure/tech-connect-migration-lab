@@ -3,6 +3,7 @@
 Welcome to the hands on lab for on-prem/VM database migrations to Azure PaaS services using the top migration utilities available.  There are 4 different database migration labs you can can try. 
 
 - [On-Prem/VM to Azure SQL Managed instance](#sql-mi) - 40 min
+- [On-Prem/VM to Azure SQL DB instance](#sql-db) - 40 min
 - [On-Prem/VM to Azure Database for MySQL Flexible Server](#mysql) -30 min
 - [On-Prem/VM to Azure Database for PostgreSQLSQL Flexible Server](#postgresql) - 40 min
 - [On-Prem/VM to Azure Cosmos DB for MongoDB](#mongodb) - 40 min
