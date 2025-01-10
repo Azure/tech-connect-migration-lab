@@ -352,7 +352,7 @@
 		{
             "type": "Microsoft.Authorization/roleAssignments",
             "apiVersion": "2022-04-01",
-            "name":  "[guid(deployer().objectId)]",
+            "name":  "[guid(concat(deployer().objectId,subscription().subscriptionId))]",
             "scope": "[concat('Microsoft.Storage/storageAccounts', '/', 'techconstg',uniqueString(subscription().subscriptionId))]",
             "dependsOn": [
                     "[resourceId('Microsoft.Storage/storageAccounts', concat('techconstg',uniqueString(subscription().subscriptionId)))]"
