@@ -7,7 +7,7 @@
 	    {
             "type": "Microsoft.Resources/resourceGroups",
             "apiVersion": "2024-08-01",
-            "name": "[concat('tech-connect-mysql-lab-',uniqueString(deployer().objectId))]",
+            "name": "tech-connect-mysql-lab",
             "location": "eastus2"
         }
     ]
