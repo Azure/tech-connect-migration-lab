@@ -15,7 +15,7 @@ The Azure environment information is also available under the "Resources" tab. T
 
   ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/skillable_img4.png?raw=true)
 
-  ### Login to Windows Machine and Azure portal
+### Login to Windows Machine and Azure portal
 
 1. [] Login to the windows machine by activating the password box and typing the password (get password from the "Resources" tab).
 1. [] Launch the Edge browser
