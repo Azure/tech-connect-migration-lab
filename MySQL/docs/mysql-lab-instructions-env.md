@@ -17,8 +17,8 @@ The Azure environment information is also available under the "Resources" tab. T
 
   ### Login to Windows Machine and Azure portal
 
-1. [] Login to the windows machine by activating the password box and typing the password.
-1. [] Item 2
-1. [] Item 3
-1. [] Item 4
-1. [] Item 5
+1. [] Login to the windows machine by activating the password box and typing the password (get password from the "Resources" tab).
+1. [] Launch the Edge browser
+1. [] Type in the address bar ++++Copyable and Type https://portal.azure.com++++ to go to the Azure Portal
+
+You are loged in to the portal, click on next at the bottom of the window to proceed to the next steps.
