@@ -2,7 +2,7 @@
 
 For the MySQL lab, there are Azure resources that have been set up for you.
 
-1. [] In the Azure portal, navigate to the Resource Groups (type +++Resource groups+++ in the Azure search bar and click on the Resource groups icon in the search results)
+1. [] In the Azure portal, navigate to the *Resource Groups* (type +++Resource groups+++ in the Azure search bar and click on the Resource groups icon in the search results)
 1. [] Click on the *tech-connect-mysql-lab* resource group
 1. [] Confirm the following resources and types exist under this resource group (note the storage account suffix will not match that of the image below)
    ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_1.png?raw=true)
@@ -32,7 +32,7 @@ In order to deploy a Azure MySQL Flexible Server to migrate to, the *Microsoft.D
 
 The migration of VM MySQL workloads involves uploading the backup to an *Azure Storage Account Container* and accessing the container for the upload and restore process via a *SAS token*.  Therefore 2 IAM roles need to be assigned at the storage account level, and a SAS token generated at the container level.
 
-1. [] In the Azure portal, navigate to the Resource Groups (type +++Resource groups+++ in the Azure search bar and click on the Resource groups icon in the search results)
+1. [] In the Azure portal, navigate to the *Resource Groups* (type +++Resource groups+++ in the Azure search bar and click on the Resource groups icon in the search results)
 1. [] Click on the *tech-connect-mysql-lab* resource group
 1. [] Click on the storage account listed in the resource group.
 1. [] Click on *Access Control (IAM)* tab on the left, click on *Add* to add a role .
