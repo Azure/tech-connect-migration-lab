@@ -2,17 +2,17 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-		"storageAccountGuid": {
-			"defaultValue": "[newguid()]",
+        "storageAccountGuid": {
+	    "defaultValue": "[newguid()]",
             "type": "String"
         },
         "deploy_region": {
             "type": "String"
         },
-		"vm_sku": {
+	"vm_sku": {
             "type": "String"
         }
-	},
+    },
     "variables": {},
     "resources": [
         {
