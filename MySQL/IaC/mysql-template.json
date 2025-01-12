@@ -7,9 +7,11 @@
             "type": "String"
         },
         "deploy_region": {
+	    "defaultValue": "eastus2",
             "type": "String"
         },
 	"vm_sku": {
+	    "defaultValue": "Standard_D2s_v3",
             "type": "String"
         }
     },
