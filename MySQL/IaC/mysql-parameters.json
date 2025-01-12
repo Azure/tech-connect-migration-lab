@@ -1,0 +1,15 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccountGuid": {
+            "value": null
+        },
+        "deploy_region": {
+            "value": "westus"
+        },
+		"vm_sku": {
+            "value": "Standard_D2s_v3"
+        }
+    }
+}
