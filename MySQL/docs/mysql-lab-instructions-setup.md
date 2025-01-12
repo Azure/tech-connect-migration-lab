@@ -25,9 +25,23 @@ In order to deploy a Azure MySQL Flexible Server to migrate to, the *Microsoft.D
 1. [] There is only one subscription listed, click on it
 1. [] Expand the *Settings* tab and click on *Resource providers*
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_5.png?raw=true)
-1. [] Search for MySQL and select *Microsoft.DBforMySQL*, click on *Register*
+1. [] Search for +++MySQL+++ and select *Microsoft.DBforMySQL*, click on *Register*
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_6.png?raw=true)
 
 ### Storage Account IAM and SAS Token
 
+The migration of VM MySQL workloads involves uploading the backup to an *Azure Storage Account Container* and accessing the container for the upload and restore process via a *SAS token*.  Therefore 2 IAM roles need to be assigned at the storage account level, and a SAS token generated at the container level.
+
+1. [] In the Azure portal, navigate to the Resource Groups (type +++Resource groups+++ in the Azure search bar and click on the Resource groups icon in the search results)
+1. [] Click on the *tech-connect-mysql-lab* resource group
+1. [] Click on the storage account listed in the resource group.
+1. [] Click on *Access Control (IAM)* tab on the left, click on *Add* to add a role .
+   - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_8.png?raw=true)
+1. [] Search for +++Storage Account Key Operator Service Role+++ and select it
+   - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_9.png?raw=true)
+1. [] Click on the *Members* tab click on *Select members*
+   - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_10.png?raw=true)
+1. [] In the search bar, search for your user name +++@lab.User.Id+++, select it
+   - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_11.png?raw=true)
+1. [] **Repeat** steps **4-7** and add the role *Storage Blob Data Owner*
 
