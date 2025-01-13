@@ -42,7 +42,6 @@ In the next set of exercises, you will use Percona XtraBackup to take a physical
 
 #### Take a Database Backup ####
 
-#### Explore the Sakila Database ####
 1. [] Click on the azure vm in the portal *tech-connect-mysql-vm*
 1. [] Expand the *Connection" tab and click on _Bastion_
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_4.png?raw=true)
@@ -53,3 +52,17 @@ In the next set of exercises, you will use Percona XtraBackup to take a physical
 1. [] At the prompt type +++sudo /home/mysqladmin/percona/percona-xtrabackup/bin/xtrabackup --prepare --target-dir=/home/mysqladmin/data/backup --user=mysqldba --password='Pa$$w0rd!'+++ to invoke percona xtrabackup prepare and prepare the backup taken for a restore operation
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_34.png?raw=true)
 
+#### Upload Backup to Storage  ####
+
+In the following exercise, we will use azcopy to upload the backup to the blob storage in Azure.
+
+1. [] Click on the azure vm in the portal *tech-connect-mysql-vm*
+1. [] Expand the *Connection" tab and click on _Bastion_
+   - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_4.png?raw=true)
+1. [] Enter +++mysqladmin+++ for the user name and +++Pa$$W0rd!+++ for the password to login to the server (a separate tab will be opened)
+1. [] Copy the following command into notepad for editing +++sudo /home/mysqladmin/azcopy/bin/azcopy copy "/home/mysqladmin/data/backup" "<put blob container SAS URI here >" --recursive=true+++
+1. [] In notepad, replace <put blob container SAS URI here > with the SAS URI you had generated earlier in the lab and saved.
+   - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_35.png?raw=true)
+   - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_36.png?raw=true)
+1. [] Copy the modified command and paste it into the command shell for execution.
+   - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_37.png?raw=true)
