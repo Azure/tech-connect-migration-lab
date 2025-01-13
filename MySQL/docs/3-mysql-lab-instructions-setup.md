@@ -72,7 +72,7 @@ Port *3306* needs to be opened on the VM for MySQL connectivity.
 #### Inbound ####
 1. [] In the Azure portal, navigate to the *Resource Groups* (type +++Resource groups+++ in the Azure search bar and click on the Resource groups icon in the search results)
 1. [] Click on the azure vm in the portal *tech-connect-mysql-vm*
-1. [] Expand the *Networking" tab and click on _Network Settings_
+1. [] Expand the *Networking* tab and click on _Network Settings_
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_19.png?raw=true)
  1. [] Select *Inbound port rule" to add
     - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_20.png?raw=true)
