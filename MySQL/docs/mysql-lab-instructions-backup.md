@@ -9,6 +9,7 @@ The pre-deployed VM comes prepared for the migration.  Installed on the server i
 
 In the next few steps in the lab, you will explore what is pre-installed and make sure that the pre-requisites for the migration are met.  
 
+#### Explore the Sakila Database ####
 1. [] Click on the azure vm in the portal *tech-connect-mysql-vm*
 1. [] Expand the *Connection" tab and click on _Bastion_
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_4.png?raw=true)
@@ -18,3 +19,15 @@ In the next few steps in the lab, you will explore what is pre-installed and mak
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_26.png?raw=true)
 1. [] Once connected to MySQL, type +++use sakila;+++ to connect to the *sakila* database
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_27.png?raw=true)
+1. [] Type +++show tables;+++ to list the tables of the *sakila* database
+   - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_28.png?raw=true)
+1. [] Type +++select count(*) from actor;+++ to get the count of rows in the *actor* table
+   - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_29.png?raw=true)
+  
+#### Ensure MySQL Parameter Pre-requisites are met ####
+
+1. [] Type +++show variables like '%lower_case_table_names%';+++ value returned should be *1*
+1. [] Type +++show variables like '%innodb_file_per_table%';+++ value returned should be *ON*
+1. [] Type +++show variables like '%innodb_page_size%';+++ value returned should be *16384*
+1. [] Type +++show variables like '%innodb_data_file_path%';+++ value returned should be *ibdata1* and min size *12M*
+ - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_30.png?raw=true)
