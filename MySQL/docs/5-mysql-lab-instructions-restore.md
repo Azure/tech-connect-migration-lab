@@ -51,7 +51,7 @@ In the next set of exercises, we will use Azure MySQL Import to restore the data
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_27.png?raw=true)
 1. [] Type +++show tables;+++ to list the tables of the *sakila* database
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_28.png?raw=true)
-1. [] Type +++select count(*) from actor;+++ to get the count of rows in the *actor* table
+1. [] Type +++select count(\*) from actor;+++ to get the count of rows in the *actor* table
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_29.png?raw=true)
   
 This concludes the migration and validation.  
