@@ -66,3 +66,5 @@ In the following exercise, we will use azcopy to upload the backup to the blob s
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_36.png?raw=true)
 1. [] Copy the modified command and paste it into the command shell for execution.
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_37.png?raw=true)
+
+Database backup and upload to the storage account are completed.  Click on next at the bottom of the window to proceed to the next steps.
