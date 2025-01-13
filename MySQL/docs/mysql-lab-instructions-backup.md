@@ -1,4 +1,4 @@
-# MySQL Lab - MySQL on VM and Backup
+# MySQL Lab - MySQL on VM and Backup #
 
 ### Azure MySQL VM ###
 
