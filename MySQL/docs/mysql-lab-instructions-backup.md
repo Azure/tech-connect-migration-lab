@@ -21,7 +21,7 @@ In the next few steps in the lab, you will explore what is pre-installed and mak
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_27.png?raw=true)
 1. [] Type +++show tables;+++ to list the tables of the *sakila* database
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_28.png?raw=true)
-1. [] Type +++select count(*) from actor;+++ to get the count of rows in the *actor* table
+1. [] Type +++select count(\*) from actor;+++ to get the count of rows in the *actor* table
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_29.png?raw=true)
   
 #### Ensure MySQL Parameter Pre-requisites are met ####
