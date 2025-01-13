@@ -61,7 +61,7 @@ In the following exercise, we will use azcopy to upload the backup to the blob s
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_4.png?raw=true)
 1. [] Enter +++mysqladmin+++ for the user name and +++Pa$$W0rd!+++ for the password to login to the server (a separate tab will be opened)
 1. [] Copy the following command into notepad for editing ```sudo /home/mysqladmin/azcopy/bin/azcopy copy "/home/mysqladmin/data/backup" "<put blob container SAS URI here>" --recursive=true```
-1. [] In notepad, replace *\<put blob container SAS URI here \>* with the SAS URI you had generated earlier in the lab and saved.
+1. [] In notepad, replace ```<put blob container SAS URI here>``` with the SAS URI you had generated earlier in the lab and saved.
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_35.png?raw=true)
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_36.png?raw=true)
 1. [] Copy the modified command and paste it into the command shell for execution.
