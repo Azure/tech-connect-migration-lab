@@ -14,7 +14,7 @@ In the next set of exercises, we will use Azure MySQL Import to restore the data
 1. [] Validate value replacement
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_41.png?raw=true)
 1. [] Click on the azure vm in the portal *tech-connect-mysql-vm*
-1. [] Expand the *Connection" tab and click on _Bastion_
+1. [] Expand the *Connection* tab and click on _Bastion_
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_4.png?raw=true)
 1. [] Enter +++mysqladmin+++ for the user name and +++Pa$$W0rd!+++ for the password to login to the server (a separate tab will be opened)
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_25.png?raw=true)
@@ -41,7 +41,7 @@ In the next set of exercises, we will use Azure MySQL Import to restore the data
  1. [] Go to the *Connect* tab of the  Azure Database for MySQL -Flexible Server and copy/note the connection string of the server
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_50.png?raw=true)
 1. [] Click on the azure vm in the portal *tech-connect-mysql-vm*
-1. [] Expand the *Connection" tab and click on _Bastion_
+1. [] Expand the *Connection* tab and click on _Bastion_
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_4.png?raw=true)
 1. [] Enter +++mysqladmin+++ for the user name and +++Pa$$W0rd!+++ for the password to login to the server (a separate tab will be opened)
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_25.png?raw=true)
