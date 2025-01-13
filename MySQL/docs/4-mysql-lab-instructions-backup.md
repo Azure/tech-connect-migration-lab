@@ -32,11 +32,11 @@ In the next few steps in the lab, you will explore what is pre-installed and mak
 1. [] Type +++show variables like '%innodb_file_per_table%';+++ value returned should be *ON*
 1. [] Type +++show variables like '%innodb_page_size%';+++ value returned should be *16384*
 1. [] Type +++show variables like '%innodb_data_file_path%';+++ value returned should be *ibdata1* and min size *12M*
- - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_30.png?raw=true)
+   - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_30.png?raw=true)
 1. [] Type +++select distinct table_schema,engine from information_schema.tables;+++ value returned should be *INNODB* for the *sakila* schema
- - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_31.png?raw=true)
+   - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_31.png?raw=true)
 1. [] Type +++quit+++ to disconnect from MySQL
- - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_32.png?raw=true)
+   - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_32.png?raw=true)
 
 ### Backup the Full Database Environment Using  Percona XtraBackup ###
 
