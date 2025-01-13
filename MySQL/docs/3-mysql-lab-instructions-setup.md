@@ -44,7 +44,8 @@ The migration of VM MySQL workloads involves uploading the backup to an *Azure S
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_10.png?raw=true)
 1. [] In the search bar, search for your Azure user name, select it
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_11.png?raw=true)
-1. [] **Repeat** steps **4-7** and add the role *Storage Blob Data Owner*
+1. [] Click on *Review and assign* to assign the role
+1. [] **Repeat** steps **4-8** and add the role *Storage Blob Data Owner*
 
 #### SAS Token ####
 1. [] In the Azure portal, navigate to the *Resource Groups* (type +++Resource groups+++ in the Azure search bar and click on the Resource groups icon in the search results)
