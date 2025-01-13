@@ -14,7 +14,7 @@ In the next set of exercises, we will use Azure MySQL Import to restore the data
 1. [] Validate value replacement
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_41.png?raw=true)
 1. [] Click on the azure vm in the portal *tech-connect-mysql-vm*
-1. [] Expand the *Connection* tab and click on _Bastion_
+1. [] Expand the *Connect* tab and click on _Bastion_
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_4.png?raw=true)
 1. [] Enter +++mysqladmin+++ for the user name and +++Pa$$W0rd!+++ for the password to login to the server (a separate tab will be opened)
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_25.png?raw=true)
@@ -34,14 +34,14 @@ In the next set of exercises, we will use Azure MySQL Import to restore the data
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_46.png?raw=true)
 1. [] From the Azure portal, in the *tech-connect-mysql-lab*, click on the Azure Database for MySQL -Flexible Server
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_47.png?raw=true)
- 1. [] Go to the *Networking* tab   
+1. [] Go to the *Networking* tab   
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_48.png?raw=true)
- 1. [] Create a new firewall rule +++Tech_Connect_MySQL_VM_IP_Addr+++ with the public IP of the VM you noted above and *Save*  
+1. [] Create a new firewall rule +++Tech_Connect_MySQL_VM_IP_Addr+++ with the public IP of the VM you noted above and *Save*  
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_49.png?raw=true)
- 1. [] Go to the *Connect* tab of the  Azure Database for MySQL -Flexible Server and copy/note the connection string of the server
+1. [] Go to the *Connect* tab of the  Azure Database for MySQL -Flexible Server and copy/note the connection string of the server
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_50.png?raw=true)
 1. [] Click on the azure vm in the portal *tech-connect-mysql-vm*
-1. [] Expand the *Connection* tab and click on _Bastion_
+1. [] Expand the *Connect* tab and click on _Bastion_
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_4.png?raw=true)
 1. [] Enter +++mysqladmin+++ for the user name and +++Pa$$W0rd!+++ for the password to login to the server (a separate tab will be opened)
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_25.png?raw=true)
