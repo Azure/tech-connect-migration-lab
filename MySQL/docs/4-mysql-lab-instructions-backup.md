@@ -11,7 +11,7 @@ In the next few steps in the lab, you will explore what is pre-installed and mak
 
 #### Explore the Sakila Database ####
 1. [] Click on the azure vm in the portal *tech-connect-mysql-vm*
-1. [] Expand the *Connection* tab and click on _Bastion_
+1. [] Expand the *Connect* tab and click on _Bastion_
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_4.png?raw=true)
 1. [] Enter +++mysqladmin+++ for the user name and +++Pa$$W0rd!+++ for the password to login to the server (a separate tab will be opened)
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_25.png?raw=true)
@@ -45,7 +45,7 @@ In the next set of exercises, you will use Percona XtraBackup to take a physical
 #### Take a Database Backup ####
 
 1. [] Click on the azure vm in the portal *tech-connect-mysql-vm*
-1. [] Expand the *Connection* tab and click on _Bastion_
+1. [] Expand the *Connect* tab and click on _Bastion_
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_4.png?raw=true)
 1. [] Enter +++mysqladmin+++ for the user name and +++Pa$$W0rd!+++ for the password to login to the server (a separate tab will be opened)
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_25.png?raw=true)
@@ -59,7 +59,7 @@ In the next set of exercises, you will use Percona XtraBackup to take a physical
 In the following exercise, we will use azcopy to upload the backup to the blob storage in Azure.
 
 1. [] Click on the azure vm in the portal *tech-connect-mysql-vm*
-1. [] Expand the *Connection* tab and click on _Bastion_
+1. [] Expand the *Connect* tab and click on _Bastion_
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_4.png?raw=true)
 1. [] Enter +++mysqladmin+++ for the user name and +++Pa$$W0rd!+++ for the password to login to the server (a separate tab will be opened)
 1. [] Copy the following command into notepad for editing ```sudo /home/mysqladmin/azcopy/bin/azcopy copy "/home/mysqladmin/data/backup" "<put blob container SAS URI here>" --recursive=true```
