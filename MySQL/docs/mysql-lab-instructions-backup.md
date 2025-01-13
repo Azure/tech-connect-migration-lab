@@ -35,3 +35,21 @@ In the next few steps in the lab, you will explore what is pre-installed and mak
  - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_31.png?raw=true)
 1. [] Type +++quit+++ to disconnect from MySQL
  - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_32.png?raw=true)
+
+### Backup the Full Database Environment Using  Percona XtraBackup ###
+
+In the next set of exercises, you will use Percona XtraBackup to take a physical backup of the MySQL environment and upload it to the Azure blob storage in Azure in anticipation of restoring it to Azure Database for MySQL Flexible Server.
+
+#### Take a Database Backup ####
+
+#### Explore the Sakila Database ####
+1. [] Click on the azure vm in the portal *tech-connect-mysql-vm*
+1. [] Expand the *Connection" tab and click on _Bastion_
+   - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_4.png?raw=true)
+1. [] Enter +++mysqladmin+++ for the user name and +++Pa$$W0rd!+++ for the password to login to the server (a separate tab will be opened)
+   - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_25.png?raw=true)
+1. [] At the prompt type +++sudo /home/mysqladmin/percona/percona-xtrabackup/bin/xtrabackup --backup --target-dir=/home/mysqladmin/data/backup --user=mysqldba --password='Pa$$w0rd!'+++ to invoke percona xtrabackup backup and take a full backup
+   - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_33.png?raw=true)
+1. [] At the prompt type +++sudo /home/mysqladmin/percona/percona-xtrabackup/bin/xtrabackup --prepare --target-dir=/home/mysqladmin/data/backup --user=mysqldba --password='Pa$$w0rd!'+++ to invoke percona xtrabackup prepare and prepare the backup taken for a restore operation
+   - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_34.png?raw=true)
+
