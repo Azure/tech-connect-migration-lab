@@ -32,16 +32,34 @@ In order to deploy a Azure MySQL Flexible Server to migrate to, the *Microsoft.D
 
 The migration of VM MySQL workloads involves uploading the backup to an *Azure Storage Account Container* and accessing the container for the upload and restore process via a *SAS token*.  Therefore 2 IAM roles need to be assigned at the storage account level, and a SAS token generated at the container level.
 
+#### IAM ####
 1. [] In the Azure portal, navigate to the *Resource Groups* (type +++Resource groups+++ in the Azure search bar and click on the Resource groups icon in the search results)
 1. [] Click on the *tech-connect-mysql-lab* resource group
 1. [] Click on the storage account listed in the resource group.
-1. [] Click on *Access Control (IAM)* tab on the left, click on *Add* to add a role .
+1. [] Click on *Access Control (IAM)* tab on the left at the storage account level, click on *Add* to add a role .
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_8.png?raw=true)
 1. [] Search for +++Storage Account Key Operator Service Role+++ and select it
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_9.png?raw=true)
 1. [] Click on the *Members* tab click on *Select members*
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_10.png?raw=true)
-1. [] In the search bar, search for your user name +++@lab.User.Id+++, select it
+1. [] In the search bar, search for your Azure user name, select it
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_11.png?raw=true)
 1. [] **Repeat** steps **4-7** and add the role *Storage Blob Data Owner*
 
+#### SAS Token ####
+1. [] In the Azure portal, navigate to the *Resource Groups* (type +++Resource groups+++ in the Azure search bar and click on the Resource groups icon in the search results)
+1. [] Click on the *tech-connect-mysql-lab* resource group
+1. [] Click on the storage account listed in the resource group.
+1. [] Expand *Data Storage* from the menu on the left and select *Containers*
+   - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_12.png?raw=true)
+1. [] One container should be listed called *mysql-backup* click on it
+   - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_13.png?raw=true)
+1. [] Expand *Settings* in the menu and click on *Shared access tokens*
+   - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_14.png?raw=true)
+1. [] From the permissions drop down menu select *Read, Add, Create, Write, Delete, List, Move, Execute*
+   - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_15.png?raw=true)
+1. [] Specify a *Start* and *Expiry* date for the token one day ahead of the start date of the lab and one day after the end of the lab, select http and https and click on *Generate SAS token and URL*
+   - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_16.png?raw=true)   
+1. [] Copy and paste the SAS token and URL generated into an editor for use later on
+   - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_17.png?raw=true)
+   - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_18.png?raw=true)  
