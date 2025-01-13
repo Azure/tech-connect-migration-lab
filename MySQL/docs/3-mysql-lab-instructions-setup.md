@@ -12,7 +12,7 @@ For the MySQL lab, there are Azure resources that have been set up for you.
 Connectivity and access to the deployed Azure VM will be required for the lab, it will be done through a Bastion server. Creating a Bastion server will take some minutes, therefore kick off the process as a first step and leave it run in the background as you move on to other tasks.
 
 1. [] Click on the azure vm in the portal *tech-connect-mysql-vm*
-1. [] Expand the *Connection" tab and click on _Bastion_
+1. [] Expand the *Connect* tab and click on _Bastion_
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_4.png?raw=true)
 1. [] Click on *Deploy Bastion* and let it run in the background
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_3.png?raw=true)
