@@ -8,4 +8,4 @@ Recommended Reading:
 - [az mysql flexible-server import](https://learn.microsoft.com/en-us/cli/azure/mysql/flexible-server/import?view=azure-cli-latest)
 - [About Percona XtraBackup](https://docs.percona.com/percona-xtrabackup/2.4/intro.html)
 
-Click on Next at the bottom of the window to procceed to the lab.
+Click on Next at the bottom of the window to procceed to the tab.
