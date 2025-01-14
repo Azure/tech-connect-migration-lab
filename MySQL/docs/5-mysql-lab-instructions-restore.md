@@ -54,4 +54,4 @@ In the next set of exercises, we will use Azure MySQL Import to restore the data
 1. [] Type +++select count(\*) from actor;+++ to get the count of rows in the *actor* table
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_29.png?raw=true)
   
-This concludes the migration and validation.  
+This concludes the migration and validation.  You can go to *Back to Lab Menu* to select another lab to try.
