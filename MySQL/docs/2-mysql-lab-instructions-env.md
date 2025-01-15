@@ -20,6 +20,9 @@ The Azure environment information is also available under the "Resources" tab. T
 1. [] Login to the Win11-Pro-Base windows machine as +++**@lab.VirtualMachine(Win11-Pro-Base).Username**+++ using +++**@lab.VirtualMachine(Win11-Pro-Base).Password**+++ (alternatively get password from the "Resources" tab).
 1. [] Launch the Edge browser
 1. [] Type in the address bar ++++https://portal.azure.com++++ to go to the Azure Portal
-1. [] Follow the prompt for the Azure user and password (get user and password from the "Resources" tab).
+1. [] Follow the prompt for the Azure user and password
+    **Username:** +++@lab.CloudPortalCredential(User1).Username+++   
+    **Password:** +++@lab.CloudPortalCredential(User1).Password+++
+    (alternatively get user and password from the "Resources" tab).
 
 You are loged in to the portal, click on next at the bottom of the window to proceed to the next steps.
