@@ -34,7 +34,7 @@ In the next set of exercises, we will use Azure MySQL Import to restore the data
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_46.png?raw=true)
 1. [] From the Azure portal, in the *tech-connect-mysql-lab*, click on the Azure Database for MySQL -Flexible Server
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_47.png?raw=true)
-1. [] Go to the *Networking* tab   
+1. [] Expand *Settings* and go to the *Networking* tab   
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_48.png?raw=true)
 1. [] Create a new firewall rule +++Tech_Connect_MySQL_VM_IP_Addr+++ with the public IP of the VM you noted above and *Save*  
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_49.png?raw=true)
