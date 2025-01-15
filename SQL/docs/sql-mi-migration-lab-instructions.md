@@ -142,7 +142,7 @@ After completing this section, you will be able to: Check the connectivity to th
     Server name: +++techready2025.46dfe54ef1ee.database.windows.net+++
     Authentication Type: SQL Authentication
     Login name: +++dbadmin+++ 
-    Password: +++ b"9yVh](w-x@T3Y$)>}:s!  +++
+    Password: +++b"9yVh](w-x@T3Y$)>}:s!+++
 
     ![AccessValidation_Target_SSMS_ConnectToServer](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img14_AccessValidation_Target_SSMS_ConnectToServer.png?raw=true)
 
@@ -209,7 +209,7 @@ After completing this section, you will be able to: Check the MI Link Test conne
     Server name: +++techready2025.46dfe54ef1ee.database.windows.net+++
     Authentication Type: SQL Authentication
     Login name: +++dbadmin+++ 
-    Password: +++ b"9yVh](w-x@T3Y$)>}:s!  +++
+    Password: +++b"9yVh](w-x@T3Y$)>}:s!+++
 
     ![AccessValidation_MILink_SSMS_TestConnection_NetworkChecker_LoginToMI_Connect](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img24_AccessValidation_MILink_SSMS_TestConnection_NetworkChecker_LoginToMI_Connect.png?raw=true)
 
@@ -377,9 +377,9 @@ Stop applications servers so no new data will be executed on Databases and make 
 
 Create logins on Target SQL DB using the query below:
 
-+++ CREATE LOGIN testLogin1 WITH PASSWORD = '&lt;Strong_Password_Goes_Here&gt;'; +++
++++CREATE LOGIN testLogin1 WITH PASSWORD = '&lt;Strong_Password_Goes_Here&gt;';+++
 
-+++ CREATE USER \[testLogin1\] FROM LOGIN \[testLogin1\] WITH DEFAULT_SCHEMA=dbo; +++
++++CREATE USER \[testLogin1\] FROM LOGIN \[testLogin1\] WITH DEFAULT_SCHEMA=dbo;+++
 
 ### Check access/connectivity
 
@@ -395,7 +395,7 @@ Query to check the status on Source server:-
 
 To change the database state to read only on Source server:-
 
-+++ USE \[master\] +++
++++USE \[master\]+++
 +++GO+++
 
 +++**ALTER** **DATABASE** \[databasename\] **SET** READ_ONLY **WITH** NO_WAIT+++
@@ -423,7 +423,7 @@ Try connecting with the SQL DB user to validate logins.
 
 To change the database state to read only on Source server:-
 
-+++ USE \[master\] +++
++++USE \[master\]+++
 
 +++GO+++
 
