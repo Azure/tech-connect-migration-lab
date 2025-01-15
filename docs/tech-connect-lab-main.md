@@ -1,6 +1,6 @@
 @lab.Title
 
-Welcome to the hands on lab for on-prem/VM database migrations to Azure PaaS services using the top migration utilities available.  There are 4 different database migration labs you can can try. 
+Welcome to the hands on lab for on-prem/VM database migrations to Azure PaaS services using the top migration utilities available.  There are 5 different database migration labs you can can try. 
 
 - [On-Prem/VM to Azure SQL Managed instance](#sql-mi) - 40 min
 - [On-Prem/VM to Azure SQL DB instance](#sql-db) - 40 min
