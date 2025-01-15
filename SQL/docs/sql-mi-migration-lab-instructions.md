@@ -1,5 +1,3 @@
-# Migrate SQL Server on a VM to Azure SQL Managed Instance
-
 # Executive Summary
 
 ## Objective
@@ -141,15 +139,15 @@ After completing this section, you will be able to: Check the connectivity to th
 
 4. Fill in the connection details as appears below and Click on the **Connect** button
 
+    Server name: +++techready2025.46dfe54ef1ee.database.windows.net+++
+    Authentication Type: SQL Authentication
+    Login name: +++dbadmin+++ 
+    Password: +++ b"9yVh](w-x@T3Y$)>}:s!  +++
+
     ![AccessValidation_Target_SSMS_ConnectToServer](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img14_AccessValidation_Target_SSMS_ConnectToServer.png?raw=true)
 
 **Here:** Server is the Destination SQL MI FQDN
 
-**Here:** **Server** : Target (i.e. Azure SQL MI)’s server Name
-
-**Authentication type**: Select Microsoft Entra ID – Universal with MFA support
-
-**Account:** Account name which has access to the Azure SQL Managed Instance
 
 The Server Name may be found on the Azure Portal, as appears below
 
@@ -207,6 +205,11 @@ After completing this section, you will be able to: Check the MI Link Test conne
     ![AccessValidation_MILink_SSMS_TestConnection_NetworkChecker_LoginToMI](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img23_AccessValidation_MILink_SSMS_TestConnection_NetworkChecker_LoginToMI.png?raw=true)
 
     This will open **Connect to Server** window, provide SQL MI FQDN name, authentication, login details and connection security options as mentioned below and click on connect
+
+    Server name: +++techready2025.46dfe54ef1ee.database.windows.net+++
+    Authentication Type: SQL Authentication
+    Login name: +++dbadmin+++ 
+    Password: +++ b"9yVh](w-x@T3Y$)>}:s!  +++
 
     ![AccessValidation_MILink_SSMS_TestConnection_NetworkChecker_LoginToMI_Connect](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img24_AccessValidation_MILink_SSMS_TestConnection_NetworkChecker_LoginToMI_Connect.png?raw=true)
 
