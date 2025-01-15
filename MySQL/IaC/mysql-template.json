@@ -21,7 +21,7 @@
             "type": "Microsoft.Network/networkSecurityGroups",
             "apiVersion": "2024-01-01",
             "name": "tech-connect-mysql-vm-nsg",
-            "location": "[parameters('deploy_region')]",
+            "location": "[resourceGroup().location]",
             "properties": {
                 "securityRules": []
             }
@@ -30,7 +30,7 @@
             "type": "Microsoft.Network/publicIPAddresses",
             "apiVersion": "2024-01-01",
             "name": "tech-connect-mysql-vm-ip",
-            "location": "[parameters('deploy_region')]",
+            "location": "[resourceGroup().location]",
             "sku": {
                 "name": "Standard",
                 "tier": "Regional"
@@ -49,7 +49,7 @@
             "type": "Microsoft.Network/virtualNetworks",
             "apiVersion": "2024-01-01",
             "name": "tech-connect-mysql-vm-vnet",
-            "location": "[parameters('deploy_region')]",
+            "location": "[resourceGroup().location]",
             "properties": {
                 "addressSpace": {
                     "addressPrefixes": [
@@ -77,7 +77,7 @@
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2023-05-01",
             "name": "[concat('techconstg',uniqueString(parameters('storageAccountGuid')))]",
-            "location": "[parameters('deploy_region')]",
+            "location": "[resourceGroup().location]",
             "sku": {
                 "name": "Standard_LRS",
                 "tier": "Standard"
@@ -122,7 +122,7 @@
             "type": "Microsoft.Compute/virtualMachines",
             "apiVersion": "2024-07-01",
             "name": "tech-connect-mysql-vm",
-            "location": "[parameters('deploy_region')]",
+            "location": "[resourceGroup().location]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/networkInterfaces', 'tech-connect-mysql-vm819_z1')]"
             ],
@@ -194,7 +194,7 @@
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "apiVersion": "2024-07-01",
             "name": "tech-connect-mysql-vm/CustomScript",
-            "location": "[parameters('deploy_region')]",
+            "location": "[resourceGroup().location]",
             "dependsOn": [
                 "[resourceId('Microsoft.Compute/virtualMachines', 'tech-connect-mysql-vm')]"
             ],
@@ -316,7 +316,7 @@
             "type": "Microsoft.Network/networkInterfaces",
             "apiVersion": "2024-01-01",
             "name": "tech-connect-mysql-vm819_z1",
-            "location": "[parameters('deploy_region')]",
+            "location": "[resourceGroup().location]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/publicIPAddresses', 'tech-connect-mysql-vm-ip')]",
                 "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'tech-connect-mysql-vm-vnet', 'default')]",
