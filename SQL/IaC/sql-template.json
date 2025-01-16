@@ -8,7 +8,7 @@
             "type": "Microsoft.Network/networkSecurityGroups",
             "apiVersion": "2024-01-01",
             "name": "TechConnectWin2k19sql19-nsg",
-            "location": "westus",
+            "location": "[resourceGroup().location]",
             "properties": {
                 "securityRules": [
                     {
@@ -37,7 +37,7 @@
             "type": "Microsoft.Network/publicIPAddresses",
             "apiVersion": "2024-01-01",
             "name": "TechConnectWin2k19sql19-ip",
-            "location": "westus",
+            "location": "[resourceGroup().location]",
             "sku": {
                 "name": "Standard",
                 "tier": "Regional"
@@ -54,7 +54,7 @@
             "type": "Microsoft.Network/virtualNetworks",
             "apiVersion": "2024-01-01",
             "name": "TechConnectWin2k19sql19-vnet",
-            "location": "westus",
+            "location": "[resourceGroup().location]",
             "properties": {
                 "addressSpace": {
                     "addressPrefixes": [
@@ -82,7 +82,7 @@
             "type": "Microsoft.Compute/virtualMachines",
             "apiVersion": "2024-07-01",
             "name": "TechConnectWin2k19sql19",
-            "location": "westus",
+            "location": "[resourceGroup().location]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/networkInterfaces', 'techconnectwin2k19sql19133')]"
             ],
@@ -220,7 +220,7 @@
             "type": "Microsoft.SqlVirtualMachine/sqlVirtualMachines",
             "apiVersion": "2023-10-01",
             "name": "TechConnectWin2k19sql19",
-            "location": "westus",
+            "location": "[resourceGroup().location]",
             "dependsOn": [
                 "[resourceId('Microsoft.Compute/virtualMachines', 'TechConnectWin2k19sql19')]"
             ],
@@ -238,7 +238,7 @@
             "type": "Microsoft.Network/networkInterfaces",
             "apiVersion": "2024-01-01",
             "name": "techconnectwin2k19sql19133",
-            "location": "westus",
+            "location": "[resourceGroup().location]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/publicIPAddresses', 'TechConnectWin2k19sql19-ip')]",
                 "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'TechConnectWin2k19sql19-vnet', 'default')]",
