@@ -147,6 +147,7 @@
                 "osProfile": {
                     "computerName": "TechConnectWin2",
                     "adminUsername": "labuser",
+                    "adminPassword": "Pa$$w0rd",
                     "windowsConfiguration": {
                         "provisionVMAgent": true,
                         "enableAutomaticUpdates": true,
