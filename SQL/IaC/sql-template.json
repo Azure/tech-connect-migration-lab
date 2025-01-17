@@ -102,46 +102,43 @@
                     },
                     "osDisk": {
                         "osType": "Windows",
-                        "name": "TechConnectWin2k19sql19_OsDisk_1_8f36665a4e474b83a849b4f29265a56f",
+                        "name": "TechConnectWin2k19sql19_OsDisk_1",
                         "createOption": "FromImage",
                         "caching": "ReadWrite",
                         "managedDisk": {
-                            "storageAccountType": "StandardSSD_LRS",
-                            "id": "[resourceId('Microsoft.Compute/disks', 'TechConnectWin2k19sql19_OsDisk_1_8f36665a4e474b83a849b4f29265a56f')]"
+                            "storageAccountType": "StandardSSD_LRS"
                         },
                         "deleteOption": "Delete",
                         "diskSizeGB": 127
                     },
                     "dataDisks": [
-                        {
-                            "lun": 0,
-                            "name": "TechConnectWin2k19sql19_DataDisk_0",
-                            "createOption": "Attach",
-                            "caching": "ReadOnly",
-                            "writeAcceleratorEnabled": false,
-                            "managedDisk": {
-                                "storageAccountType": "Premium_LRS",
-                                "id": "[resourceId('Microsoft.Compute/disks', 'TechConnectWin2k19sql19_DataDisk_0')]"
-                            },
-                            "deleteOption": "Detach",
-                            "diskSizeGB": 32,
-                            "toBeDetached": false
-                        },
-                        {
-                            "lun": 1,
-                            "name": "TechConnectWin2k19sql19_DataDisk_1",
-                            "createOption": "Attach",
-                            "caching": "None",
-                            "writeAcceleratorEnabled": false,
-                            "managedDisk": {
-                                "storageAccountType": "Premium_LRS",
-                                "id": "[resourceId('Microsoft.Compute/disks', 'TechConnectWin2k19sql19_DataDisk_1')]"
-                            },
-                            "deleteOption": "Detach",
-                            "diskSizeGB": 32,
-                            "toBeDetached": false
-                        }
-                    ],
+    {
+        "lun": 0,
+        "name": "TechConnectWin2k19sql19_DataDisk_0",
+        "createOption": "Empty",
+        "caching": "ReadOnly",
+        "writeAcceleratorEnabled": false,
+        "managedDisk": {
+            "storageAccountType": "Premium_LRS"
+        },
+        "deleteOption": "Detach",
+        "diskSizeGB": 32,
+        "toBeDetached": false
+    },
+    {
+        "lun": 1,
+        "name": "TechConnectWin2k19sql19_DataDisk_1",
+        "createOption": "Empty",
+        "caching": "None",
+        "writeAcceleratorEnabled": false,
+        "managedDisk": {
+            "storageAccountType": "Premium_LRS"
+        },
+        "deleteOption": "Detach",
+        "diskSizeGB": 32,
+        "toBeDetached": false
+    }
+],
                     "diskControllerType": "SCSI"
                 },
                 "osProfile": {
@@ -158,8 +155,7 @@
                         }
                     },
                     "secrets": [],
-                    "allowExtensionOperations": true,
-                    "requireGuestProvisionSignal": true
+                    "allowExtensionOperations": true
                 },
                 "securityProfile": {
                     "uefiSettings": {
