@@ -135,7 +135,7 @@ sudo tee /etc/systemd/system/new_sale.service >> /dev/null <<EOF
 [Service]
 ExecStart=/usr/local/bin/new_sale.sh
 Restart=always
-User=$(echo $USER)
+User=nobody
 
 [Install]
 WantedBy=multi-user.target
