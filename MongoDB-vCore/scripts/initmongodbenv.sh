@@ -35,8 +35,10 @@ mongouser=$(cat <<EOF
 }
 EOF
 )
+
 mongosh $MONGO_CONNECTION --quiet --eval "db = db.getSiblingDB('admin'); db.createUser($mongouser)" 
 sudo systemctl stop mongod
+
 sudo sed -i '/#security:/ {
   N
   s/#security:\n/security:\n  authorization: enabled/
@@ -44,6 +46,7 @@ sudo sed -i '/#security:/ {
 sudo sed -i "$ a setParameter:" /etc/mongod.conf
 sudo sed -i "$ a\  enableLocalhostAuthBypass: false" /etc/mongod.conf
 sudo sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
+sudo systemctl start mongod
 
 mongosh $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --quiet --eval "db = db.getSiblingDB('admin'); db.grantRolesToUser('techconnect', [{'role':'clusterAdmin', 'db':'admin'}])"
 mongosh $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --quiet --eval "db = db.getSiblingDB('admin'); db.revokeRolesFromUser('techconnect', [{'role':'clusterAdmin', 'db':'admin'}])"
@@ -59,7 +62,6 @@ mongosh $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --quiet --eval "
 sudo su $(getent passwd | grep 'onmicrosoft.com' | cut -d ':' -f1)
 cd /home/$(echo $USER | cut -d '@' -f1)
 
-#####
 curl -o customers.json https://raw.githubusercontent.com/AzureCosmosDB/CosmicWorks/refs/heads/master/data/cosmic-works-v3/customer
 curl -o products.json https://raw.githubusercontent.com/AzureCosmosDB/CosmicWorks/refs/heads/master/data/cosmic-works-v3/product
 curl -o sales.json https://raw.githubusercontent.com/AzureCosmosDB/CosmicWorks/refs/heads/master/data/cosmic-works-v3/salesOrder
@@ -140,6 +142,7 @@ User=$(echo $USER)
 [Install]
 WantedBy=multi-user.target
 EOF
+
 
 sudo systemctl daemon-reload
 sudo systemctl enable new_sale.service
