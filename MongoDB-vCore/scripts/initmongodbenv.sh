@@ -31,7 +31,7 @@ mongouser=$(cat <<EOF
     },{ 
         "role": "readWriteAnyDatabase", 
         "db": "admin" 
-    }
+    }]
 }
 EOF
 )
@@ -72,7 +72,7 @@ mongoimport $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --jsonArray 
 mongoimport $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --jsonArray --db "prod-db-$(echo $USER | cut -d '@' -f1)" --collection products --file products.json
 mongoimport $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --jsonArray --db "prod-db-$(echo $USER | cut -d '@' -f1)" --collection sales --file sales.json
 
-sudo apt-get install jq
+sudo apt-get install jq -y
 
 sudo tee /usr/local/bin/new_sale.sh >> /dev/null <<EOF
 #!/bin/bash
