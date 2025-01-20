@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Install MongoDB
 sudo apt-get install gnupg curl
 curl -fsSL https://www.mongodb.org/static/pgp/server-5.0.asc | \
    sudo gpg -o /usr/share/keyrings/mongodb-server-5.0.gpg \
@@ -17,10 +18,15 @@ sudo systemctl enable mongod
 sudo systemctl start mongod
 sudo systemctl status mongod
 
+sudo apt-get install jq -y
+
+# Wait before MongoDB is properly initialized
+sleep 10
+
+# Connect without password, create admin user, and shut down
 MONGO_CONNECTION="mongodb://127.0.0.1:27017/"
 MONGO_USERNAME="techconnect"
 MONGO_PASSWORD='Pa$$W0rdMongoDB!'
-
 mongouser=$(cat <<EOF
 {
     "user": "$MONGO_USERNAME",
@@ -35,22 +41,27 @@ mongouser=$(cat <<EOF
 }
 EOF
 )
-
-# Wait before MongoDB is properly initialized
-sleep 10
-
 mongosh $MONGO_CONNECTION --quiet --eval "db = db.getSiblingDB('admin'); db.createUser($mongouser)"
-
 sudo systemctl stop mongod
+
+# Add password auth, set up replica set, and open firewall (only for demo/testing purposes)
+openssl rand -base64 768 | sudo tee /usr/local/etc/keyfile.txt > /dev/null
+sudo chmod 400 /usr/local/etc/keyfile.txt
+sudo chown mongodb:mongodb /usr/local/etc/keyfile.txt
 sudo sed -i '/#security:/ {
   N
-  s/#security:\n/security:\n  authorization: enabled/
+  s/#security:\n/security:\n  authorization: enabled\n  keyFile: \/usr\/local\/etc\/keyfile.txt/
+}' /etc/mongod.conf
+sudo sed -i '/#replication:/ {
+  N
+  s/#replication:\n/replication:\n  replSetName: rs0/
 }' /etc/mongod.conf
 sudo sed -i "$ a setParameter:" /etc/mongod.conf
 sudo sed -i "$ a\  enableLocalhostAuthBypass: false" /etc/mongod.conf
 sudo sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
 sudo systemctl start mongod
 
+# Run several administrative commands that are unsupported in Cosmos DB for MongoDB vCore
 mongosh $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --quiet --eval "db = db.getSiblingDB('admin'); db.grantRolesToUser('techconnect', [{'role':'clusterAdmin', 'db':'admin'}])"
 mongosh $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --quiet --eval "db = db.getSiblingDB('admin'); db.revokeRolesFromUser('techconnect', [{'role':'clusterAdmin', 'db':'admin'}])"
 mongosh $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --quiet --eval "db = db.getSiblingDB('admin'); db.grantRolesToUser('techconnect', [{'role':'clusterAdmin', 'db':'admin'}])"
@@ -62,6 +73,22 @@ mongosh $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --quiet --eval "
 mongosh $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --quiet --eval "db = db.getSiblingDB('admin'); db.runCommand( { getShardMap: 1 } )"
 mongosh $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --quiet --eval "db = db.getSiblingDB('admin'); db.runCommand( { top: 1 } )"
 
+# Get public IP of current VM and activate replica set
+VM_PUBLIC_IP=$(curl ipinfo.io/ip)
+mongosh $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --quiet --eval "db = db.getSiblingDB('admin'); rs.initiate({_id: \"rs0\", version: 1, members: [{ _id: 0, host : \"$VM_PUBLIC_IP:27017\" }]})"
+MONGO_CONNECTION+="?replicaSet=rs0"
+
+# Create load data script
+sudo tee /usr/local/etc/load_data.sh >> /dev/null <<EOF
+#!/bin/bash
+
+# Connection details
+MONGO_CONNECTION="$MONGO_CONNECTION"
+MONGO_USERNAME="$MONGO_USERNAME"
+MONGO_PASSWORD='$MONGO_PASSWORD'
+
+EOF
+sudo tee /usr/local/etc/load_data.sh >> /dev/null <<'EOF'
 cd /home
 
 curl -o customers.json https://raw.githubusercontent.com/AzureCosmosDB/CosmicWorks/refs/heads/master/data/cosmic-works-v3/customer
@@ -72,13 +99,22 @@ sed -i 's/"id":/"_id":/g' customers.json
 sed -i 's/"id":/"_id":/g' products.json
 sed -i 's/"id":/"_id":/g' sales.json
 
-mongoimport $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --authenticationDatabase admin --jsonArray --db "prod-db" --collection customers --file customers.json
-mongoimport $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --authenticationDatabase admin --jsonArray --db "prod-db" --collection products --file products.json
-mongoimport $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --authenticationDatabase admin --jsonArray --db "prod-db" --collection sales --file sales.json
+db=$(echo $USER | cut -d '@' -f1)
 
-sudo apt-get install jq -y
+mongoimport $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --authenticationDatabase admin --jsonArray --db "prod-db-$db" --collection customers --file customers.json
+mongoimport $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --authenticationDatabase admin --jsonArray --db "prod-db-$db" --collection products --file products.json
+mongoimport $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --authenticationDatabase admin --jsonArray --db "prod-db-$db" --collection sales --file sales.json
 
-sudo tee /usr/local/bin/new_sale.sh >> /dev/null <<EOF
+# Hack
+sudo sed -i 's/unknownlabuser/$USER/' /etc/systemd/system/new_sales_generator.service
+sudo systemctl daemon-reload
+sudo systemctl enable new_sales_generator.service
+sudo systemctl start new_sales_generator.service
+EOF
+sudo chmod a+x /usr/local/etc/load_data.sh
+
+# Create mock app script
+sudo tee /usr/local/bin/new_sales_generator.sh >> /dev/null <<EOF
 #!/bin/bash
 
 # Connection details
@@ -87,8 +123,7 @@ MONGO_USERNAME="$MONGO_USERNAME"
 MONGO_PASSWORD='$MONGO_PASSWORD'
 
 EOF
-
-sudo tee -a /usr/local/bin/new_sale.sh >> /dev/null <<'EOF'
+sudo tee -a /usr/local/bin/new_sales_generator.sh >> /dev/null <<'EOF'
 # Loop to insert a record every 5 seconds
 while true; do
 
@@ -125,27 +160,24 @@ while true; do
     .shipDate = null
     ')
 
+    db=$(echo $USER | cut -d '@' -f1)
+
     # Insert updated JSON to sales collection
-    mongosh $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --quiet --eval "db = db.getSiblingDB('prod-db'); db.sales.insertOne($json)" 
+    mongosh $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --quiet --eval "db = db.getSiblingDB('prod-db-$db'); db.sales.insertOne($json)" 
 
     # Wait before next iteration
     sleep 5
 done
 EOF
+sudo chmod a+x /usr/local/bin/new_sales_generator.sh
 
-sudo chmod a+x /usr/local/bin/new_sale.sh
-sudo tee /etc/systemd/system/new_sale.service >> /dev/null <<EOF
-
+# Create a simple deamon
+sudo tee /etc/systemd/system/new_sales_generator.service >> /dev/null <<EOF
 [Service]
-ExecStart=/usr/local/bin/new_sale.sh
+ExecStart=/usr/local/bin/new_sales_generator.sh
 Restart=always
-User=nobody
+User=unknownlabuser
 
 [Install]
 WantedBy=multi-user.target
 EOF
-
-
-sudo systemctl daemon-reload
-sudo systemctl enable new_sale.service
-sudo systemctl start new_sale.service
