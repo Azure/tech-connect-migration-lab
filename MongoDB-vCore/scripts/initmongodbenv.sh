@@ -52,10 +52,10 @@ sudo sed -i '/#security:/ {
   N
   s/#security:\n/security:\n  authorization: enabled\n  keyFile: \/usr\/local\/etc\/keyfile.txt/
 }' /etc/mongod.conf
-# sudo sed -i '/#replication:/ {
-#   N
-#   s/#replication:\n/replication:\n  replSetName: rs0/
-# }' /etc/mongod.conf
+sudo sed -i '/#replication:/ {
+  N
+  s/#replication:\n/replication:\n  replSetName: rs0/
+}' /etc/mongod.conf
 sudo sed -i "$ a setParameter:" /etc/mongod.conf
 sudo sed -i "$ a\  enableLocalhostAuthBypass: false" /etc/mongod.conf
 sudo sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
@@ -108,7 +108,7 @@ mongoimport $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --authentica
 mongoimport $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --authenticationDatabase admin --jsonArray --db "prod-db-$db" --collection products --file products.json
 mongoimport $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --authenticationDatabase admin --jsonArray --db "prod-db-$db" --collection sales --file sales.json
 
-# Hack
+# Also update user under which continuous ingestion service will run 
 sudo sed -i "s/unknownlabuser/$USER/" /etc/systemd/system/new_sales_generator.service
 sudo systemctl daemon-reload
 EOF
