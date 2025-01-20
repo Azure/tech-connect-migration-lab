@@ -52,10 +52,10 @@ sudo sed -i '/#security:/ {
   N
   s/#security:\n/security:\n  authorization: enabled\n  keyFile: \/usr\/local\/etc\/keyfile.txt/
 }' /etc/mongod.conf
-sudo sed -i '/#replication:/ {
-  N
-  s/#replication:\n/replication:\n  replSetName: rs0/
-}' /etc/mongod.conf
+# sudo sed -i '/#replication:/ {
+#   N
+#   s/#replication:\n/replication:\n  replSetName: rs0/
+# }' /etc/mongod.conf
 sudo sed -i "$ a setParameter:" /etc/mongod.conf
 sudo sed -i "$ a\  enableLocalhostAuthBypass: false" /etc/mongod.conf
 sudo sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
