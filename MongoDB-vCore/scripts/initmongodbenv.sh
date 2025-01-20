@@ -75,7 +75,8 @@ mongosh $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --quiet --eval "
 
 # Get public IP of current VM and activate replica set
 VM_PUBLIC_IP=$(curl ipinfo.io/ip)
-mongosh $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --quiet --eval "db = db.getSiblingDB('admin'); rs.initiate({_id: \"rs0\", version: 1, members: [{ _id: 0, host : \"$VM_PUBLIC_IP:27017\" }]})"
+echo $VM_PUBLIC_IP
+#mongosh $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --quiet --eval "db = db.getSiblingDB('admin'); rs.initiate({_id: \"rs0\", version: 1, members: [{ _id: 0, host : \"$VM_PUBLIC_IP:27017\" }]})"
 MONGO_CONNECTION+="?replicaSet=rs0"
 
 # Create load data script
@@ -88,7 +89,7 @@ MONGO_USERNAME="$MONGO_USERNAME"
 MONGO_PASSWORD='$MONGO_PASSWORD'
 
 EOF
-sudo tee /usr/local/etc/load_data.sh >> /dev/null <<'EOF'
+sudo tee -a /usr/local/etc/load_data.sh >> /dev/null <<'EOF'
 cd /home
 
 curl -o customers.json https://raw.githubusercontent.com/AzureCosmosDB/CosmicWorks/refs/heads/master/data/cosmic-works-v3/customer
