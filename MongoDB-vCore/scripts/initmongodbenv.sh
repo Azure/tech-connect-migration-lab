@@ -17,7 +17,7 @@ sudo systemctl enable mongod
 sudo systemctl start mongod
 sudo systemctl status mongod
 
-MONGO_CONNECTION="mongodb://localhost:27017/"
+MONGO_CONNECTION="mongodb://127.0.0.1:27017/"
 MONGO_USERNAME="techconnect"
 MONGO_PASSWORD='Pa$$W0rdMongoDB!'
 
@@ -26,22 +26,22 @@ mongouser=$(cat <<EOF
     "user": "$MONGO_USERNAME",
     "pwd": "$MONGO_PASSWORD",
     "roles": [{
-        "role": "userAdminAnyDatabase", 
-        "db": "admin" 
-    },{ 
-        "role": "readWriteAnyDatabase", 
-        "db": "admin" 
+        "role": "userAdminAnyDatabase",
+        "db": "admin"
+    },{
+        "role": "readWriteAnyDatabase",
+        "db": "admin"
     }]
 }
 EOF
 )
 
-echo "Creating user"
+# Wait before MongoDB is properly initialized
+sleep 10
+
 mongosh $MONGO_CONNECTION --quiet --eval "db = db.getSiblingDB('admin'); db.createUser($mongouser)"
 
-echo "Done Creating user"
 sudo systemctl stop mongod
-
 sudo sed -i '/#security:/ {
   N
   s/#security:\n/security:\n  authorization: enabled/
