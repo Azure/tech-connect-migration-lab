@@ -62,8 +62,7 @@ mongosh $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --quiet --eval "
 mongosh $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --quiet --eval "db = db.getSiblingDB('admin'); db.runCommand( { getShardMap: 1 } )"
 mongosh $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --quiet --eval "db = db.getSiblingDB('admin'); db.runCommand( { top: 1 } )"
 
-sudo su $(getent passwd | grep 'onmicrosoft.com' | cut -d ':' -f1)
-cd /home/$(echo $USER | cut -d '@' -f1)
+cd /home
 
 curl -o customers.json https://raw.githubusercontent.com/AzureCosmosDB/CosmicWorks/refs/heads/master/data/cosmic-works-v3/customer
 curl -o products.json https://raw.githubusercontent.com/AzureCosmosDB/CosmicWorks/refs/heads/master/data/cosmic-works-v3/product
@@ -73,9 +72,9 @@ sed -i 's/"id":/"_id":/g' customers.json
 sed -i 's/"id":/"_id":/g' products.json
 sed -i 's/"id":/"_id":/g' sales.json
 
-mongoimport $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --authenticationDatabase admin --jsonArray --db "prod-db-$(echo $USER | cut -d '@' -f1)" --collection customers --file customers.json
-mongoimport $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --authenticationDatabase admin --jsonArray --db "prod-db-$(echo $USER | cut -d '@' -f1)" --collection products --file products.json
-mongoimport $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --authenticationDatabase admin --jsonArray --db "prod-db-$(echo $USER | cut -d '@' -f1)" --collection sales --file sales.json
+mongoimport $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --authenticationDatabase admin --jsonArray --db "prod-db" --collection customers --file customers.json
+mongoimport $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --authenticationDatabase admin --jsonArray --db "prod-db" --collection products --file products.json
+mongoimport $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --authenticationDatabase admin --jsonArray --db "prod-db" --collection sales --file sales.json
 
 sudo apt-get install jq -y
 
@@ -127,7 +126,7 @@ while true; do
     ')
 
     # Insert updated JSON to sales collection
-    mongosh $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --quiet --eval "db = db.getSiblingDB('prod-db-$(echo $USER | cut -d @ -f1)'); db.sales.insertOne($json)" 
+    mongosh $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --quiet --eval "db = db.getSiblingDB('prod-db'); db.sales.insertOne($json)" 
 
     # Wait before next iteration
     sleep 5
@@ -140,7 +139,7 @@ sudo tee /etc/systemd/system/new_sale.service >> /dev/null <<EOF
 [Service]
 ExecStart=/usr/local/bin/new_sale.sh
 Restart=always
-User=$(echo $USER)
+User=nobody
 
 [Install]
 WantedBy=multi-user.target
