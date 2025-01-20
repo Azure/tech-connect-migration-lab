@@ -14,16 +14,16 @@ echo "mongodb-org-server hold" | sudo dpkg --set-selections
 echo "mongodb-mongosh hold" | sudo dpkg --set-selections
 echo "mongodb-org-mongos hold" | sudo dpkg --set-selections
 echo "mongodb-org-tools hold" | sudo dpkg --set-selections
-sudo systemctl enable mongod
-sudo systemctl start mongod
-sudo systemctl status mongod
 
 sudo apt-get install jq -y
 
-# Wait before MongoDB is properly initialized
+# Start mongod service and wait before MongoDB is properly initialized
+sudo systemctl enable mongod
+sudo systemctl start mongod
+sudo systemctl status mongod
 sleep 10
 
-# Connect without password, create admin user, and shut down
+# Connect without password, create admin user
 MONGO_CONNECTION="mongodb://127.0.0.1:27017/"
 MONGO_USERNAME="techconnect"
 MONGO_PASSWORD='Pa$$W0rdMongoDB!'
@@ -42,9 +42,21 @@ mongouser=$(cat <<EOF
 EOF
 )
 mongosh $MONGO_CONNECTION --quiet --eval "db = db.getSiblingDB('admin'); db.createUser($mongouser)"
-sudo systemctl stop mongod
 
-# Add password auth, set up replica set, and open firewall (only for demo/testing purposes)
+# Run several administrative commands that are unsupported in Azure Cosmos DB for MongoDB vCore
+mongosh $MONGO_CONNECTION --quiet --eval "db = db.getSiblingDB('admin'); db.adminCommand( { logRotate: 'audit' } )"
+mongosh $MONGO_CONNECTION --quiet --eval "db = db.getSiblingDB('admin'); db.adminCommand( { hostInfo: 1 } )"
+mongosh $MONGO_CONNECTION --quiet --eval "db = db.getSiblingDB('admin'); db.adminCommand( { getLog: 'global' } )"
+mongosh $MONGO_CONNECTION --quiet --eval "db.runCommand( { buildInfo: 1 } )"
+mongosh $MONGO_CONNECTION --quiet --eval "db.runCommand( { connPoolStats: 1 } )"
+mongosh $MONGO_CONNECTION --quiet --eval "db = db.getSiblingDB('admin'); db.runCommand( { getShardMap: 1 } )"
+mongosh $MONGO_CONNECTION --quiet --eval "db = db.getSiblingDB('admin'); db.runCommand( { top: 1 } )"
+mongosh $MONGO_CONNECTION --quiet --eval "db = db.getSiblingDB('admin'); db.grantRolesToUser('techconnect', [{'role':'clusterAdmin', 'db':'admin'}])"
+mongosh $MONGO_CONNECTION --quiet --eval "db = db.getSiblingDB('admin'); db.revokeRolesFromUser('techconnect', [{'role':'clusterAdmin', 'db':'admin'}])"
+mongosh $MONGO_CONNECTION --quiet --eval "db = db.getSiblingDB('admin'); db.grantRolesToUser('techconnect', [{'role':'clusterAdmin', 'db':'admin'}])"
+
+# Shut down and modify config to add password auth, set up replica set, and open firewall (only for demo/testing purposes)
+sudo systemctl stop mongod
 openssl rand -base64 768 | sudo tee /usr/local/etc/keyfile.txt > /dev/null
 sudo chmod 400 /usr/local/etc/keyfile.txt
 sudo chown mongodb:mongodb /usr/local/etc/keyfile.txt
@@ -59,22 +71,10 @@ sudo sed -i '/#replication:/ {
 sudo sed -i "$ a setParameter:" /etc/mongod.conf
 sudo sed -i "$ a\  enableLocalhostAuthBypass: false" /etc/mongod.conf
 sudo sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
+
+# Reboot and wait before MongoDB is properly initialized
 sudo systemctl start mongod
-
-# Wait before MongoDB is properly initialized
 sleep 10
-
-# Run several administrative commands that are unsupported in Cosmos DB for MongoDB vCore
-mongosh $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --quiet --eval "db = db.getSiblingDB('admin'); db.grantRolesToUser('techconnect', [{'role':'clusterAdmin', 'db':'admin'}])"
-mongosh $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --quiet --eval "db = db.getSiblingDB('admin'); db.revokeRolesFromUser('techconnect', [{'role':'clusterAdmin', 'db':'admin'}])"
-mongosh $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --quiet --eval "db = db.getSiblingDB('admin'); db.grantRolesToUser('techconnect', [{'role':'clusterAdmin', 'db':'admin'}])"
-mongosh $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --quiet --eval "db = db.getSiblingDB('admin'); db.adminCommand( { hostInfo: 1 } )"
-mongosh $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --quiet --eval "db = db.getSiblingDB('admin'); db.adminCommand( { getLog: 'global' } )"
-mongosh $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --quiet --eval "db = db.getSiblingDB('admin'); db.adminCommand( { logRotate: 'audit' } )"
-mongosh $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --quiet --eval "db.runCommand( { buildInfo: 1 } )"
-mongosh $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --quiet --eval "db.runCommand( { connPoolStats: 1 } )"
-mongosh $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --quiet --eval "db = db.getSiblingDB('admin'); db.runCommand( { getShardMap: 1 } )"
-mongosh $MONGO_CONNECTION -u $MONGO_USERNAME -p $MONGO_PASSWORD --quiet --eval "db = db.getSiblingDB('admin'); db.runCommand( { top: 1 } )"
 
 # Get public IP of current VM and activate replica set
 VM_PUBLIC_IP=$(curl ipinfo.io/ip)
