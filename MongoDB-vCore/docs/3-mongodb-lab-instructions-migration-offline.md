@@ -70,8 +70,11 @@ In this step, we will attempt the more traditional migration approach - offline 
    Also, worth noting is that only our sales database (prod-db-user1-xxxx) was assessed. The three system databases were not, as they are not required on Azure Cosmos DB for MongoDB vCore. To elaborate further, admin database stores user credentials and credentials are instead managed through Microsoft Entra ID. Config stores, among other things, information about sharding, which is managed by Azure platform. Lastly, local stores information about replication, which is again fully managed for you in Azure.
 
     As there are no blocking issues, let's proceed further. **Select the tickbox** next to Database, and click **Next** at the bottom of the screen.
-
-   Step 3 -
+   //INCLUDE IMAGE
    
+   Step 3 - we now specify the connection to our migration target. As mentioned in the lab intro, an instance of Azure Cosmos DB for MongoDB vCore was pre-provisioned for you. Selections for Subscription, Resource group, and instance should automatically prepopulate. If not, please use available drop downs and make selections as per below screenshot.
+//INCLUDE IMAGE
+
+   Specify **Connection string** as follows: XXX
    
    
