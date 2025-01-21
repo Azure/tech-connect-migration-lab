@@ -53,7 +53,22 @@ As part of this lab, both source VM hosting MongoDB and target Azure Cosmos DB f
     Next, click **Save & Connect** in the bottom right-hand corner.   
 //INCLUDE IMAGE
 
-12. You should see a success message and your MongoDB VM should now be visible in the menu on the left-hand side. Three databases should be visible: admin, config, and local. These are all system databases. There is no user-created database. Let's fix that and upload some data!
+12. You should see a success message and your MongoDB VM should now be visible in the menu on the left-hand side. Great!
+
+    Oh, but only three databases are visible - admin, config, and local - and these are all system databases. There is no user-created database. Let's fix that and upload some data!
 //INCLUDE IMAGE
 
-13. XXX
+13. Return to Microsoft Edge browser. The VM overview page should still be open. Click on **Connect** then select **Connect** from the drop down.
+//INCLUDE IMAGE
+
+14. On the next page, select **SSH using Azure CLI** .
+//INCLUDE IMAGE
+
+    A pop up window should open on the right-hand side of your screen. Azure Portal will now validate that all prerequisites to connect using Azure CLI are met. This will take about 15 seconds. //INCLUDE IMAGE
+
+    Once validation completes, acknowledge the warning about just-in-time policy and click **Configure + connect**
+
+    A new pop up window with console environment will appear at the bottom of your screen. Please wait while connection completes. Do not yet type anything into the console. It might take 15 seconds to connect. As this window is typically very small, let's click to maximize it to give ourselves more real estate.
+//INCLUDE
+
+    Once connected, you will be asked whther you want to continue connecting. Type +++yes+++ into the console and press enter.
