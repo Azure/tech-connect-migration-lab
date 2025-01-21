@@ -1,4 +1,4 @@
-<img width="752" alt="image" src="https://github.com/user-attachments/assets/b0d2f73b-0b53-4a34-b31d-94f2f8c991b9" /># MongoDB Lab - Offline migration
+# MongoDB Lab - Offline migration
 
 ## Perform offline migration
 
