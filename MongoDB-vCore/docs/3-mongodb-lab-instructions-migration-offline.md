@@ -11,18 +11,18 @@ In this step, we will attempt the more traditional migration approach - offline 
    ![ads2](./media/ads2.png?raw=true)
 
    A pop up window will appear on the right-hand side of your screen. Click on **Add an account**.
-   //INCLUDE IMAGE
+   ![ads2x](./media/ads2x.png?raw=true)
 
    Doing so will open the Edge browser and prompt you to log in. Select **Use another account** and enter the following:
 
-   ![ads4](./media/ads3.png?raw=true)
+   ![ads3](./media/ads3.png?raw=true)
 
     **Username:** +++User1-47490180@LODSPRODMCA.onmicrosoft.com+++
     **Password:** +++XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX+++
 
     >[!alert] Do not select the already signed in account. If you by accident select the existing account, return to Data Studio, remove the account and repeat this step.
 
-    >[!note] Here, were are selecting different user account as the target - Azure Cosmos DB MongoDB vCore - database is provisioned in a different Azure environment, one that your lab user does not have permissions over.
+    >[!note] Here, were are selecting different user account as the target database, Azure Cosmos DB MongoDB vCore, is provisioned in a different Azure environment; one that your lab user does not have permissions over.
 
 3. Next, click on **extensions** in the left-hand menu and search for ++cosmos db++. Locate Azure Cosmos DB Migration for MongoDB extension and click on **Install**.
    //INCLUDE IMAGE
