@@ -98,6 +98,15 @@ In this step, we will attempt the more traditional migration approach - offline 
    Step 4 - In step 4, we are shown a list of all collections that will be migrated. We could selectively exclude certain collections from migration, but in this case, we want to migrate them all. Click **Next** at the bottom of the screen.
    //INCLUDE IMAGE
 
-   Step 5 - In step 5
-   
-   
+   Step 5 - In step 5 we create (or select an existing) instance of Azure Database Migration Service. It provides a scalable cloud compute to power data migrations. An instance named dms-mongodb was already pre-created for you.
+
+   Selections for Migration name, Subscription, Resource group, and instance should automatically prepopulate. If not, please use available drop downs and make selections as per below screenshot. Set **Migration mode** as **Offline**. Click **Next** at the bottom of the screen to proceed.
+   //INCLUDE IMAGE   
+
+   Step 6 - We are presented with a summary of our choices - collections to be migrated, migration target, and migration mode. Since everything looks correct, let's click on **Create Schema** at the bottom of the page.
+   //INCLUDE IMAGE
+
+   Step 7 - Schema was created successfully, and we now have three empty collections (sales, customers, products) on your target Azure Cosmos DB for MongoDB vCore instance.
+   //INCLUDE IMAGE
+
+   >[!alert] Do not click to start migration yet!
