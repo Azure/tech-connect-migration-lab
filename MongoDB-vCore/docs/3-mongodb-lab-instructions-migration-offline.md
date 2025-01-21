@@ -110,3 +110,55 @@ In this step, we will attempt the more traditional migration approach - offline 
    //INCLUDE IMAGE
 
    >[!alert] Do not click to start migration yet!
+
+   As this is offline migration, we now need to take downtime on our application. Let's reconnect to our source VM and stop our application. Switch to Edge browser. Your console should still be open and active. If console has disconnected, close it and reconnect.
+
+   In VM console, type +++sudo systemctl stop new_sales_generator.service+++ and press enter. This will stop our application.
+   //INCLUDE IMAGE
+
+   Next, switch to MongoDB Compass. Click on **MongoDB VM**, select **sales** collection and refresh document count. Observe that it doesn't change. Our application is stopped, and we now need to move fast to complete the migration to minimize downtime for users. Let's switch back to Azure Data Studio.
+
+   In Azure Data Studio, at Step 7, click on **Start migration** at the bottom of the screen.
+
+   One more pop up window will appear asking us to verify connectivity. This check is done to ensure the Azure Database Migration service can reach both our source and target servers. Currently, Azure Data Studio migration extension supports only public-endpoint enabled instances. Private endpoint support is coming in Q1 2025. Click on **Check connectivity** and wait a few seconds.
+//INCLUDE IMAGE
+
+Finally, click **Continue** to launch the migration.
+//INCLUDE IMAGE
+
+7. Our migration is now under way. The migration extension UI reports migration status as "In progress". 
+   //INCLUDE IMAGE
+   
+   In about 2-3 minutes, you should see the status change to "Succeeded". Let's now switch back over to MongoDB Compass to verify the results.
+   //INCLUDE IMAGE
+
+   In MongoDB Compass click on **...** next to Azure Cosmos DB for MongoDB vCore and select **Refresh databases**. Our database prod-db-user1-xxxx should now appear. Click on the arrow next to our database to expand collection list. Select **sales** collection. In top right-hand corner take note of the document count.
+
+   //INCLUDE IMAGE
+
+   Now, expand collection list in **MongoDB VM**, select **sales** collection, and verify that the document count matches that of the sales collection in Azure Cosmos DB for MongoDB vCore.
+
+   //INCLUDE IMAGE
+
+    Great! It seems the migration was successful.
+
+8. As a last step, we need to repoint our application to the target database and restart it. Switch to Edge browser. Your console should still be open and active. If console has disconnected, close it and reconnect.
+
+   In VM console, type +++sudo nano /usr/local/bin/new_sales_generator.sh+++ and press enter.
+   //INCLUDE IMAGE
+
+   A text editor will open. Use arrow keys to navigate to where MONGO_CONNECTION is defined (line 4). Erase current value and replace it with Azure Cosmos DB for MongoDB vCore connection string by typing +++'mongodb+srv://techconnect:XXXXXXXX@techconnect-vcore-1.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000'+++. Note that single quotes are used to prevent variable expansion.
+   //INCLUDE IMAGE
+
+   The result should look as follows:
+   //INCLUDE IMAGE
+
+   Next press **Ctrl+X** followed by **Shift+Y** followed by **Enter**. This will save the file.
+
+   Finally, restart our application by typing: +++sudo systemctl start new_sales_generator.service+++ and press enter.
+   //INCLUDE IMAGE
+
+   Let's switch over to MongoDB Compass and verify our application is able to write to Azure Cosmos DB for MongoDB vCore. In MongoDB Compass select **Azure Cosmos DB for MongoDB vCore** and click on **sales** collection. Click to refresh the document count in top right-hand corner. After a few seconds refresh again. You should see document count going up.
+   //INCLUDE IMAGE
+
+   Congratulations! You've just migrated a self-managed MongoDB VM to an Azure-managed service in offline manner. Now, let's see how this would be different if you had lots of data in your sales database and couldn't afford downtime.
