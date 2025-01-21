@@ -60,81 +60,86 @@ In this step, we will attempt the more traditional migration approach - offline 
    The validation step ensures that the database user under which we are connecting (as specified earlier in the connection string) has sufficient permissions to execute the migration. After the validation succeeds, click on **Start assessment**.
 
    Step 2 - a compatibility assessment is automatically launched. This may take a few seconds to complete.
-   //INCLUDE IMAGE
+   ![ads12x](./media/ads12x.png?raw=true)
+
    Upon completion, a screen with assessment results will appear.
-   //INCLUDE IMAGE
+   ![ads13](./media/ads13.png?raw=true)
+   
    Our compatibility assessment was succesful, but there are 2 informational warnings and 1 issue noted. Let's examine these closer. Click on **Warning issues** and **Informational Issues** and examine each issue description.
-   //INCLUDE IMAGE
+   ![ads14](./media/ads14.png?raw=true)
+
    The assessment reports that replSetInitiate command, which is used to initialize a new replica set, is not supported. It won't cause any issues as high availability and replication are fully managed on Azure Cosmos DB for MongoDB vCore. Similarly, you could see that certain commands relating to metrics or logging are unsupported. Azure Cosmos DB for MongoDB vCore exposes metrics and logs through interfaces common to all Azure services; consequently, commands to alter such behavior directly on the database are not supported. Azure Cosmos DB for MongoDB vCore is highly compatible with native MongoDB and most migrations will not experience any compatibility issue.
 
-   Also, worth noting is that only our sales database (prod-db-user1-xxxx) was assessed. The three system databases were not, as they are not required on Azure Cosmos DB for MongoDB vCore. To elaborate further, admin database stores user credentials and credentials are instead managed through Microsoft Entra ID. Config stores, among other things, information about sharding, which is managed by Azure platform. Lastly, local stores information about replication, which is again fully managed for you in Azure.
+   Also, worth noting is that only our sales database (prod-db-user1-xxxx) was assessed. The three system databases that we saw in step 5 were not assessed, as they are not required on Azure Cosmos DB for MongoDB vCore. To elaborate further, admin database stores user credentials and credentials are instead managed through Microsoft Entra ID. Config stores, among other things, information about sharding, which is managed by Azure platform. Lastly, local stores information about replication, which is again fully managed for you in Azure.
 
     As there are no blocking issues, let's proceed further. **Select the tickbox** next to Database, and click **Next** at the bottom of the screen.
-   //INCLUDE IMAGE
+   ![ads15](./media/ads15.png?raw=true)
    
    Step 3 - we now specify the connection to our migration target. As mentioned in the lab intro, an instance of Azure Cosmos DB for MongoDB vCore was pre-provisioned for you. Selections for Subscription, Resource group, and instance should automatically prepopulate. If not, please use available drop downs and make selections as per below screenshot.
-//INCLUDE IMAGE
+![ads16](./media/ads16.png?raw=true)
 
    Specify **Connection string** as follows: +++mongodb+srv://techconnect:XXXXXXXX@techconnect-vcore-1.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000+++
    Next, click **Test connection** to verify connectivity to target instance.
 
    Next, switch back to MongoDB Compass and let's add the connection to target instance there as well. Click on **+** button next to MongoDB VM.
-   //INCLUDE IMAGE
+   ![mongodb compass9](./media/mongo%20compass9.png?raw=true)
 
    In the new connection pop up window specify the following:
    **URI:** +++mongodb+srv://techconnect:XXXXXXXX@techconnect-vcore-1.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000+++
    **Name:** +++Azure Cosmos DB for MongoDB vCore+++
 
-   //INCLUDE IMAGE
+   ![mongodb compass10](./media/mongo%20compass10.png?raw=true)
    Click **Save & Connect** at the bottom right.
 
    A new pop up will appear informing users that target is an "emulation" of MongoDB. That's correct - Azure Cosmos DB provides wire protocol compatibility with MongoDB databases. Microsoft does not run MongoDB databases to provide this service. Click **Confirm** to proceed.
-   //INCLUDE IMAGE
+   ![mongodb compass11](./media/mongo%20compass11.png?raw=true)
 
    Let's now return back to Azure Data Studio to continue with the migration.
 
    We are now at the end of step 3. Click **Next** at the bottom of the screen to proceed.
 
    Step 4 - In step 4, we are shown a list of all collections that will be migrated. We could selectively exclude certain collections from migration, but in this case, we want to migrate them all. Click **Next** at the bottom of the screen.
-   //INCLUDE IMAGE
+   ![ads17](./media/ads17.png?raw=true)
 
    Step 5 - In step 5 we create (or select an existing) instance of Azure Database Migration Service. It provides a scalable cloud compute to power data migrations. An instance named dms-mongodb was already pre-created for you.
 
    Selections for Migration name, Subscription, Resource group, and instance should automatically prepopulate. If not, please use available drop downs and make selections as per below screenshot. Set **Migration mode** as **Offline**. Click **Next** at the bottom of the screen to proceed.
-   //INCLUDE IMAGE   
+   ![ads18](./media/ads18.png?raw=true)
 
    Step 6 - We are presented with a summary of our choices - collections to be migrated, migration target, and migration mode. Since everything looks correct, let's click on **Create Schema** at the bottom of the page.
-   //INCLUDE IMAGE
+   ![ads19](./media/ads19.png?raw=true)
 
    Step 7 - Schema was created successfully, and we now have three empty collections (sales, customers, products) on your target Azure Cosmos DB for MongoDB vCore instance.
-   //INCLUDE IMAGE
+   ![ads20](./media/ads20.png?raw=true)
 
    >[!alert] Do not click to start migration yet!
 
    As this is offline migration, we now need to take downtime on our application. Let's reconnect to our source VM and stop our application. Switch to Edge browser. Your console should still be open and active. If console has disconnected, close it and reconnect.
 
    In VM console, type +++sudo systemctl stop new_sales_generator.service+++ and press enter. This will stop our application.
-   //INCLUDE IMAGE
+   ![console3](./media/console3.png?raw=true)
 
    Next, switch to MongoDB Compass. Click on **MongoDB VM**, select **sales** collection and refresh document count. Observe that it doesn't change. Our application is stopped, and we now need to move fast to complete the migration to minimize downtime for users. Let's switch back to Azure Data Studio.
+   ![mongodb compass12](./media/mongo%20compass12.png?raw=true)
 
    In Azure Data Studio, at Step 7, click on **Start migration** at the bottom of the screen.
+   ![ads21](./media/ads20.png?raw=true)
 
    One more pop up window will appear asking us to verify connectivity. This check is done to ensure the Azure Database Migration service can reach both our source and target servers. Currently, Azure Data Studio migration extension supports only public-endpoint enabled instances. Private endpoint support is coming in Q1 2025. Click on **Check connectivity** and wait a few seconds.
-//INCLUDE IMAGE
+  ![ads22](./media/ads22.png?raw=true)
 
-Finally, click **Continue** to launch the migration.
-//INCLUDE IMAGE
+  Finally, click **Continue** to launch the migration.
+  ![ads23](./media/ads23.png?raw=true)
 
 7. Our migration is now under way. The migration extension UI reports migration status as "In progress". 
-   //INCLUDE IMAGE
+   ![ads24](./media/ads24.png?raw=true)
    
    In about 2-3 minutes, you should see the status change to "Succeeded". Let's now switch back over to MongoDB Compass to verify the results.
-   //INCLUDE IMAGE
+   ![ads25](./media/ads25.png?raw=true)
 
    In MongoDB Compass click on **...** next to Azure Cosmos DB for MongoDB vCore and select **Refresh databases**. Our database prod-db-user1-xxxx should now appear. Click on the arrow next to our database to expand collection list. Select **sales** collection. In top right-hand corner take note of the document count.
 
-   //INCLUDE IMAGE
+   ![mongodb compass13](./media/mongo%20compass13.png?raw=true)
 
    Now, expand collection list in **MongoDB VM**, select **sales** collection, and verify that the document count matches that of the sales collection in Azure Cosmos DB for MongoDB vCore.
 
