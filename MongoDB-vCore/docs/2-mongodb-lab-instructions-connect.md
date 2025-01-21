@@ -69,6 +69,18 @@ As part of this lab, both source VM hosting MongoDB and target Azure Cosmos DB f
     Once validation completes, acknowledge the warning about just-in-time policy and click **Configure + connect**
 
     A new pop up window with console environment will appear at the bottom of your screen. Please wait while connection completes. Do not yet type anything into the console. It might take 15 seconds to connect. As this window is typically very small, let's click to maximize it to give ourselves more real estate.
+//INCLUDE IMAGE
+
+    Once connected, you will be asked whether you want to continue connecting. Type +++yes+++ into the console and press enter.
+
+    You are now connected to the VM hosting MongoDB. You should see the following:
+//INCLUDE IMAGE
+
+15. Let's now create a new database and load some data. Because, in a regular migration, you would be dealing with a system that is used for production and already has data, we will not do it manually and instead we will run a script that will do it for us. The is already pre-loaded on the machine for you. Type +++/usr/local/etc/load_data.sh+++ into the console and press enter. This will execute the script.
+
+    In about 10 seconds, the script will complete the data load. You should see that tens of thousands of documents were loaded successfully.
 //INCLUDE
 
-    Once connected, you will be asked whther you want to continue connecting. Type +++yes+++ into the console and press enter.
+    Great! Now we have a database with some data in it. But, in real-world scenario, we would also have an app connected to the database and generating some traffic. Let's fix that in the next step.
+
+16. XXX 
