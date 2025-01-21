@@ -5,18 +5,17 @@
 In this step, we will attempt the more traditional migration approach - offline - that is one where application downtime is necessary. Such approach is suitable for migration of smaller volumes of data and/or for non-critical systems where downtime is acceptable (e.g., an internal-facing app is taken offline for a few hours on a Saturday night).
 
 1. Minimize any open application windows and launch **Azure Data Studio**, which is pre-installed for you on the Desktop. As mentioned earlier, Azure Data Studio is Microsoft's preferred tool for executing MongoDB migrations.
-   //INCLUDE IMAGE
+   ![ads1](./media/ads1.png?raw=true)
 
 2. Once Data Studio launches, **click on the person icon** in the bottom left-hand corner.
-   //INCLUDE IMAGE
+   ![ads2](./media/ads2.png?raw=true)
 
    A pop up window will appear on the right-hand side of your screen. Click on **Add an account**.
-
    //INCLUDE IMAGE
 
    Doing so will open the Edge browser and prompt you to log in. Select **Use another account** and enter the following:
 
-   //INCLUDE IMAGE
+   ![ads4](./media/ads3.png?raw=true)
 
     **Username:** +++User1-47490180@LODSPRODMCA.onmicrosoft.com+++
     **Password:** +++XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX+++
