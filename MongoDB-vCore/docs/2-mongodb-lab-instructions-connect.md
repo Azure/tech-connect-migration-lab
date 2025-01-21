@@ -88,17 +88,18 @@ As part of this lab, both source VM hosting MongoDB and target Azure Cosmos DB f
 18. Likewise, the app is already deployed to our machine. To mock an app we use a simple Linux deamon that continuously writes new sales records. Let's start the deamon. First type +++sudo systemctl enable new_sales_generator.service+++ and press enter. Next, type +++sudo systemctl start new_sales_generator.service+++ and press enter again.
 
 19. Let's now return to MongoDB Compass and refresh the list of available databases. Click on **...** next to MongoDB VM and select **Refresh databases** from the menu that appears.
-//INCLUDE IMAGE
+![mongodb compass5](./media/mongo%20compass5.png?raw=true)
 
-    You should now see a database named **prod-db-@lab.CloudPortalCredential(User1).Username**. Click on the arrow next to database name to see the collections. //INCLUDE IMAGE
+    You should now see a database named **prod-db-user1-xxx**. Click on the arrow next to database name to see the collections.
+    ![mongodb compass6](./media/mongo%20compass6.png?raw=true)
 
     Three collections have been loaded: customers, products, and sales. Click on **sales** collection. You will now see the JSON documents stored in the collection. Take note of the number of documents shown on the right-hand side.
 
     Now, **press the refresh button** next to the document count. You should see the document count go up - this is because our application (launched in step 16) is running and writing new sales records.
 
-    //INCLUDE IMAGE
-    //INCLUDE IMAGE
+    ![mongodb compass7](./media/mongo%20compass7.png?raw=true)
+    ![mongodb compass8](./media/mongo%20compass8.png?raw=true)
 
     >[!note] Your document count will differ from the screenshot. The idea here is to observe that document count increases over time. Also, you may need to press refresh a few times to see the count go up. New sales record is written only every 5 seconds.
 
-    This concludes the preparation section. Let's now go and migrate this MongoDB to Azure Cosmos DB for MongoDB vCore.
+    This concludes the preparation section. Let's now go and migrate this MongoDB VM to Azure Cosmos DB for MongoDB vCore!
