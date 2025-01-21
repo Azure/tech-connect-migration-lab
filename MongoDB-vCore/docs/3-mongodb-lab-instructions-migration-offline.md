@@ -25,12 +25,13 @@ In this step, we will attempt the more traditional migration approach - offline 
     >[!note] Here, were are selecting different user account as the target database, Azure Cosmos DB MongoDB vCore, is provisioned in a different Azure environment; one that your lab user does not have permissions over.
 
 3. Next, click on **extensions** in the left-hand menu and search for ++cosmos db++. Locate Azure Cosmos DB Migration for MongoDB extension and click on **Install**.
-   //INCLUDE IMAGE
+    ![ads4](./media/ads4.png?raw=true)
+    ![ads5](./media/ads5.png?raw=true)
 
 4. Let us now establish connection to our source VM and begin the migration steps. Select **connections** and click **New Connection**.
-
+   ![ads6](./media/ads6.png?raw=true)
     A pop window will appear on the right-hand side of your screen. Select connection type **Azure Cosmos DB for MongoDB**.
-    //INCLUDE IMAGE
+    ![ads7](./media/ads7.png?raw=true)
 
    >[!note] The same connection type can be used to connect to any MongoDB wire-protocol compatible installation. In this case, we are not connecting to Azure Cosmos DB for MongoDB but to native MongoDB on a VM.
 
@@ -41,21 +42,21 @@ In this step, we will attempt the more traditional migration approach - offline 
 
 5. Once connected, the MongoDB VM connection will be visible on the top left. You should see the three system databases along with "prod-db-user1-xxx" that hosts the sales data. Right-click on **MongoDB VM** and select **Manage**.
 
-  //INCLUDE IMAGE
+  ![ads8](./media/ads8.png?raw=true)
 
    Select **Azure Cosmos DB Migration** to begin.
 
-   //INCLUDE IMAGE
+   ![ads9](./media/ads9.png?raw=true)
 
    On the next screen, select **Assess and Migrate Database(s)**.
 
-   //INCLUDE IMAGE
+   ![ads10](./media/ads10.png?raw=true)
 
 6. A 7-step migration wizard will appear on the right-hand side of your screen to guide you through the whole migration without needing to run any commands.
 
    In Step 1, specify +++assessment1+++ for **Assessmnent name**, then click **Run validation**.
-   //INCLUDE IMAGE
-   //INCLUDE IMAGE
+   ![ads11](./media/ads11.png?raw=true)
+   ![ads12](./media/ads12.png?raw=true)
    The validation step ensures that the database user under which we are connecting (as specified earlier in the connection string) has sufficient permissions to execute the migration. After the validation succeeds, click on **Start assessment**.
 
    Step 2 - a compatibility assessment is automatically launched. This may take a few seconds to complete.
