@@ -27,32 +27,33 @@ As part of this lab, both source VM hosting MongoDB and target Azure Cosmos DB f
 6. Select **techconnect-mongodb-lab** from the list.
 //INCLUDE IMAGE
 
-8. Select **techconnect-vm-mongodb** from the list. This is the VM hosting a replica of MongoDB database that was pre-created for you. This VM will serve as the migration source.
+7. Select **techconnect-vm-mongodb** from the list. This is the VM hosting a replica of MongoDB database that was pre-created for you. This VM will serve as the migration source.
 //INCLUDE IMAGE
 
-10. On the Virtual machine overview page, locate the Public IP address and enter it below for future use:
+8. On the Virtual machine overview page, locate the Public IP address and enter it below for future use:
+
     @lab.TextBox(MongoDBVMPublicIP)
 
     >[!note] Your IP address will differ from the screenshot. 
 //INCLUDE IMAGE
 
-11. Minimize Microsoft Edge browser and launch **MongoDB Compass**, which is pre-installed for you on the Desktop. MongoDB Compass is popular tool for querying and administering MongoDB databases. Note: This tool is neither maintained nor developed by Microsoft Corp.
+9. Minimize Microsoft Edge browser and launch **MongoDB Compass**, which is pre-installed for you on the Desktop. MongoDB Compass is popular tool for querying and administering MongoDB databases. Note: This tool is neither maintained nor developed by Microsoft Corp.
 //INCLUDE IMAGE
 
-13. Click on **+ Add new connection**
+10. Click on **+ Add new connection**
 //INCLUDE IMAGE
 
-14. On the next screen, enter the following:
+11. On the next screen, enter the following:
 
     **URI:** +++mongodb://techconnect:Pa$$W0rdMongoDB!@@lab.Variable(MongoDBVMPublicIP):27017/?authMechanism=SCRAM-SHA-256&replicaSet=rs0+++
     **Name:** +++MongoDB VM+++
 
-    >[!note] Your IP address will differ from the screenshot. If no IP address is visible, please return to step 10 and fill in the box.
+    >[!note] Your IP address will differ from the screenshot. If no IP address is visible, please return to step 8 and fill in the box.
 
     Next, click **Save & Connect** in the bottom right-hand corner.   
 //INCLUDE IMAGE
 
-16. You should see a success message and your MongoDB VM should now be visible in the menu on the left-hand side. Three databases should be visible: admin, config, and local. These are all system databases. There is no user-created database. Let's fix that and upload some data!
+12. You should see a success message and your MongoDB VM should now be visible in the menu on the left-hand side. Three databases should be visible: admin, config, and local. These are all system databases. There is no user-created database. Let's fix that and upload some data!
 //INCLUDE IMAGE
 
-17. 
+13. XXX
