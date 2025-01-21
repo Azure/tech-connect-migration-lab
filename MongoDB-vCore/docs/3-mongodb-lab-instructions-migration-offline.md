@@ -137,33 +137,34 @@ In this step, we will attempt the more traditional migration approach - offline 
    In about 2-3 minutes, you should see the status change to "Succeeded". Let's now switch back over to MongoDB Compass to verify the results.
    ![ads25](./media/ads25.png?raw=true)
 
-   In MongoDB Compass click on **...** next to Azure Cosmos DB for MongoDB vCore and select **Refresh databases**. Our database prod-db-user1-xxxx should now appear. Click on the arrow next to our database to expand collection list. Select **sales** collection. In top right-hand corner take note of the document count.
-
+   In MongoDB Compass click on **...** next to Azure Cosmos DB for MongoDB vCore and select **Refresh databases**.
    ![mongodb compass13](./media/mongo%20compass13.png?raw=true)
 
+   Our database prod-db-user1-xxxx should now appear. Click on the arrow next to our database to expand collection list. Select **sales** collection. In top right-hand corner take note of the document count.
+   ![mongodb compass14](./media/mongo%20compass14.png?raw=true)
+
    Now, expand collection list in **MongoDB VM**, select **sales** collection, and verify that the document count matches that of the sales collection in Azure Cosmos DB for MongoDB vCore.
+   ![mongodb compass15](./media/mongo%20compass15.png?raw=true)
 
-   //INCLUDE IMAGE
+    Great! The document counts match. The migration was successful!
 
-    Great! It seems the migration was successful.
-
-8. As a last step, we need to repoint our application to the target database and restart it. Switch to Edge browser. Your console should still be open and active. If console has disconnected, close it and reconnect.
+9. As a last step, we need to repoint our application to the target database and restart it. Switch to Edge browser. Your console should still be open and active. If console has disconnected, close it and reconnect.
 
    In VM console, type +++sudo nano /usr/local/bin/new_sales_generator.sh+++ and press enter.
-   //INCLUDE IMAGE
+   ![console4](./media/console4.png?raw=true)
 
    A text editor will open. Use arrow keys to navigate to where MONGO_CONNECTION is defined (line 4). Erase current value and replace it with Azure Cosmos DB for MongoDB vCore connection string by typing +++'mongodb+srv://techconnect:XXXXXXXX@techconnect-vcore-1.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000'+++. Note that single quotes are used to prevent variable expansion.
-   //INCLUDE IMAGE
+   ![console5](./media/console5.png?raw=true)
 
    The result should look as follows:
-   //INCLUDE IMAGE
+   ![console6](./media/console6.png?raw=true)
 
    Next press **Ctrl+X** followed by **Shift+Y** followed by **Enter**. This will save the file.
 
    Finally, restart our application by typing: +++sudo systemctl start new_sales_generator.service+++ and press enter.
-   //INCLUDE IMAGE
+   ![console7](./media/console7.png?raw=true)
 
    Let's switch over to MongoDB Compass and verify our application is able to write to Azure Cosmos DB for MongoDB vCore. In MongoDB Compass select **Azure Cosmos DB for MongoDB vCore** and click on **sales** collection. Click to refresh the document count in top right-hand corner. After a few seconds refresh again. You should see document count going up.
-   //INCLUDE IMAGE
+   ![mongodb compass16](./media/mongo%20compass16.png?raw=true)
 
-   Congratulations! You've just migrated a self-managed MongoDB VM to an Azure-managed service in offline manner. Now, let's see how this would be different if you had lots of data in your sales database and couldn't afford downtime.
+   Congratulations! You've just migrated a self-managed MongoDB VM to an Azure-managed service in an offline manner. Now, let's see how this would be different if you had lots of data in your sales database and couldn't afford downtime.
