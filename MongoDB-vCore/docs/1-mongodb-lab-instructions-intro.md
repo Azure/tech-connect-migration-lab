@@ -8,4 +8,4 @@ Recommended Reading:
 - [What is Azure Cosmos DB for MongoDB?](https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/introduction)
 - [Migration extension for Azure Data Studio](https://learn.microsoft.com/en-us/azure-data-studio/extensions/azure-cosmos-db-mongodb-migration)
 
-Click on Next at the bottom of the screen to procceed.
+Click on **Next** at the bottom of the screen to procceed.
