@@ -97,6 +97,6 @@ As part of this lab, both source VM hosting MongoDB and target Azure Cosmos DB f
     //INCLUDE IMAGE
     //INCLUDE IMAGE
 
-    >[!note] You may need to press refresh a few times to see the count go up. New sales record is written every 5 seconds.
+    >[!note] Your document count will differ from the screenshot. The idea here is to observe that document count increases over time. Also, you may need to press refresh a few times to see the count go up. New sales record is written only every 5 seconds.
 
     This concludes the preparation section. Let's now go and migrate this MongoDB to Azure Cosmos DB for MongoDB vCore.
