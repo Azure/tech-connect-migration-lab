@@ -4,8 +4,6 @@
 
 As part of this lab, both source VM hosting MongoDB and target Azure Cosmos DB for MongoDB vCore were pre-created for you. This was done to save time as the Azure Cosmos DB for MongoDB vCore service typically takes around 15 minutes to create. Both these resources were deployed with standard configuration except for networking, which is set to public endpoint. For production set up, you would want such resources inaccessible from public internet.
 
-## Connection Instructions
-
 1. Connect to the virtual machine "Win11-Pro-Base" as +++**@lab.VirtualMachine(Win11-Pro-Base).Username**+++ using +++**@lab.VirtualMachine(Win11-Pro-Base).Password**+++ as the password. 
 
     >[!hint] Select the **+++Type Text+++** icon to enter the associated text into the virtual machine. 
@@ -21,4 +19,40 @@ As part of this lab, both source VM hosting MongoDB and target Azure Cosmos DB f
    
    Select Yes when prompted to stay signed in.
 
-5. From the Portal home page, select the **Search resources, services, and docs** bar at the top and search for +++resource groups+++. 
+4. From the Portal home page, select the **Search resources, services, and docs** bar at the top and search for +++resource groups+++. 
+
+5. Select **Resource groups** from the list.
+//INCLUDE IMAGE
+
+6. Select **techconnect-mongodb-lab** from the list.
+//INCLUDE IMAGE
+
+8. Select **techconnect-vm-mongodb** from the list. This is the VM hosting a replica of MongoDB database that was pre-created for you. This VM will serve as the migration source.
+//INCLUDE IMAGE
+
+10. On the Virtual machine overview page, locate the Public IP address and enter it below for future use:
+    @lab.TextBox(MongoDBVMPublicIP)
+
+    >[!note] Your IP address will differ from the screenshot. 
+//INCLUDE IMAGE
+
+11. Minimize Microsoft Edge browser and launch **MongoDB Compass**, which is pre-installed for you on the Desktop. MongoDB Compass is popular tool for querying and administering MongoDB databases. Note: This tool is neither maintained nor developed by Microsoft Corp.
+//INCLUDE IMAGE
+
+13. Click on **+ Add new connection**
+//INCLUDE IMAGE
+
+14. On the next screen, enter the following:
+
+    **URI:** +++mongodb://techconnect:Pa$$W0rdMongoDB!@@lab.Variable(MongoDBVMPublicIP):27017/?authMechanism=SCRAM-SHA-256&replicaSet=rs0+++
+    **Name:** +++MongoDB VM+++
+
+    >[!note] Your IP address will differ from the screenshot. If no IP address is visible, please return to step 10 and fill in the box.
+
+    Next, click **Save & Connect** in the bottom right-hand corner.   
+//INCLUDE IMAGE
+
+16. You should see a success message and your MongoDB VM should now be visible in the menu on the left-hand side. Three databases should be visible: admin, config, and local. These are all system databases. There is no user-created database. Let's fix that and upload some data!
+//INCLUDE IMAGE
+
+17. 
