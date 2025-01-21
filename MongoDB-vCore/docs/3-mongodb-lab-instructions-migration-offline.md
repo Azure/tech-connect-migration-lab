@@ -51,3 +51,27 @@ In this step, we will attempt the more traditional migration approach - offline 
    On the next screen, select **Assess and Migrate Database(s)**.
 
    //INCLUDE IMAGE
+
+6. A 7-step migration wizard will appear on the right-hand side of your screen to guide you through the whole migration without needing to run any commands.
+
+   In Step 1, specify +++assessment1+++ for **Assessmnent name**, then click **Run validation**.
+   //INCLUDE IMAGE
+   //INCLUDE IMAGE
+   The validation step ensures that the database user under which we are connecting (as specified earlier in the connection string) has sufficient permissions to execute the migration. After the validation succeeds, click on **Start assessment**.
+
+   Step 2 - a compatibility assessment is automatically launched. This may take a few seconds to complete.
+   //INCLUDE IMAGE
+   Upon completion, a screen with assessment results will appear.
+   //INCLUDE IMAGE
+   Our compatibility assessment was succesful, but there are 2 informational warnings and 1 issue noted. Let's examine these closer. Click on **Warning issues** and **Informational Issues** and examine each issue description.
+   //INCLUDE IMAGE
+   The assessment reports that replSetInitiate command, which is used to initialize a new replica set, is not supported. It won't cause any issues as high availability and replication are fully managed on Azure Cosmos DB for MongoDB vCore. Similarly, you could see that certain commands relating to metrics or logging are unsupported. Azure Cosmos DB for MongoDB vCore exposes metrics and logs through interfaces common to all Azure services; consequently, commands to alter such behavior directly on the database are not supported. Azure Cosmos DB for MongoDB vCore is highly compatible with native MongoDB and most migrations will not experience any compatibility issue.
+
+   Also, worth noting is that only our sales database (prod-db-user1-xxxx) was assessed. The three system databases were not, as they are not required on Azure Cosmos DB for MongoDB vCore. To elaborate further, admin database stores user credentials and credentials are instead managed through Microsoft Entra ID. Config stores, among other things, information about sharding, which is managed by Azure platform. Lastly, local stores information about replication, which is again fully managed for you in Azure.
+
+    As there are no blocking issues, let's proceed further. **Select the tickbox** next to Database, and click **Next** at the bottom of the screen.
+
+   Step 3 -
+   
+   
+   
