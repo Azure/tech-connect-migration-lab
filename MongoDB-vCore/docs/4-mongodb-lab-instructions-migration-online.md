@@ -95,3 +95,13 @@ In this exercise, we will perform an online migration, that is one where applica
    
    >[!note] Unlike in previous migration attempt, this time we are leaving our application running. Our users can continue placing orders on our website all the while we are upgrading our database backend.
    
+   One more pop up window will appear asking us to verify connectivity. This check is done to ensure the Azure Database Migration service can reach both our source and target servers. Click on **Check connectivity** and wait a few seconds.
+  ![ads22](./media/ads22.png?raw=true)
+
+   Finally, click **Continue** to launch the online migration.
+   ![ads23](./media/ads23.png?raw=true)
+
+4. Our migration is now under way. The migration extension UI reports migration status as "In progress". 
+   ![ads31](./media/ads31.png?raw=true)
+
+   
