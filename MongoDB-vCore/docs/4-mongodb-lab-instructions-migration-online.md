@@ -1,8 +1,8 @@
 # MongoDB Lab - Online migration
 
-## Perform offline migration
+## Perform online migration
 
-In this exercise, we will perform an online migration, that is one where application downtime is unacceptable. Online migration is typically used for high-value production systems or systems with significant volume of data.
+In this exercise, we will perform an online migration, that is one where application downtime is not needed. Online migration is typically used for high-value production systems or systems with significant volume of data.
 
 1. Before we begin, we need to revert the lab environment to state before offline migration. That is, we need to erase any migrated data on the target Azure Cosmos DB for MongoDB vCore, and repoint our application to write into source VM.
 
