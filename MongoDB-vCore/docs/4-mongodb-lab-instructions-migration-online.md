@@ -45,4 +45,22 @@ In this exercise, we will perform an online migration, that is one where applica
 
    With that we've successfully reverted the lab environment a state before first migration!
 
-3. Now, let's proceed with online migration.
+2. Now, let's proceed with online migration. Switch over to **Azure Data Studio**, Microsoft's preferred MongoDB migration tool.
+
+   In Azure Data Studio the MongoDB VM connection should still be visible on the top left. Right-click on **MongoDB VM** and select **Manage**.
+
+  ![ads8](./media/ads8.png?raw=true)
+
+   Select **Azure Cosmos DB Migration** to begin.
+
+   ![ads9](./media/ads9.png?raw=true)
+
+   On the next screen, select **Assess and Migrate Database(s)**.
+
+   ![ads10](./media/ads10.png?raw=true) 
+
+3. A 7-step migration wizard will appear on the right-hand side of your screen to guide you through the whole migration without needing to run any commands.
+
+
+
+
