@@ -18,6 +18,7 @@ In this exercise, we will perform an online migration, that is one where applica
    ![console6](./media/console6.png?raw=true)
 
    The result should look as follows:
+   
    ![console5](./media/console5.png?raw=true)   
 
    Next press **Ctrl+X** followed by **Shift+Y** followed by **Enter**. This will save the file.
