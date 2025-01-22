@@ -91,7 +91,9 @@ In this exercise, we will perform an online migration, that is one where applica
    Step 7 - Schema was created successfully, and we now have three empty collections (sales, customers, products) on our target Azure Cosmos DB for MongoDB vCore instance.
    ![ads20](./media/ads20.png?raw=true)
 
-   click on **Start migration** at the bottom of the screen.
+   Up until now, the steps were exactly the same as with offline migratinon.
+
+   Click on **Start migration** at the bottom of the screen.
    
    >[!note] Unlike in previous migration attempt, this time we are leaving our application running. Our users can continue placing orders on our website all the while we are upgrading our database backend.
    
