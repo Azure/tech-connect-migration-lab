@@ -33,7 +33,7 @@ In this exercise, we will perform an online migration, that is one where applica
 
    ![mongodb compass17](./media/mongo%20compass17.png?raw=true)
 
-   [!alert] Ensure you are deleting database ending with your lab username **@lab.CloudPortalCredential(User1).Username**. Other lab users share this server with you and you would end up deleting their work! Please double, triple check.
+   >[!alert] Ensure you are deleting database ending with your lab username **@lab.CloudPortalCredential(User1).Username**. Other lab users share this server with you and you would end up deleting their work! Please double, triple check.
 
    A pop up window will appear in the middle of the screen asking you to retype the name of the database to confirm. Please input it and click **Drop Database** in the bottom right-hand corner.
   ![mongodb compass18](./media/mongo%20compass18.png?raw=true)
@@ -41,7 +41,7 @@ In this exercise, we will perform an online migration, that is one where applica
    A success message should appear at the bottom left and our database should disappear from the list of available databases under Azure Cosmos DB for MongoDB vCore.
    ![mongodb compass19](./media/mongo%20compass19.png?raw=true)
       
-   [!note] You may still see other database listed under Azure Cosmos DB for MongoDB vCore. These belong to other lab users. Please kindly ignore them.
+   >[!note] You may still see other database listed under Azure Cosmos DB for MongoDB vCore. These belong to other lab users. Please kindly ignore them.
 
    With that we've successfully reverted the lab environment a state before first migration!
 
@@ -74,6 +74,24 @@ In this exercise, we will perform an online migration, that is one where applica
    ![ads16](./media/ads16.png?raw=true)
 
    Specify **Connection string** as follows: +++mongodb+srv://techconnect:XXXXXXXX@techconnect-vcore-1.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000+++
+
    Next, click **Test connection** to verify connectivity to target instance. Then click **Next** at the bottom of the screen to proceed.
 
+   Step 4 - In step 4, we are shown a list of all collections that will be migrated. We could selectively exclude certain collections from migration, but in this case, we want to migrate them all. Click **Next** at the bottom of the screen.
+   ![ads17](./media/ads17.png?raw=true)
 
+   Step 5 - In step 5 we create (or select an existing) instance of Azure Database Migration Service. It provides a scalable cloud compute to power data migrations. An instance named dms-mongodb was already pre-created for you.
+
+   Selections for Migration name, Subscription, Resource group, and instance should automatically prepopulate. If not, please use available drop downs and make selections as per below screenshot. Set **Migration mode** as **Online**. Click **Next** at the bottom of the screen to proceed.
+   ![ads29](./media/ads29.png?raw=true)
+
+   Step 6 - We are presented with a summary of our choices - collections to be migrated, migration target, and migration mode, which is set to Online. Since everything looks correct, let's click on **Create Schema** at the bottom of the page.
+   ![ads30](./media/ads30.png?raw=true)
+
+   Step 7 - Schema was created successfully, and we now have three empty collections (sales, customers, products) on our target Azure Cosmos DB for MongoDB vCore instance.
+   ![ads20](./media/ads20.png?raw=true)
+
+   click on **Start migration** at the bottom of the screen.
+   
+   >[!note] Unlike in previous migration attempt, this time we are leaving our application running. Our users can continue placing orders on our website all the while we are upgrading our database backend.
+   
