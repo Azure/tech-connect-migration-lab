@@ -61,6 +61,19 @@ In this exercise, we will perform an online migration, that is one where applica
 
 3. A 7-step migration wizard will appear on the right-hand side of your screen to guide you through the whole migration without needing to run any commands.
 
+   In Step 1, specify +++assessment2+++ for **Assessmnent name**, then click **Run validation**, then click **Start assessment**.
+   ![ads26](./media/ads26.png?raw=true)
+   ![ads27](./media/ads27.png?raw=true)
 
+   Step 2 - a compatibility assessment is automatically launched. This may take a few seconds to complete.
+   ![ads28](./media/ads28.png?raw=true)
+
+   As we assessed our server just minutes ago and found no blocking issues, we can safely proceed. **Select the tickbox** next to Database, and click **Next** at the bottom of the screen.
+
+   Step 3 - we now specify the connection to our migration target. Selections for Subscription, Resource group, and instance should automatically prepopulate. If not, please use available drop downs and make selections as per below screenshot.
+   ![ads16](./media/ads16.png?raw=true)
+
+   Specify **Connection string** as follows: +++mongodb+srv://techconnect:XXXXXXXX@techconnect-vcore-1.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000+++
+   Next, click **Test connection** to verify connectivity to target instance. Then click **Next** at the bottom of the screen to proceed.
 
 
