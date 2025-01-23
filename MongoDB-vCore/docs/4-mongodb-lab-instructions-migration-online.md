@@ -91,7 +91,12 @@ In this exercise, we will perform an online migration, that is one where applica
    Step 7 - Schema was created successfully, and we now have three empty collections (sales, customers, products) on our target Azure Cosmos DB for MongoDB vCore instance.
    ![ads20](./media/ads20.png?raw=true)
 
-   Up until now, the steps were exactly the same as with offline migratinon.
+   Up until now, the steps were exactly the same as in previous exercise, where we performed an offline copy. There the process involved stopping our application, performing a simple data copy, and restarting our application with connectiong string pointing to migration target. All data up until the start of the migration was copied. If we had not stopped the application, any updates made during the migration would have been lost.
+
+   Online migration, on the other hand, consists of three phases:
+   1. Initial Data Copy: This phase is similar to offline migration, where a simple data copy is performed to migrate historical data.
+   2. Delta Sync: This is where online migration differs. During this phase, MongoDB's [change streams](https://www.mongodb.com/docs/manual/changeStreams/) are used. Change streams are an in-built change data capture mechanism that allows us to replay all writes, updates, and deletes on the target server. This ensures that any changes made during the migration are captured and applied to the target server, preventing data loss.
+   3. Cutover: Once the source and target servers are in sync, we repoint our application to the target. Prior to reporting we may choose to briefly (~1 minute) stop our application and verify document counts match on both servers, but it is not required. In this lab, ... 
 
    Click on **Start migration** at the bottom of the screen.
    
@@ -103,7 +108,7 @@ In this exercise, we will perform an online migration, that is one where applica
    Finally, click **Continue** to launch the online migration.
    ![ads23](./media/ads23.png?raw=true)
 
-4. Our migration is now under way. The migration extension UI reports migration status as "In progress". 
+5. Our migration is now under way. The migration extension UI reports migration status as "In progress". 
    ![ads31](./media/ads31.png?raw=true)
 
    
