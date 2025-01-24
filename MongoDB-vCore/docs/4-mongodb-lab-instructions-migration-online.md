@@ -100,7 +100,7 @@ In this exercise, we will perform an online migration, that is one where applica
        1. We may prioritize full safety and data consistency. In such a case, we would stop our application for a very brief moment (~1 minute), wait for the latest changes to synchronize to the target (should only take some seconds as per the frequency of microbatching), verify document counts match on the source and target, and repoint our application.
        2. We may prioritize uptime. In such a case, we perform a rolling upgrade and bring up a new instance of our application with the connection string pointing to the target server while gradually draining connections to the existing instance of our application which points to source server. This approach can achieve zero downtime, but it makes it harder to reason about the consistency of data during the cutover as well as execute a rollback, if needed.
 
-   >[!note] Unlike in the previous migration attempt, this time we are leaving our application running. Our users can continue placing orders on our website all the while we are upgrading our database backend. When the time to perform a cutover comes, we will, however, choose to execute the simpler cutover and stop our app for a very brief moment to verify data is fully in sync on both servers.
+   >[!note] Unlike in the previous migration attempt, this time we are leaving our application running. Our users can continue placing orders on our website all the while we are upgrading our database backend. In this lab, When the time to perform a cutover comes we will choose to execute the simpler cutover and stop our app for a very brief moment to verify data is fully in sync on both servers. We see this approach to be much more prevalent in actual migration scenarios as most systems can tolerate very very brief downtime. Please note the fact that we take a minute (or so) of donwtime doesn't equate this approach to that of offline migration. With actual offline migration like we performed in previous exercise we would need to endure donwtime equal to duration of initial data copy, which for very large databases can be measured on the order of days.
 
    Click on **Start migration** at the bottom of the screen to proceed.
       
@@ -117,9 +117,44 @@ In this exercise, we will perform an online migration, that is one where applica
    ![ads32](./media/ads32.png?raw=true)
    ![ads33](./media/ads33.png?raw=true)
 
-   Note, that document count in replication (changes replayed) column keeps increasing. The Azure Data Studio migration extension performs a microbatch about every minute or two, so it might take a short while before you see the count go up.
+   Note, that document count in changes replayed column keeps increasing. The Azure Data Studio migration extension performs a microbatch about every minute or two, so it might take a short while before you see the count go up.
    ![ads34](./media/ads34.png?raw=true)
 
-   
+   As we are dealing with very small volumes of data in this lab, our replication lag ("delta") is immediately minimized and we are now ready to move on. Let's now quickly shut off and repoint our application, while also verifying data consistency.
+
+   Switch to Edge browser. Your console should still be open and active. If console has disconnected, close it and reconnect.
+
+   In VM console, type +++sudo systemctl stop new_sales_generator.service+++ and press enter. This will stop our application.
+   ![console3](./media/console3.png?raw=true)
+
+   Next, switch to MongoDB Compass. Click on **MongoDB VM**, select **sales** collection and refresh document count. Take a note of the count and also observe that it doesn't change. Our application is stopped, and we now need to move fast to complete the migration to minimize downtime for users.
+   ![mongodb compass12](./media/mongo%20compass12.png?raw=true)
+
+   Next, click on **...** next to Azure Cosmos DB for MongoDB vCore and select **Refresh databases**.
+   ![mongodb compass13](./media/mongo%20compass13.png?raw=true)
+
+   Our database prod-db-user1-xxxx should now appear. Click on the arrow next to our database to expand collection list. Select **sales** collection. In top right-hand corner take note of the document count. Check that it matches count seen on MongoDB VM.
+   ![mongodb compass14](./media/mongo%20compass14.png?raw=true)
+
+   Great! The document counts match, source and target are in sync. Let's now quickly repoint our app and bring it back online.
+
+   Switch back to Edge browser. In VM console, type +++sudo nano /usr/local/bin/new_sales_generator.sh+++ and press enter.
+   ![console4](./media/console4.png?raw=true)
+
+   A text editor will open. Use arrow keys to navigate to where MONGO_CONNECTION is defined (line 4). Erase current value and replace it with Azure Cosmos DB for MongoDB vCore connection string by typing +++'mongodb+srv://techconnect:XXXXXXXX@techconnect-vcore-1.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000'+++. Note that single quotes are used to prevent variable expansion.
+   ![console5](./media/console5.png?raw=true)
+
+   The result should look as follows:
+   ![console6](./media/console6.png?raw=true)
+
+   Next press **Ctrl+X** followed by **Shift+Y** followed by **Enter**. This will save the file.
+
+   Finally, restart our application by typing: +++sudo systemctl start new_sales_generator.service+++ and press enter.
+   ![console7](./media/console7.png?raw=true)
+
+   Let's switch over to MongoDB Compass and verify our application is able to write to Azure Cosmos DB for MongoDB vCore. In MongoDB Compass select **Azure Cosmos DB for MongoDB vCore** and click on **sales** collection. Click to refresh the document count in top right-hand corner. After a few seconds refresh again. You should see document count going up.
+   ![mongodb compass16](./media/mongo%20compass16.png?raw=true)
+
+   As the very last step, 
 
 
