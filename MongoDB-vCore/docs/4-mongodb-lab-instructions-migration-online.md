@@ -4,9 +4,9 @@
 
 In this exercise, we will perform an online migration, that is one where application downtime is not needed. Online migration is typically used for high-value production systems or systems with significant volume of data.
 
-1. Before we begin, we need to revert the lab environment to state before offline migration. That is, we need to erase any migrated data on the target Azure Cosmos DB for MongoDB vCore, and repoint our application to write into source VM.
+1. Before we begin, we need to revert the lab environment to the state before offline migration. That is, we need to erase any migrated data on the target Azure Cosmos DB for MongoDB vCore, and repoint our application to write into source VM.
 
-   Let's reconnect to our source VM and stop our application. Switch to Edge browser. Your console should still be open and active. If console has disconnected, close it and reconnect.
+   Let's reconnect to our source VM and stop our application. Switch to the Edge browser. Your console should still be open and active. If console has disconnected, close it and reconnect.
 
    In VM console, type +++sudo systemctl stop new_sales_generator.service+++ and press enter. This will stop our application.
    ![console3](./media/console3.png?raw=true) 
@@ -14,7 +14,7 @@ In this exercise, we will perform an online migration, that is one where applica
    Next, type +++sudo nano /usr/local/bin/new_sales_generator.sh+++ and press enter.
    ![console4](./media/console4.png?raw=true)
    
-   A text editor will open. Use arrow keys to navigate to where MONGO_CONNECTION is defined (line 4). Erase current value and replace it with source VM MongoDB connection string by typing +++"mongodb://127.0.0.1:27017/?replicaSet=rs0"+++.
+   A text editor will open. Use arrow keys to navigate to where MONGO_CONNECTION is defined (line 4). Erase current value and replace it with the source VM MongoDB connection string by typing +++"mongodb://127.0.0.1:27017/?replicaSet=rs0"+++.
    ![console6](./media/console6.png?raw=true)
 
    The result should look as follows:
@@ -26,24 +26,24 @@ In this exercise, we will perform an online migration, that is one where applica
    Finally, restart our application by typing: +++sudo systemctl start new_sales_generator.service+++ and press enter.
    ![console7](./media/console7.png?raw=true)
 
-   Let's switch over to MongoDB Compass and verify our application is able to write to source MongoDB VM. In MongoDB Compass select **MongoDB VM** and click on **sales** collection. Click to refresh the document count in top right-hand corner. After a few seconds refresh again. You should see document count going up.
+   Let's switch over to the MongoDB Compass and verify our application is able to write to source MongoDB VM. In MongoDB Compass select **MongoDB VM** and click on **sales** collection. Click to refresh the document count in top right-hand corner. After a few seconds refresh again. You should see document count going up.
    ![mongodb compass15](./media/mongo%20compass15.png?raw=true)
 
-   Lastly, let's delete the database we migrated to target in previous exercise. In MongoDB Compass select **Azure Cosmos DB for MongoDB vCore** and locate database ending with your username **@lab.CloudPortalCredential(User1).Username**. Click on the trash can icon next to the database name.
+   Lastly, let's delete the database we migrated to target in the previous exercise. In MongoDB Compass select **Azure Cosmos DB for MongoDB vCore** and locate database ending with your username **@lab.CloudPortalCredential(User1).Username**. Click on the trash can icon next to the database name.
 
    ![mongodb compass17](./media/mongo%20compass17.png?raw=true)
 
    >[!alert] Ensure you are deleting database ending with your lab username **@lab.CloudPortalCredential(User1).Username**. Other lab users share this server with you and you would end up deleting their work! Please double, triple check.
 
-   A pop up window will appear in the middle of the screen asking you to retype the name of the database to confirm. Please input it and click **Drop Database** in the bottom right-hand corner.
+   A pop-up window will appear in the middle of the screen asking you to retype the name of the database to confirm. Please input it and click **Drop Database** in the bottom right-hand corner.
   ![mongodb compass18](./media/mongo%20compass18.png?raw=true)
 
    A success message should appear at the bottom left and our database should disappear from the list of available databases under Azure Cosmos DB for MongoDB vCore.
    ![mongodb compass19](./media/mongo%20compass19.png?raw=true)
       
-   >[!note] You may still see other database listed under Azure Cosmos DB for MongoDB vCore. These belong to other lab users. Please kindly ignore them.
+   >[!note] You may still see other databases listed under Azure Cosmos DB for MongoDB vCore. These belong to other lab users. Please kindly ignore them.
 
-   With that we've successfully reverted the lab environment a state before first migration!
+   With that we've successfully reverted the lab environment the state before the first migration!
 
 2. Now, let's proceed with online migration. Switch over to **Azure Data Studio**, Microsoft's preferred MongoDB migration tool.
 
@@ -70,7 +70,7 @@ In this exercise, we will perform an online migration, that is one where applica
 
    As we assessed our server just minutes ago and found no blocking issues, we can safely proceed. **Select the tickbox** next to Database, and click **Next** at the bottom of the screen.
 
-   Step 3 - we now specify the connection to our migration target. Selections for Subscription, Resource group, and instance should automatically prepopulate. If not, please use available drop downs and make selections as per below screenshot.
+   Step 3 - we now specify the connection to our migration target. Selections for Subscription, Resource group, and instance should automatically prepopulate. If not, please use available drop-downs and make selections as per below screenshot.
    ![ads16](./media/ads16.png?raw=true)
 
    Specify **Connection string** as follows: +++mongodb+srv://techconnect:XXXXXXXX@techconnect-vcore-1.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000+++
@@ -127,7 +127,7 @@ In this exercise, we will perform an online migration, that is one where applica
    In VM console, type +++sudo systemctl stop new_sales_generator.service+++ and press enter. This will stop our application.
    ![console3](./media/console3.png?raw=true)
 
-   Next, switch to MongoDB Compass. Click on **MongoDB VM**, select **sales** collection and refresh document count. Take a note of the count and also observe that it doesn't change. Our application is stopped, and we now need to move fast to complete the migration to minimize downtime for users.
+   Next, switch to MongoDB Compass. Click on **MongoDB VM**, select **sales** collection and refresh the document count. Take a note of the count and also observe that it doesn't change. Our application is stopped, and we now need to move fast to complete the migration to minimize downtime for users.
    ![mongodb compass12](./media/mongo%20compass12.png?raw=true)
 
    Next, click on **...** next to Azure Cosmos DB for MongoDB vCore and select **Refresh databases**.
@@ -158,10 +158,10 @@ In this exercise, we will perform an online migration, that is one where applica
    As the very last step, we need to stop the delta sync, which is no longer needed. Switch back to Azure Data Studio. The **assessment2** migration detail page should still be open. If not, please re-open it. At the top select **Cutover**. 
    ![ads35](./media/ads35.png?raw=true)
 
-   A pop up will appear with instructions on how to complete the cutover. This is a repeat of the steps we have just completed. Select the **tickbox** to acknowledge and click **Confirm cutover**.
+   A pop-up will appear with instructions on how to complete the cutover. This is a repeat of the steps we have just completed. Select the **tickbox** to acknowledge and click **Confirm cutover**.
    ![ads36](./media/ads36.png?raw=true)
 
-   It may take some more minutes, but eventually the UI will report migration status as completed. You do not need to wait till it happens. 
+   It may take some more minutes, but eventually the UI will report migration status as completed. You do not need to wait until it happens. 
    ![ads37](./media/ads37.png?raw=true)
 
-   Congratulations! You've just migrated a self-managed MongoDB VM to an Azure-managed service in an online manner. While we dealt only with small volume of data, the exact same steps would be followed for migration of large production system.
+   Congratulations! You've just migrated a self-managed MongoDB VM to an Azure-managed service in an online manner. While we dealt only with a small volume of data, the exact same steps would be followed for migration of large production system.
