@@ -110,7 +110,16 @@ In this exercise, we will perform an online migration, that is one where applica
    Finally, click **Continue** to launch the online migration.
    ![ads23](./media/ads23.png?raw=true)
 
-5. Our migration is now under way. The migration extension UI reports migration status as "In progress". 
+5. Our migration is now under way. The migration extension UI reports migration status as "In progress". Click on **assessment2** to view detailed migration status. 
    ![ads31](./media/ads31.png?raw=true)
 
+   At first, our copy job will report as queued, but within few minutes we should see that phase 1 - initial data copy - is complete, and that phase 2 has begun.
+   ![ads32](./media/ads32.png?raw=true)
+   ![ads33](./media/ads33.png?raw=true)
+
+   Note, that document count in replication (changes replayed) column keeps increasing. The Azure Data Studio migration extension performs a microbatch about every minute or two, so it might take a short while before you see the count go up.
+   ![ads34](./media/ads34.png?raw=true)
+
    
+
+
