@@ -152,9 +152,16 @@ In this exercise, we will perform an online migration, that is one where applica
    Finally, restart our application by typing: +++sudo systemctl start new_sales_generator.service+++ and press enter.
    ![console7](./media/console7.png?raw=true)
 
-   Let's switch over to MongoDB Compass and verify our application is able to write to Azure Cosmos DB for MongoDB vCore. In MongoDB Compass select **Azure Cosmos DB for MongoDB vCore** and click on **sales** collection. Click to refresh the document count in top right-hand corner. After a few seconds refresh again. You should see document count going up.
+   Let's switch over to MongoDB Compass and verify our application is able to write to Azure Cosmos DB for MongoDB vCore. In MongoDB Compass select **Azure Cosmos DB for MongoDB vCore** and click on **sales** collection. Click to refresh the document count in top right-hand corner. After a few seconds refresh again. You should see document count going up. Great that means our users are able to place orders again.
    ![mongodb compass16](./media/mongo%20compass16.png?raw=true)
 
-   As the very last step, 
+   As the very last step, we need to stop the delta sync, which is no longer needed. Switch back to Azure Data Studio. The **assessment2** migration detail page should still be open. If not, please re-open it. At the top select **Cutover**. 
+   ![ads35](./media/ads35.png?raw=true)
 
+   A pop up will appear with instructions on how to complete the cutover. This is a repeat of the steps we have just completed. Select the **tickbox** to acknowledge and click **Confirm cutover**.
+   ![ads36](./media/ads36.png?raw=true)
 
+   It may take some more minutes, but eventually the UI will report migration status as completed. You do not need to wait till it happens. 
+   ![ads37](./media/ads37.png?raw=true)
+
+   Congratulations! You've just migrated a self-managed MongoDB VM to an Azure-managed service in an online manner. While we dealt only with small volume of data, the exact same steps would be followed for migration of large production system.
