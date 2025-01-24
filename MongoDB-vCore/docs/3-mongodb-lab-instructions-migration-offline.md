@@ -2,7 +2,7 @@
 
 ## Perform offline migration
 
-In this step, we will attempt the more traditional migration approach - offline - that is one where application downtime is necessary. Such approach is suitable for migration of smaller volumes of data and/or for non-critical systems where downtime is acceptable (e.g., an internal-facing app is taken offline for a few hours on a Saturday night).
+In this step, we will attempt the more traditional migration approach - offline - that is one where application downtime is necessary. Such an approach is suitable for migration of smaller volumes of data and/or for non-critical systems where downtime is acceptable (e.g., an internal-facing app is taken offline for a few hours on a Saturday night).
 
 1. Minimize any open application windows and launch **Azure Data Studio**, which is pre-installed for you on the Desktop. As mentioned earlier, Azure Data Studio is Microsoft's preferred tool for executing MongoDB migrations.
    ![ads1](./media/ads1.png?raw=true)
@@ -10,7 +10,7 @@ In this step, we will attempt the more traditional migration approach - offline 
 2. Once Data Studio launches, **click on the person icon** in the bottom left-hand corner.
    ![ads2](./media/ads2.png?raw=true)
 
-   A pop up window will appear on the right-hand side of your screen. Click on **Add an account**.
+   A pop-up window will appear on the right-hand side of your screen. Click on **Add an account**.
    ![ads2x](./media/ads2x.png?raw=true)
 
    Doing so will open the Edge browser and prompt you to log in. Select **Use another account** and enter the following:
@@ -84,14 +84,14 @@ In this step, we will attempt the more traditional migration approach - offline 
    Next, switch back to MongoDB Compass and let's add the connection to target instance there as well. Click on **+** button next to MongoDB VM.
    ![mongodb compass9](./media/mongo%20compass9.png?raw=true)
 
-   In the new connection pop up window specify the following:
+   In the new connection pop-up window specify the following:
    **URI:** +++mongodb+srv://techconnect:XXXXXXXX@techconnect-vcore-1.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000+++
    **Name:** +++Azure Cosmos DB for MongoDB vCore+++
 
    ![mongodb compass10](./media/mongo%20compass10.png?raw=true)
    Click **Save & Connect** at the bottom right.
 
-   A new pop up will appear informing users that target is an "emulation" of MongoDB. That's correct - Azure Cosmos DB provides wire protocol compatibility with MongoDB databases. Microsoft does not run MongoDB databases to provide this service. Click **Confirm** to proceed.
+   A new pop-up will appear informing users that target is an "emulation" of MongoDB. That's correct - Azure Cosmos DB provides wire protocol compatibility with MongoDB databases. Microsoft does not run MongoDB databases to provide this service. Click **Confirm** to proceed.
    ![mongodb compass11](./media/mongo%20compass11.png?raw=true)
 
    Let's now return back to Azure Data Studio to continue with the migration.
@@ -125,13 +125,13 @@ In this step, we will attempt the more traditional migration approach - offline 
    In Azure Data Studio, at Step 7, click on **Start migration** at the bottom of the screen.
    ![ads21](./media/ads20.png?raw=true)
 
-   One more pop up window will appear asking us to verify connectivity. This check is done to ensure the Azure Database Migration service can reach both our source and target servers. Currently, Azure Data Studio migration extension supports only public-endpoint enabled instances. Private endpoint support is coming in Q1 2025. Click on **Check connectivity** and wait a few seconds.
+   One more pop-up window will appear asking us to verify connectivity. This check is done to ensure the Azure Database Migration service can reach both our source and target servers. Currently, Azure Data Studio migration extension supports only public-endpoint enabled instances. Private endpoint support is coming in Q1 2025. Click on **Check connectivity** and wait a few seconds.
   ![ads22](./media/ads22.png?raw=true)
 
   Finally, click **Continue** to launch the migration.
   ![ads23](./media/ads23.png?raw=true)
 
-7. Our migration is now under way. The migration extension UI reports migration status as "In progress". 
+7. Our migration is now under way. The migration extension UI will report migration status as "In progress". 
    ![ads24](./media/ads24.png?raw=true)
    
    In about 2-3 minutes, you should see the status change to "Succeeded". Let's now switch back over to MongoDB Compass to verify the results.
