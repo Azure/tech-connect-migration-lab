@@ -81,7 +81,7 @@ As part of this lab, both the source VM hosting MongoDB and the target Azure Cos
     You are now connected to the VM hosting MongoDB. You should see the following:
 ![console1](./media/console1.png?raw=true)
 
-17. Let's now create a new database and load some data. Because, in a regular migration, you would be dealing with a system that is used for production and already has data, we will fast-track this step and run a script that will populate the database for you. The script is already pre-loaded on the machine for you and will use sales data from the [CosmicWorks](https://github.com/AzureCosmosDB/CosmicWorks) dataaset. Type +++/usr/local/etc/load_data.sh+++ into the console and press enter. This will execute the script.
+17. Let's now create a new database and load some data. Because, in a regular migration, you would be dealing with a system that is used for production and already has data, we will fast-track this step and run a script that will populate the database for you. The script is already pre-loaded on the machine for you and will use sales data from the [CosmicWorks](https://github.com/AzureCosmosDB/CosmicWorks) dataset. Type +++/usr/local/etc/load_data.sh+++ into the console and press enter. This will execute the script.
 
     In about 10 seconds, the script will complete the data load. You should see that tens of thousands of documents have just been loaded successfully.
     ![console2](./media/console2.png?raw=true)
