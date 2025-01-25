@@ -17,8 +17,8 @@ In this step, we will attempt the more traditional migration approach - offline 
 
    ![ads3](./media/ads3.png?raw=true)
 
-    **Username:** +++User1-47490180@LODSPRODMCA.onmicrosoft.com+++
-    **Password:** +++XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX+++
+    **Username:** +++@lab.Variable(AzureLogin)+++
+    **Password:** +++@lab.Variable(AzurePassword)+++
 
     >[!alert] Do not select the already signed in account. If you by accident select the existing account, return to Data Studio, remove the account and repeat this step.
 
@@ -37,7 +37,7 @@ In this step, we will attempt the more traditional migration approach - offline 
 
    Enter the following for connection string to our source VM, then click **Connect**.
 
-      **Connection string:** +++mongodb://techconnect:Pa$$W0rdMongoDB!@@lab.Variable(MongoDBVMPublicIP):27017/?authMechanism=SCRAM-SHA-256&replicaSet=rs0+++
+      **Connection string:** +++mongodb://@lab.Variable(MongoDBUsername):@lab.Variable(MongoDBPassword)@@lab.Variable(MongoDBVMPublicIP):27017/?authMechanism=SCRAM-SHA-256&replicaSet=rs0+++
       **Name:** +++MongoDB VM+++
 
 5. Once connected, the MongoDB VM connection will be visible on the top left. You should see the three system databases along with "prod-db-user1-xxx" that hosts the sales data. Right-click on **MongoDB VM** and select **Manage**.
@@ -85,7 +85,7 @@ In this step, we will attempt the more traditional migration approach - offline 
    ![mongodb compass9](./media/mongo%20compass9.png?raw=true)
 
    In the new connection pop-up window specify the following:
-   **URI:** +++mongodb+srv://techconnect:XXXXXXXX@techconnect-vcore-1.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000+++
+   **URI:** +++mongodb+srv://@lab.Variable(CosmosDBUsername):@lab.Variable(CosmosDBPassword)@@lab.Variable(CosmosDBServername).mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000+++
    **Name:** +++Azure Cosmos DB for MongoDB vCore+++
 
    ![mongodb compass10](./media/mongo%20compass10.png?raw=true)
