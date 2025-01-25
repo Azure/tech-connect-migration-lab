@@ -73,7 +73,7 @@ In this exercise, we will perform an online migration, that is one where applica
    Step 3 - we now specify the connection to our migration target. Selections for Subscription, Resource group, and instance should automatically prepopulate. If not, please use available drop-downs and make selections as per below screenshot.
    ![ads16](./media/ads16.png?raw=true)
 
-   Specify **Connection string** as follows: +++mongodb+srv://techconnect:XXXXXXXX@techconnect-vcore-1.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000+++
+   Specify **Connection string** as follows: +++mongodb+srv://@lab.Variable(CosmosDBUsername):@lab.Variable(CosmosDBPassword)@@lab.Variable(CosmosDBServername).mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000+++
 
    Next, click **Test connection** to verify connectivity to target instance. Then click **Next** at the bottom of the screen to proceed.
 
@@ -141,7 +141,7 @@ In this exercise, we will perform an online migration, that is one where applica
    Switch back to Edge browser. In VM console, type +++sudo nano /usr/local/bin/new_sales_generator.sh+++ and press enter.
    ![console4](./media/console4.png?raw=true)
 
-   A text editor will open. Use arrow keys to navigate to where MONGO_CONNECTION is defined (line 4). Erase current value and replace it with Azure Cosmos DB for MongoDB vCore connection string by typing +++'mongodb+srv://techconnect:XXXXXXXX@techconnect-vcore-1.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000'+++. Note that single quotes are used to prevent variable expansion.
+   A text editor will open. Use arrow keys to navigate to where MONGO_CONNECTION is defined (line 4). Erase current value and replace it with Azure Cosmos DB for MongoDB vCore connection string by typing +++'mongodb+srv://@lab.Variable(CosmosDBUsername):@lab.Variable(CosmosDBPassword)@@lab.Variable(CosmosDBServername).mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000'+++. Note that single quotes are used to prevent variable expansion.
    ![console5](./media/console5.png?raw=true)
 
    The result should look as follows:
