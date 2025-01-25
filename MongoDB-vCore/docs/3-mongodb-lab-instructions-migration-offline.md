@@ -35,10 +35,10 @@ In this step, we will attempt the more traditional migration approach - offline 
 
    >[!note] The same connection type can be used to connect to any MongoDB wire-protocol compatible installation. In this case, we are not connecting to Azure Cosmos DB for MongoDB but to native MongoDB on a VM.
 
-   Enter the following for connection string to our source VM, then click **Connect**.
+   Provide the following connection details for our source VM, then click **Connect**.
 
-      **Connection string:** +++mongodb://@lab.Variable(MongoDBUsername):@lab.Variable(MongoDBPassword)@@lab.Variable(MongoDBVMPublicIP):27017/?authMechanism=SCRAM-SHA-256&replicaSet=rs0+++
-      **Name:** +++MongoDB VM+++
+   **Connection string:** +++mongodb://@lab.Variable(MongoDBUsername):@lab.Variable(MongoDBPassword)@@lab.Variable(MongoDBVMPublicIP):27017/?authMechanism=SCRAM-SHA-256&replicaSet=rs0+++
+   **Name:** +++MongoDB VM+++
 
 5. Once connected, the MongoDB VM connection will be visible on the top left. You should see the three system databases along with "prod-db-user1-xxx" that hosts the sales data. Right-click on **MongoDB VM** and select **Manage**.
 
