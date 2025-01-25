@@ -48,7 +48,7 @@ As part of this lab, both the source VM hosting MongoDB and the target Azure Cos
 
 12. On the next screen, enter the following:
 
-    **URI:** +++mongodb://techconnect:Pa$$W0rdMongoDB!@@lab.Variable(MongoDBVMPublicIP):27017/?authMechanism=SCRAM-SHA-256&replicaSet=rs0+++
+    **URI:** +++mongodb://@lab.Variable(MongoDBUsername):@lab.Variable(MongoDBPassword)@@lab.Variable(MongoDBVMPublicIP):27017/?authMechanism=SCRAM-SHA-256&replicaSet=rs0+++
     **Name:** +++MongoDB VM+++
 
     >[!note] Your IP address will differ from the screenshot. If no IP address is visible, please return to step 8 and fill in the box.
