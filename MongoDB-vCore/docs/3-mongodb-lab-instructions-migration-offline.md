@@ -153,7 +153,7 @@ In this step, we will attempt the more traditional migration approach - offline 
    In VM console, type +++sudo nano /usr/local/bin/new_sales_generator.sh+++ and press enter.
    ![console4](./media/console4.png?raw=true)
 
-   A text editor will open. Use arrow keys to navigate to where MONGO_CONNECTION is defined (line 4). Erase current value and replace it with Azure Cosmos DB for MongoDB vCore connection string by typing +++'mongodb+srv://techconnect:XXXXXXXX@techconnect-vcore-1.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000'+++. Note that single quotes are used to prevent variable expansion.
+   A text editor will open. Use arrow keys to navigate to where MONGO_CONNECTION is defined (line 4). Erase current value and replace it with Azure Cosmos DB for MongoDB vCore connection string by typing +++'mongodb+srv://@lab.Variable(CosmosDBUsername):@lab.Variable(CosmosDBPassword)@@lab.Variable(CosmosDBServername).mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000'+++. Note that single quotes are used to prevent variable expansion.
    ![console5](./media/console5.png?raw=true)
 
    The result should look as follows:
