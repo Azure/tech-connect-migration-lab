@@ -29,7 +29,7 @@ In this exercise, we will perform an online migration, that is one where applica
    Let's switch over to the MongoDB Compass and verify our application is able to write to source MongoDB VM. In MongoDB Compass select **MongoDB VM** and click on **sales** collection. Click to refresh the document count in top right-hand corner. After a few seconds refresh again. You should see document count going up.
    ![mongodb compass15](./media/mongo%20compass15.png?raw=true)
 
-   Lastly, let's delete the database we migrated to target in the previous exercise. In MongoDB Compass select **Azure Cosmos DB for MongoDB vCore** and locate database **prod-user1-@lab.LabInstance.Id**. Click on the trash can icon next to the database name.
+   Lastly, let's delete the database we migrated to target in the previous exercise. In MongoDB Compass select **Azure Cosmos DB for MongoDB vCore** and locate database **prod-db-user1-@lab.LabInstance.Id**. Click on the trash can icon next to the database name.
 
    ![mongodb compass17](./media/mongo%20compass17.png?raw=true)
 
