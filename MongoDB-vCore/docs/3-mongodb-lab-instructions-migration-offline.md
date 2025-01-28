@@ -54,7 +54,7 @@ In this step, we will attempt the more traditional migration approach - offline 
 
 6. A 7-step migration wizard will appear on the right-hand side of your screen to guide you through the whole migration without needing to run any commands.
 
-   In Step 1, specify +++assessment1+++ for **Assessmnent name**, then click **Run validation**.
+   In Step 1, specify +++offl-@lab.LabInstance.Id+++ for **Assessmnent name**, then click **Run validation**.
    ![ads11](./media/ads11.png?raw=true)
    ![ads12](./media/ads12.png?raw=true)
    The validation step ensures that the database user under which we are connecting (as specified earlier in the connection string) has sufficient permissions to execute the migration. After the validation succeeds, click on **Start assessment**.
