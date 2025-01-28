@@ -29,11 +29,11 @@ In this exercise, we will perform an online migration, that is one where applica
    Let's switch over to the MongoDB Compass and verify our application is able to write to source MongoDB VM. In MongoDB Compass select **MongoDB VM** and click on **sales** collection. Click to refresh the document count in top right-hand corner. After a few seconds refresh again. You should see document count going up.
    ![mongodb compass15](./media/mongo%20compass15.png?raw=true)
 
-   Lastly, let's delete the database we migrated to target in the previous exercise. In MongoDB Compass select **Azure Cosmos DB for MongoDB vCore** and locate database ending with your username **@lab.CloudPortalCredential(User1).Username**. Click on the trash can icon next to the database name.
+   Lastly, let's delete the database we migrated to target in the previous exercise. In MongoDB Compass select **Azure Cosmos DB for MongoDB vCore** and locate database **prod-user1-@lab.LabInstance.Id**. Click on the trash can icon next to the database name.
 
    ![mongodb compass17](./media/mongo%20compass17.png?raw=true)
 
-   >[!alert] Ensure you are deleting database ending with your lab username **@lab.CloudPortalCredential(User1).Username**. Other lab users share this server with you and you would end up deleting their work! Please double, triple check.
+   >[!alert] Ensure you are deleting database ending with your lab username **@lab.LabInstance.Id**. Other lab users share this server with you and you would end up deleting their work! Please double, triple check.
 
    A pop-up window will appear in the middle of the screen asking you to retype the name of the database to confirm. Please input it and click **Drop Database** in the bottom right-hand corner.
   ![mongodb compass18](./media/mongo%20compass18.png?raw=true)
