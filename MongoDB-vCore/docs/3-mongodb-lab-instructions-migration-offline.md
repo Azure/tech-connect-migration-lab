@@ -33,7 +33,8 @@ In this step, we will attempt the more traditional migration approach - offline 
     A pop window will appear on the right-hand side of your screen. Select connection type **Azure Cosmos DB for MongoDB**.
     ![ads7](./media/ads7.png?raw=true)
 
-   >[!note] The same connection type can be used to connect to any MongoDB wire-protocol compatible installation. In this case, we are not connecting to Azure Cosmos DB for MongoDB but to native MongoDB on a VM.
+
+    >[!note] The same connection type can be used to connect to any MongoDB wire-protocol compatible installation. In this case, we are not connecting to Azure Cosmos DB for MongoDB but to native MongoDB on a VM.
 
    Provide the following connection details for our source VM, then click **Connect**.
 
@@ -112,7 +113,7 @@ In this step, we will attempt the more traditional migration approach - offline 
    Step 7 - Schema was created successfully, and we now have three empty collections (sales, customers, products) on your target Azure Cosmos DB for MongoDB vCore instance.
    ![ads20](./media/ads20.png?raw=true)
 
-   >[!alert] Do not click to start migration yet!
+    >[!alert] Do not click to start migration yet!
 
    As this is offline migration, we now need to take downtime on our application. Let's reconnect to our source VM and stop our application. Switch to Edge browser. Your console should still be open and active. If console has disconnected, close it and reconnect.
 
