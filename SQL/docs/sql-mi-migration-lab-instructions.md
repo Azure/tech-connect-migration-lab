@@ -62,22 +62,38 @@ After completing this section, you will be able to:
 - Check the network connectivity between Source SQL server and Destination Managed Instance.
 
 1. Connect to the **source** server using Entra ID/administrator using xxxx as the password
-2. Click on the Windows/Start button after connecting to the source server and type “**SQL Server Management Studio**” as appears below:
+
+2. Click on the Windows/Start button after connecting to the source server and type “**Windows PowerShell ISE**” as appears below:
+    ![PowerShell_Open](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img_PowerShell_Open.png?raw=true)
+
+3. Click on **File** menue from PowerShell ISE window and select **Open** file as appears below:
+
+    ![PowerShell_Open_File](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img_PowerShell_Open_File.png?raw=true)
+
+4. Copy the file path and click **Open**: +++C:\SQLQueries\RestoreDBViaPowershell.ps1+++
+
+    ![PowerShell_Open_File_Restore](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img_PowerShell_Open_File_Restore.png?raw=true)
+
+5. Click on **Run Script** and wait for the script completion:
+
+    ![PowerShell_Open_File_Restore_Execute](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img_PowerShell_Open_File_Restore_Execute.png?raw=true)
+
+6. Click on the Windows/Start button after connecting to the source server and type “**SQL Server Management Studio**” as appears below:
 
     ![AccessValidation_SSMS](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img1_AccessValidation_SSMS.png?raw=true)
 
 
-3. Click on the **Connect** and then select **Database Engine** from drop down which open Connect to Server window as appears below:
+7. Click on the **Connect** and then select **Database Engine** from drop down which open Connect to Server window as appears below:
 
     ![AccessValidation_SSMS_Connect](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img2_AccessValidation_SSMS_Connect.png?raw=true)
 
-4. Fill in the connection details as appears below and Click on the **Connect** button
+8. Fill in the connection details as appears below and Click on the **Connect** button
 
     ![AccessValidation_SSMS_ConnectToServer](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img3_AccessValidation_SSMS_ConnectToServer.png?raw=true)
 
 **Here:** Server is the Source server’s FQDN/IP
 
-5. Click on the **Databases** after connecting to the source SQL server and then click on the **AdventureWorks2019**
+9. Click on the **Databases** after connecting to the source SQL server and then click on the **AdventureWorks2019_xxx** xxx is unique ID for database
 
     ![AccessValidation_SSMS_ObjectExplorer](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img4_AccessValidation_SSMS_ObjectExplorer.png?raw=true)
 
@@ -100,7 +116,7 @@ If you can see the tables as appeared above, then the connectivity to the **sour
 
     ![AccessValidation_SQL Server Configuration Manager_SQL Service_AlwaysOnAG](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img7_AccessValidation_SQL%20Server%20Configuration%20Manager_SQL%20Service_AlwaysOnAG.png?raw=true)
 
-5. Select the **Startup Parameters** tab from properties windows, Specify a startup parameter T1800 and T9567 individually and click on Add
+5. Select the **Startup Parameters** tab from properties windows, Specify a startup parameter -T1800 and -T9567 individually and click on Add
 
     ![AccessValidation_SQL Server Configuration Manager_StartupParameter_TraceFlag](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img8_AccessValidation_SQL%20Server%20Configuration%20Manager_StartupParameter_TraceFlag.png?raw=true)
 
@@ -109,7 +125,7 @@ If you can see the tables as appeared above, then the connectivity to the **sour
 
     ![AccessValidation_SQL Server Configuration Manager_SQL Service_Restart](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img9_AccessValidation_SQL%20Server%20Configuration%20Manager_SQL%20Service_Restart.png?raw=true)
 
-8. After the restart, Open **C:\SQLQueries\Query_Validate Configuration.sql** script on SQL Server to validate the configuration of your SQL Server instance using SQL Server management studio (SSMS):
+8. After the restart, In SSMS click on **File** and Select **Open** it will open Open file window, open  +++C:\SQLQueries\Query_Validate Configuration.sql+++ script and execute on SQL Server to validate the configuration of your SQL Server instance using SQL Server management studio (SSMS):
 
     ![AccessValidation_SSMS_ValidationByQuery](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img10_AccessValidation_SSMS_ValidationByQuery.png?raw=true)
 
