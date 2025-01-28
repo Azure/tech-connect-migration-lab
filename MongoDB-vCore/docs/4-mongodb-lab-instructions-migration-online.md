@@ -61,7 +61,7 @@ In this exercise, we will perform an online migration, that is one where applica
 
 3. A 7-step migration wizard will appear on the right-hand side of your screen to guide you through the whole migration without needing to run any commands.
 
-   In Step 1, specify +++assessment2+++ for **Assessmnent name**, then click **Run validation**, then click **Start assessment**.
+   In Step 1, specify +++onl-@lab.LabInstance.Id+++ for **Assessmnent name**, then click **Run validation**, then click **Start assessment**.
    ![ads26](./media/ads26.png?raw=true)
    ![ads27](./media/ads27.png?raw=true)
 
@@ -110,7 +110,7 @@ In this exercise, we will perform an online migration, that is one where applica
    Finally, click **Continue** to launch the online migration.
    ![ads23](./media/ads23.png?raw=true)
 
-5. Our migration is now under way. The migration extension UI reports migration status as "In progress". Click on **assessment2** to view detailed migration status. 
+5. Our migration is now under way. The migration extension UI reports migration status as "In progress". Click on **onl-@lab.LabInstance.Id** to view detailed migration status. 
    ![ads31](./media/ads31.png?raw=true)
 
    At first, our copy job will report as queued, but within few minutes we should see that phase 1 - initial data copy - is complete, and that phase 2 has begun.
@@ -133,7 +133,7 @@ In this exercise, we will perform an online migration, that is one where applica
    Next, click on **...** next to Azure Cosmos DB for MongoDB vCore and select **Refresh databases**.
    ![mongodb compass13](./media/mongo%20compass13.png?raw=true)
 
-   Our database prod-db-user1-xxxx should now appear. Click on the arrow next to our database to expand collection list. Select **sales** collection. In top right-hand corner take note of the document count. Check that it matches count seen on MongoDB VM.
+   Our database **prod-db-user1-@lab.LabInstance.Id** should now appear. Click on the arrow next to our database to expand collection list. Select **sales** collection. In top right-hand corner take note of the document count. Check that it matches count seen on MongoDB VM.
    ![mongodb compass14](./media/mongo%20compass14.png?raw=true)
 
    Great! The document counts match, source and target are in sync. Let's now quickly repoint our app and bring it back online.
@@ -155,7 +155,7 @@ In this exercise, we will perform an online migration, that is one where applica
    Let's switch over to MongoDB Compass and verify our application is able to write to Azure Cosmos DB for MongoDB vCore. In MongoDB Compass select **Azure Cosmos DB for MongoDB vCore** and click on **sales** collection. Click to refresh the document count in top right-hand corner. After a few seconds refresh again. You should see document count going up. Great that means our users are able to place orders again.
    ![mongodb compass16](./media/mongo%20compass16.png?raw=true)
 
-   As the very last step, we need to stop the delta sync, which is no longer needed. Switch back to Azure Data Studio. The **assessment2** migration detail page should still be open. If not, please re-open it. At the top select **Cutover**. 
+   As the very last step, we need to stop the delta sync, which is no longer needed. Switch back to Azure Data Studio. The **onl-@lab.LabInstance.Id** migration detail page should still be open. If not, please re-open it. At the top select **Cutover**. 
    ![ads35](./media/ads35.png?raw=true)
 
    A pop-up will appear with instructions on how to complete the cutover. This is a repeat of the steps we have just completed. Select the **tickbox** to acknowledge and click **Confirm cutover**.
