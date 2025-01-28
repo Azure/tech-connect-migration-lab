@@ -40,7 +40,7 @@ In this step, we will attempt the more traditional migration approach - offline 
    **Connection string:** +++mongodb://@lab.Variable(MongoDBUsername):@lab.Variable(MongoDBPassword)@@lab.Variable(MongoDBVMPublicIP):27017/?authMechanism=SCRAM-SHA-256&replicaSet=rs0+++
    **Name:** +++MongoDB VM+++
 
-5. Once connected, the MongoDB VM connection will be visible on the top left. You should see the three system databases along with "prod-db-user1-xxx" that hosts the sales data. Right-click on **MongoDB VM** and select **Manage**.
+5. Once connected, the MongoDB VM connection will be visible on the top left. You should see the three system databases along with "prod-db-user1-@lab.LabInstance.Id" that hosts the sales data. Right-click on **MongoDB VM** and select **Manage**.
 
   ![ads8](./media/ads8.png?raw=true)
 
@@ -70,7 +70,7 @@ In this step, we will attempt the more traditional migration approach - offline 
 
    The assessment reports that replSetInitiate command, which is used to initialize a new replica set, is not supported. It won't cause any issues as high availability and replication are fully managed on Azure Cosmos DB for MongoDB vCore. Similarly, you could see that certain commands relating to metrics or logging are unsupported. Azure Cosmos DB for MongoDB vCore exposes metrics and logs through interfaces common to all Azure services; consequently, commands to alter such behavior directly on the database are not supported. Azure Cosmos DB for MongoDB vCore is highly compatible with native MongoDB and most migrations will not experience any compatibility issue.
 
-   Also, worth noting is that only our sales database (prod-db-user1-xxxx) was assessed. The three system databases that we saw in step 5 were not assessed, as they are not required on Azure Cosmos DB for MongoDB vCore. To elaborate further, admin database stores user credentials and credentials are instead managed through Microsoft Entra ID. Config stores, among other things, information about sharding, which is managed by Azure platform. Lastly, local stores information about replication, which is again fully managed for you in Azure.
+   Also, worth noting is that only our sales database (prod-db-user1-@lab.LabInstance.Id) was assessed. The three system databases that we saw in step 5 were not assessed, as they are not required on Azure Cosmos DB for MongoDB vCore. To elaborate further, admin database stores user credentials and credentials are instead managed through Microsoft Entra ID. Config stores, among other things, information about sharding, which is managed by Azure platform. Lastly, local stores information about replication, which is again fully managed for you in Azure.
 
     As there are no blocking issues, let's proceed further. **Select the tickbox** next to Database, and click **Next** at the bottom of the screen.
    ![ads15](./media/ads15.png?raw=true)
@@ -140,7 +140,7 @@ In this step, we will attempt the more traditional migration approach - offline 
    In MongoDB Compass click on **...** next to Azure Cosmos DB for MongoDB vCore and select **Refresh databases**.
    ![mongodb compass13](./media/mongo%20compass13.png?raw=true)
 
-   Our database prod-db-user1-xxxx should now appear. Click on the arrow next to our database to expand collection list. Select **sales** collection. In top right-hand corner take note of the document count.
+   Our database **prod-db-user1-@lab.LabInstance.Id** should now appear. Click on the arrow next to our database to expand collection list. Select **sales** collection. In top right-hand corner take note of the document count.
    ![mongodb compass14](./media/mongo%20compass14.png?raw=true)
 
    Now, expand collection list in **MongoDB VM**, select **sales** collection, and verify that the document count matches that of the sales collection in Azure Cosmos DB for MongoDB vCore.
