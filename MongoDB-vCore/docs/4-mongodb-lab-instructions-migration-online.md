@@ -33,7 +33,8 @@ In this exercise, we will perform an online migration, that is one where applica
 
    ![mongodb compass17](./media/mongo%20compass17.png?raw=true)
 
-   >[!alert] Ensure you are deleting database ending with your lab username **@lab.LabInstance.Id**. Other lab users share this server with you and you would end up deleting their work! Please double, triple check.
+
+    >[!alert] Ensure you are deleting database ending with your lab username **@lab.LabInstance.Id**. Other lab users share this server with you and you would end up deleting their work! Please double, triple check.
 
    A pop-up window will appear in the middle of the screen asking you to retype the name of the database to confirm. Please input it and click **Drop Database** in the bottom right-hand corner.
   ![mongodb compass18](./media/mongo%20compass18.png?raw=true)
@@ -41,7 +42,8 @@ In this exercise, we will perform an online migration, that is one where applica
    A success message should appear at the bottom left and our database should disappear from the list of available databases under Azure Cosmos DB for MongoDB vCore.
    ![mongodb compass19](./media/mongo%20compass19.png?raw=true)
       
-   >[!note] You may still see other databases listed under Azure Cosmos DB for MongoDB vCore. These belong to other lab users. Please kindly ignore them.
+
+    >[!note] You may still see other databases listed under Azure Cosmos DB for MongoDB vCore. These belong to other lab users. Please kindly ignore them.
 
    With that we've successfully reverted the lab environment the state before the first migration!
 
@@ -100,7 +102,8 @@ In this exercise, we will perform an online migration, that is one where applica
        1. We may prioritize full safety and data consistency. In such a case, we would stop our application for a very brief moment (~1 minute), wait for the latest changes to synchronize to the target (should only take some seconds as per the frequency of microbatching), verify document counts match on the source and target, and repoint our application.
        2. We may prioritize uptime. In such a case, we perform a rolling upgrade and bring up a new instance of our application with the connection string pointing to the target server while gradually draining connections to the existing instance of our application which points to source server. This approach can achieve zero downtime, but it makes it harder to reason about the consistency of data during the cutover as well as execute a rollback, if needed.
 
-   >[!note] Unlike in the previous migration attempt, this time we are leaving our application running. Our users can continue placing orders on our website all the while we are upgrading our database backend. In this lab, When the time to perform a cutover comes we will choose to execute the simpler cutover and stop our app for a very brief moment to verify data is fully in sync on both servers. We see this approach to be much more prevalent in actual migration scenarios as most systems can tolerate very very brief downtime. Please note the fact that we take a minute (or so) of donwtime doesn't equate this approach to that of offline migration. With actual offline migration like we performed in previous exercise we would need to endure donwtime equal to duration of initial data copy, which for very large databases can be measured on the order of days.
+   
+    >[!note]  Unlike in the previous migration attempt, this time we are leaving our application running. Our users can continue placing orders on our website all the while we are upgrading our database backend. In this lab, When the time to perform a cutover comes we will choose to execute the simpler cutover and stop our app for a very brief moment to verify data is fully in sync on both servers. We see this approach to be much more prevalent in actual migration scenarios as most systems can tolerate very very brief downtime. Please note the fact that we take a minute (or so) of donwtime doesn't equate this approach to that of offline migration. With actual offline migration like we performed in previous exercise we would need to endure donwtime equal to duration of initial data copy, which for very large databases can be measured on the order of days.
 
    Click on **Start migration** at the bottom of the screen to proceed.
       
