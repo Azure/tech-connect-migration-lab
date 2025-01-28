@@ -93,7 +93,7 @@ As part of this lab, both the source VM hosting MongoDB and the target Azure Cos
 19. Let's now return to MongoDB Compass and refresh the list of available databases. Click on **...** next to MongoDB VM and select **Refresh databases** from the menu that appears.
 ![mongodb compass5](./media/mongo%20compass5.png?raw=true)
 
-    You should now see a database named **prod-db-user1-xxx**. Click on the arrow next to database name to see the collections.
+    You should now see a database named **prod-db-user1-@lab.LabInstance.Id**. Click on the arrow next to database name to see the collections.
     ![mongodb compass6](./media/mongo%20compass6.png?raw=true)
 
     Three collections have been loaded: customers, products, and sales. Click on **sales** collection. You will now see the JSON documents stored in the collection. Take note of the number of documents shown on the right-hand side.
