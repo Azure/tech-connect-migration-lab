@@ -63,7 +63,7 @@ In this exercise, we will perform an online migration, that is one where applica
 
 3. A 7-step migration wizard will appear on the right-hand side of your screen to guide you through the whole migration without needing to run any commands.
 
-   In Step 1, specify +++onl-@lab.LabInstance.Id+++ for **Assessmnent name**, then click **Run validation**, then click **Start assessment**.
+   In Step 1, specify +++onl-@lab.LabInstance.Id+++ for **Assessment name**, then click **Run validation**, then click **Start assessment**.
    ![ads26](./media/ads26.png?raw=true)
    ![ads27](./media/ads27.png?raw=true)
 
@@ -103,7 +103,7 @@ In this exercise, we will perform an online migration, that is one where applica
        2. We may prioritize uptime. In such a case, we perform a rolling upgrade and bring up a new instance of our application with the connection string pointing to the target server while gradually draining connections to the existing instance of our application which points to source server. This approach can achieve zero downtime, but it makes it harder to reason about the consistency of data during the cutover as well as execute a rollback, if needed.
 
    
-    >[!note]  Unlike in the previous migration attempt, this time we are leaving our application running. Our users can continue placing orders on our website all the while we are upgrading our database backend. In this lab, When the time to perform a cutover comes we will choose to execute the simpler cutover and stop our app for a very brief moment to verify data is fully in sync on both servers. We see this approach to be much more prevalent in actual migration scenarios as most systems can tolerate very very brief downtime. Please note the fact that we take a minute (or so) of donwtime doesn't equate this approach to that of offline migration. With actual offline migration like we performed in previous exercise we would need to endure donwtime equal to duration of initial data copy, which for very large databases can be measured on the order of days.
+    >[!note]  Unlike in the previous migration attempt, this time we are leaving our application running. Our users can continue placing orders on our website all the while we are upgrading our database backend. In this lab, When the time to perform a cutover comes we will choose to execute the simpler cutover and stop our app for a very brief moment to verify data is fully in sync on both servers. We see this approach to be much more prevalent in actual migration scenarios as most systems can tolerate very very brief downtime. Please note the fact that we take a minute (or so) of downtime doesn't equate this approach to that of offline migration. With actual offline migration like we performed in previous exercise we would need to endure downtime equal to duration of initial data copy, which for very large databases can be measured on the order of days.
 
    Click on **Start migration** at the bottom of the screen to proceed.
       
