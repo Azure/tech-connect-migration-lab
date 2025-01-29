@@ -74,7 +74,7 @@ Port *3306* needs to be opened on the VM for MySQL connectivity.
 1. [] Click on the azure vm in the portal *tech-connect-mysql-vm*
 1. [] Expand the *Networking* tab and click on _Network Settings_
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_19.png?raw=true)
-1. [] Select *Inbound port rule* to add
+1. [] Select *Create port rule* > *Inbound port rule* to add
     - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_20.png?raw=true)
 1. [] Select the MySQL port from the *Services* list and click on *Add*
     - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_21.png?raw=true)
@@ -84,7 +84,7 @@ Port *3306* needs to be opened on the VM for MySQL connectivity.
 1. [] Click on the azure vm in the portal *tech-connect-mysql-vm*
 1. [] Expand the *Networking* tab and click on _Network Settings_
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_19.png?raw=true)
-1. [] Select *Outbound port rule* to add
+1. [] Select *Create port rule* > *Outbound port rule* to add
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_22.png?raw=true)
 1. [] Select the MySQL port from the *Services* list and click on *Add*
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_23.png?raw=true)

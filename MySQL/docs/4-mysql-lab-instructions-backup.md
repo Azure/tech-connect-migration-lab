@@ -2,7 +2,7 @@
 
 ### Azure MySQL VM ###
 
-The pre-deployed VM comes prepared for the migration.  Installed on the server is MySQL 8.0.37 with the Sakila sample database, Percona XtraBackup, azcopy and the Azure CLI.  Connectivity to the server will be done via the Bastion server that was configured earlier in the lab execises.
+The pre-deployed VM comes prepared for the migration.  Installed on the server is MySQL 8.0.37 with the Sakila sample database, Percona XtraBackup, azcopy and the Azure CLI.  Connectivity to the server will be done via the Bastion server that was configured earlier in the lab exercises.
 
 
 ### Explore MySQL VM ###
@@ -17,7 +17,7 @@ In the next few steps in the lab, you will explore what is pre-installed and mak
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_25.png?raw=true)
    **! Alert** You might get a pop-up blocker warning, enable pop-ups originating from the portal and click on *Connect* again!
    ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_52.png?raw=true)
-1. [] Once loged in type +++sudo mysql -h localhost+++ in the shell to connect to the local instance of MySQL
+1. [] Once logged in type +++sudo mysql -h localhost+++ in the shell to connect to the local instance of MySQL
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_26.png?raw=true)
 1. [] Once connected to MySQL, type +++use sakila;+++ to connect to the *sakila* database
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_27.png?raw=true)
