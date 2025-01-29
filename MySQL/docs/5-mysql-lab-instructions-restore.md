@@ -9,7 +9,7 @@ In the next set of exercises, we will use Azure MySQL Import to restore the data
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_38.png?raw=true)
 1. [] Replace ```<put container SAS token here>``` with the *SAS token* (not the SAS URI) that was saved earlier on in the lab
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_39.png?raw=true)
-1. [] Replace ```<put unique suffix here>``` with a suffix distinct enough to avoid a name colision with an existing MySQL flexible server in Azure
+1. [] Replace ```<put unique suffix here>``` with a suffix distinct enough to avoid a name collision with an existing MySQL flexible server in Azure
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_40.png?raw=true)
 1. [] Validate value replacement
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_41.png?raw=true)
