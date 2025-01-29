@@ -18,9 +18,9 @@ In the next set of exercises, we will use Azure MySQL Import to restore the data
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_4.png?raw=true)
 1. [] Enter +++mysqladmin+++ for the user name and +++Pa$$W0rd!+++ for the password to login to the server (a separate tab will be opened)
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_25.png?raw=true)
-1. [] Once loged in to the VM, at the shell prompt, type +++az login+++ to log in to Azure (follow the login instructions)
+1. [] Once logged in to the VM, at the shell prompt, type +++az login+++ to log in to Azure (follow the login instructions)
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_42.png?raw=true)
-1. [] Once loged in to azure, at the shell prompt, paste the command you modified above for execution
+1. [] Once logged in to azure, at the shell prompt, paste the command you modified above for execution
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_43.png?raw=true)
 1. [] Once completed, look at the output and confirm a successful execution
    - ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/azure_env_44.png?raw=true)
