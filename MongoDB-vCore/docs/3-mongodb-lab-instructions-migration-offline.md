@@ -10,25 +10,26 @@ In this step, we will attempt the more traditional migration approach - offline 
 2. Once Data Studio launches, **click on the person icon** in the bottom left-hand corner.
    ![ads2](./media/ads2.png?raw=true)
 
-   A pop-up window will appear on the right-hand side of your screen. Click on **Add an account**.
+   A pop-up window will appear on the right-hand side of your screen. Click on **Add an account**. Doing so will open the Edge browser and prompt you to log in.
+
+    >[!alert] Do not select the already signed in account. If you by accident select the existing account, return to Data Studio, remove the account and repeat this step.
+
    ![ads2x](./media/ads2x.png?raw=true)
 
-   Doing so will open the Edge browser and prompt you to log in. Select **Use another account** and enter the following:
+   Select **Use another account** and enter the following:
 
    ![ads3](./media/ads3.png?raw=true)
 
     **Username:** +++@lab.Variable(AzureLogin)+++
     **Password:** +++@lab.Variable(AzurePassword)+++
 
-    >[!alert] Do not select the already signed in account. If you by accident select the existing account, return to Data Studio, remove the account and repeat this step.
+    >[!note] Here, were are selecting different user account as the target database, Azure Cosmos DB MongoDB vCore, was pre-provisioned for you in a different Azure environment.
 
-    >[!note] Here, were are selecting different user account as the target database, Azure Cosmos DB MongoDB vCore, is provisioned in a different Azure environment; one that your lab user does not have permissions over.
-
-3. Next, click on **extensions** in the left-hand menu and search for ++cosmos db++. Locate Azure Cosmos DB Migration for MongoDB extension and click on **Install**.
+4. Next, click on **extensions** in the left-hand menu and search for ++cosmos db++. Locate Azure Cosmos DB Migration for MongoDB extension and click on **Install**.
     ![ads4](./media/ads4.png?raw=true)
     ![ads5](./media/ads5.png?raw=true)
 
-4. Let us now establish connection to our source VM and begin the migration steps. Select **connections** and click **New Connection**.
+5. Let us now establish connection to our source VM and begin the migration steps. Select **connections** and click **New Connection**.
    ![ads6](./media/ads6.png?raw=true)
     A pop window will appear on the right-hand side of your screen. Select connection type **Azure Cosmos DB for MongoDB**.
     ![ads7](./media/ads7.png?raw=true)
@@ -41,7 +42,7 @@ In this step, we will attempt the more traditional migration approach - offline 
    **Connection string:** +++mongodb://@lab.Variable(MongoDBUsername):@lab.Variable(MongoDBPassword)@@lab.Variable(MongoDBVMPublicIP):27017/?authMechanism=SCRAM-SHA-256&replicaSet=rs0+++
    **Name:** +++MongoDB VM+++
 
-5. Once connected, the MongoDB VM connection will be visible on the top left. You should see the three system databases along with "prod-db-user1-@lab.LabInstance.Id" that hosts the sales data. Right-click on **MongoDB VM** and select **Manage**.
+6. Once connected, the MongoDB VM connection will be visible on the top left. You should see the three system databases along with "prod-db-user1-@lab.LabInstance.Id" that hosts the sales data. Right-click on **MongoDB VM** and select **Manage**.
 
   ![ads8](./media/ads8.png?raw=true)
 
@@ -82,7 +83,7 @@ In this step, we will attempt the more traditional migration approach - offline 
    Specify **Connection string** as follows: +++mongodb+srv://@lab.Variable(CosmosDBUsername):@lab.Variable(CosmosDBPassword)@@lab.Variable(CosmosDBServername).mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000+++
    Next, click **Test connection** to verify connectivity to target instance.
 
-   Next, switch back to MongoDB Compass and let's add the connection to target instance there as well. Click on **+** button next to MongoDB VM.
+   Next, switch back to MongoDB Compass and let's add the connection to target instance there as well. Click on the **+** button next to **CONNECTIONS**.
    ![mongodb compass9](./media/mongo%20compass9.png?raw=true)
 
    In the new connection pop-up window specify the following:

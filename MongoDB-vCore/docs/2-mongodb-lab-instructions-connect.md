@@ -73,13 +73,18 @@ As part of this lab, both the source VM hosting MongoDB and the target Azure Cos
     Once validation completes, acknowledge the warning about just-in-time policy and click **Configure + connect**
    ![mongodb vm6](./media/mongo%20vm6.png?raw=true)
 
-    A new pop-up window with console environment will appear at the bottom of your screen. Please wait while connection completes. Do not yet type anything into the console. It might take 15 seconds to connect. As this window is typically very small, let's click to maximize it to give ourselves more real estate.
+    A new pop-up window with console environment will appear at the bottom of your screen. As this window is typically very small, let's click to maximize it to give ourselves more real estate.
 
+    You will first be prompted to select console type. Select **Bash**.
+    ![console0a](./media/console0a.png?raw=true)
 
-    Once connected, you will be asked whether you want to continue connecting. Type +++yes+++ into the console and press enter.
+    On the next screen select **No storage account required** and select only available Subscription in the drop down. Click **Apply**. 
+    ![console0b](./media/console0b.png?raw=true)
+
+    A connection to your VM will now be initiated. Please wait while the connection initialization completes; it might take 10-15 seconds. You will then be prompted to confirm: **"Are you sure you want to continue connecting (yes/no/fingerprint)?"** Type **+++yes+++** into the console and press enter.
 
     You are now connected to the VM hosting MongoDB. You should see the following:
-![console1](./media/console1.png?raw=true)
+    ![console1](./media/console1.png?raw=true)
 
 17. Let's now create a new database and load some data. Because, in a regular migration, you would be dealing with a system that is used for production and already has data, we will fast-track this step and run a script that will populate the database for you. The script is already pre-loaded on the machine for you and will use sales data from the [CosmicWorks](https://github.com/AzureCosmosDB/CosmicWorks) dataset. Type +++/usr/local/etc/load_data.sh+++ into the console and press enter. This will execute the script.
 
