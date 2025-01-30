@@ -18,7 +18,7 @@ After completing this lab, you'll be able to:
 
 ## Connection Instructions 
 
-1. [ ] Connect to the virtual machine as +++**@lab.VirtualMachine(Win11-Pro-Base).Username**+++ using +++**@lab.VirtualMachine(Win11-Pro-Base).Password**+++ as the password. 
+1. [ ] Connect to the virtual machine as +++**@lab.VirtualMachine(WindowsClientPostgreSQL16.4(LAB301)).Username**+++ using +++**@lab.VirtualMachine(WindowsClientPostgreSQL16.4(LAB301)).Password**+++ as the password. 
 
     >[!hint] Select the **+++Type Text+++** icon to enter the associated text into the virtual machine. 
 
@@ -62,7 +62,7 @@ The first task is to create an Azure virtual network. This is where the Azure Da
 
     | Item | Value | 
     |:---------|:---------| 
-    | **Subscription**   | AzLinux--lodxxxxxxxx | 
+    | **Subscription**   | (your subscription name) | 
     | **Resource group**   | RG1   | 
     | **Virtual network name**  |   +++Vnet1+++ 
     | **Region**    |   (US) West US 
@@ -89,7 +89,7 @@ The first task is to create an Azure virtual network. This is where the Azure Da
 
     !IMAGE[awxmtgvs.jpg](instructions271790/awxmtgvs.jpg) 
 
-1. [ ] On the **Vnet1 | Subnets** page, select **+Gateway subnet**. 
+1. [ ] On the **Vnet1 | Subnets** page, select **+Subnet**. 
 
 1. [ ] Configure the **Add a subnet** blade as follows:  
 
@@ -126,7 +126,7 @@ In this task, you’ll set up a virtual network gateway in Azure. This gateway w
 
     | Item | Value | 
     |:---------|:---------| 
-    | **Subscription**  | AzLinux--lodxxxxxxxx | 
+    | **Subscription**  | (your subscription name) | 
     | **Name**   | +++Vnet1GW+++   | 
     | **Region** |   West US   | 
     | **Gateway type**    |   VPN   | 
