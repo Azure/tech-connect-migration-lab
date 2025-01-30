@@ -12,7 +12,7 @@ In this step, we will attempt the more traditional migration approach - offline 
 
    A pop-up window will appear on the right-hand side of your screen. Click on **Add an account**. Doing so will open the Edge browser and prompt you to log in.
 
-   >[!alert] Do not select the already signed in account. If you by accident select the existing account, return to Data Studio, remove the account and repeat this step.
+    >[!alert] Do not select the already signed in account. If you by accident select the existing account, return to Data Studio, remove the account and repeat this step.
 
    ![ads2x](./media/ads2x.png?raw=true)
 
