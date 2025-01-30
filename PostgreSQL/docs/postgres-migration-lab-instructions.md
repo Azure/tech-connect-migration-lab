@@ -104,7 +104,7 @@ The first task is to create an Azure virtual network. This is where the Azure Da
 
     !IMAGE[4om5bftb.jpg](instructions271790/4om5bftb.jpg) 
 
-You've successfully completed this task! Select **Next** to continue. 
+You've successfully completed this task! 
 
 === 
 
@@ -146,7 +146,7 @@ In this task, you’ll set up a virtual network gateway in Azure. This gateway w
 
 1. [ ] Minimize Edge. You’ll return to it in another task. 
 
-You've successfully completed this task! Select **Next** to continue. 
+You've successfully completed this task! 
 
 === 
 
@@ -154,7 +154,7 @@ You've successfully completed this task! Select **Next** to continue.
 
 In this task, you'll generate a server certificate and client certificate on the source server. These certificates will be needed for the VPN connection to Azure. 
 
-1. [ ] From the @lab.VirtualMachine(WindowsClientPostgreSQL16.4(LAB301)).SelectLink desktop, open Windows File Explorer and go to C:\LabFiles. 
+1. [ ] From the desktop, open Windows File Explorer and go to C:\LabFiles. 
 
 1. [ ] Right-click **generate_cert.ps1** and select **Edit**. 
 
@@ -192,7 +192,7 @@ In this task, you'll generate a server certificate and client certificate on the
 
     !IMAGE[9fgv4aul.jpg](instructions271790/9fgv4aul.jpg) 
 
-You've successfully completed this task! Select **Next** to continue. 
+You've successfully completed this task! 
 
 === 
 
@@ -204,7 +204,7 @@ This task will show how to create a Point-to-site connection in Azure. This will
 
 1. [ ] Check the deployment status of the virtual network gateway. When complete, select **Go to resource**. 
 
-    >[!alert] Wait until the gateway is deployed before continuing. 
+    >[!alert] Wait until the gateway is deployed before continuing. This may take several minutes.
 
 1. [ ] On the **Vnet1GW** page, select **Settings** from the left menu, and then select **Point-to-site configuration**. 
 
@@ -266,7 +266,7 @@ This task will show how to create a Point-to-site connection in Azure. This will
 
     !IMAGE[q5bvkdzr.jpg](instructions271790/q5bvkdzr.jpg) 
 
-You've successfully completed this task! Select **Next** to continue. 
+You've successfully completed this task! 
 
 === 
 
@@ -333,7 +333,7 @@ In this task, you'll create an Azure Database for PostgreSQL 16 as a migration d
 
     >[!knowledge] All the networking was set up first so that we could easily assign it to the new server upon creation. This connectivity method will allow anything on the Vnet1 private network to connect. With the point-to-site VPN connection established, the source server is connected to Vnet1. 
 
-You've successfully completed this task and exercise! Select **Next** to continue. 
+You've successfully completed this task and exercise! 
 
 === 
 
@@ -476,7 +476,7 @@ This task shows how to complete a few final migration options, then perform an o
 
     !IMAGE[j8kjkklj.jpg](instructions271790/j8kjkklj.jpg) 
 
-You've successfully completed this task! Select **Next** to continue. 
+You've successfully completed this task! 
 
 === 
 
@@ -641,7 +641,7 @@ This task shows how to complete a few final connection options, then perform an 
 
     >[!knowledge] We're running this command again to check the row names in the **department** table. At the bottom of the results, notice that the **Logistics** record was migrated successfully. 
 
-You've successfully completed this task and exercise! Select **Next** to continue. 
+You've successfully completed this task and exercise! 
 
 === 
 
