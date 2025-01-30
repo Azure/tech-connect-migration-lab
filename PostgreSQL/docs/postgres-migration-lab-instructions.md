@@ -40,8 +40,8 @@ The first task is to create an Azure virtual network. This is where the Azure Da
 
 1. [ ] Connect to the virtual machine using the following credentials: 
 
-    **Username:** +++@lab.VirtualMachine(Win11-Pro-Base).Username+++   
-    **Password:** +++@lab.VirtualMachine(Win11-Pro-Base).Password+++ 
+    **Username:** +++@lab.VirtualMachine(WindowsClientPostgreSQL16.4(LAB301)).Username+++   
+    **Password:** +++@lab.VirtualMachine(WindowsClientPostgreSQL16.4(LAB301)).Password+++ 
 
 1. [ ] Open Microsoft Edge and go to +++https://portal.azure.com+++. Sign in with the following credentials: 
 
@@ -154,7 +154,7 @@ You've successfully completed this task! Select **Next** to continue.
 
 In this task, you'll generate a server certificate and client certificate on the source server. These certificates will be needed for the VPN connection to Azure. 
 
-1. [ ] From the @lab.VirtualMachine(Win11-Pro-Base).SelectLink desktop, open Windows File Explorer and go to C:\LabFiles. 
+1. [ ] From the @lab.VirtualMachine(WindowsClientPostgreSQL16.4(LAB301)).SelectLink desktop, open Windows File Explorer and go to C:\LabFiles. 
 
 1. [ ] Right-click **generate_cert.ps1** and select **Edit**. 
 
@@ -168,7 +168,7 @@ In this task, you'll generate a server certificate and client certificate on the
 
 1. [ ] In the Windows search bar at the bottom-left, enter +++cert+++ and then select **Manage user certificates**. 
 
-    >[!note] When asked for an administrator password, use +++@lab.VirtualMachine(Win11-Pro-Base).Password+++ 
+    >[!note] When asked for an administrator password, use +++@lab.VirtualMachine(WindowsClientPostgreSQL16.4(LAB301)).Password+++ 
 
 1. [ ] From the certificate manager, on the left menu, expand **Personal** and then select **Certificates**. 
 
@@ -242,7 +242,7 @@ This task will show how to create a Point-to-site connection in Azure. This will
 
     >[!alert] A warning will show stating that the app is unrecognized. Select **More info** and then select **Run anyway**.  
 
-1. [ ] At the User Account Control prompt, enter +++@lab.VirtualMachine(Win11-Pro-Base).Password+++ and select **Yes**. 
+1. [ ] At the User Account Control prompt, enter +++@lab.VirtualMachine(WindowsClientPostgreSQL16.4(LAB301)).Password+++ and select **Yes**. 
 
 1. [ ] Select **Yes** to finish installing the VPN client. 
 
@@ -260,7 +260,7 @@ This task will show how to create a Point-to-site connection in Azure. This will
 
     !IMAGE[oigc7yk6.jpg](instructions271790/oigc7yk6.jpg) 
 
-1. [ ] At the User Account Control prompt, enter +++@lab.VirtualMachine(Win11-Pro-Base).Password+++ and select **Yes**. 
+1. [ ] At the User Account Control prompt, enter +++@lab.VirtualMachine(WindowsClientPostgreSQL16.4(LAB301)).Password+++ and select **Yes**. 
 
 1. [ ] Verify that **Vnet1** is connected successfully. The word "Connected" should show under the **Vnet1** connection. 
 
@@ -496,7 +496,7 @@ This task shows how to complete a few final connection options, then perform an 
 
 1. [ ] A server restart is required for the changes to take effect. Right-click the Windows icon in the lower left, select **Shut down or sign out**, then select **Restart** to reboot the VM. 
 
-1. [ ] Once the VM has rebooted, sign in again with username +++@lab.VirtualMachine(Win11-Pro-Base).Username+++ and password +++@lab.VirtualMachine(Win11-Pro-Base).Password+++. 
+1. [ ] Once the VM has rebooted, sign in again with username +++@lab.VirtualMachine(WindowsClientPostgreSQL16.4(LAB301)).Username+++ and password +++@lab.VirtualMachine(WindowsClientPostgreSQL16.4(LAB301)).Password+++. 
 
 1. [ ] Reconnect to the **Vnet1** VPN by selecting the network icon in the notification area and then selecting the **Vnet1** connection. 
 
@@ -512,7 +512,7 @@ This task shows how to complete a few final connection options, then perform an 
 
     !IMAGE[oigc7yk6.jpg](instructions271790/oigc7yk6.jpg) 
 
-1. [ ] At the User Account Control prompt, enter +++@lab.VirtualMachine(Win11-Pro-Base).Password+++ and select **Yes**. 
+1. [ ] At the User Account Control prompt, enter +++@lab.VirtualMachine(WindowsClientPostgreSQL16.4(LAB301)).Password+++ and select **Yes**. 
 
 1. [ ] Verify that **Vnet1** is connected successfully. The word "Connected" should show under the **Vnet1** connection.
 
@@ -577,7 +577,7 @@ This task shows how to complete a few final connection options, then perform an 
     psql -h @lab.Variable(privateIP) -p 5432 -U postgres Adventureworks 
     ``` 
 
-    >[!note] Enter +++@lab.VirtualMachine(Win11-Pro-Base).Password+++ for the password. 
+    >[!note] Enter +++@lab.VirtualMachine(WindowsClientPostgreSQL16.4(LAB301)).Password+++ for the password. 
 
 1. [ ] Once connected to the **Adventureworks** database through PowerShell, run the following command: 
 
@@ -629,7 +629,7 @@ This task shows how to complete a few final connection options, then perform an 
     psql -h @lab.Variable(privateIP) -p 5432 -U postgres Adventureworks 
     ``` 
 
-    >[!note] Enter +++@lab.VirtualMachine(Win11-Pro-Base).Password+++ for the password. 
+    >[!note] Enter +++@lab.VirtualMachine(WindowsClientPostgreSQL16.4(LAB301)).Password+++ for the password. 
 
 1. [ ] Once connected to the **Adventureworks** database through PowerShell, run the following command: 
 
