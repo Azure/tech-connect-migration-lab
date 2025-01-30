@@ -14,7 +14,7 @@ After completing this lab, you'll be able to:
 
 ## Estimated Time  
 
-30 minutes 
+70 minutes 
 
 ## Connection Instructions 
 
@@ -569,7 +569,7 @@ This task shows how to complete a few final connection options, then perform an 
 
     >[!knowledge] An online migration has more steps and takes a bit more time, but the source server applications aren't stopped in the process. Data is copied to the target server, then a cutover is performed to finalize the migration with no downtime in between. 
 
-1. [ ] Refresh the **azuredb@lab.LabInstance.Id | Migration** page until the **offlinemigration** job status shows as **Waiting For Use**. 
+1. [ ] Refresh the **azuredb@lab.LabInstance.Id | Migration** page until the **onlinemigration** job status shows as **Waiting For Use**. 
 
 1. [ ] From the Windows taskbar, select **Windows PowerShell** and run the following command to connect to the newly migrated **Adventureworks** database: 
 
