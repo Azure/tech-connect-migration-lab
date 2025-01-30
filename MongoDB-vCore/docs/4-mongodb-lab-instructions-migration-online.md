@@ -36,7 +36,7 @@ In this exercise, we will perform an online migration, that is one where applica
 
     >[!alert] Ensure you are deleting database ending with your lab username **@lab.LabInstance.Id**. Other lab users share this server with you and you would end up deleting their work! Please double, triple check.
 
-   A pop-up window will appear in the middle of the screen asking you to retype the name of the database to confirm. Please input it and click **Drop Database** in the bottom right-hand corner.
+   A pop-up window will appear in the middle of the screen asking you to retype the name of the database to confirm. Please input **+++prod-db-user1-@lab.LabInstance.Id+++** and click **Drop Database** in the bottom right-hand corner.
   ![mongodb compass18](./media/mongo%20compass18.png?raw=true)
 
    A success message should appear at the bottom left and our database should disappear from the list of available databases under Azure Cosmos DB for MongoDB vCore.
