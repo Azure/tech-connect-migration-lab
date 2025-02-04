@@ -61,12 +61,12 @@ After completing this section, you will be able to:
 - Validate the configuration using T-SQL on Source SQL Server
 - Check the network connectivity between Source SQL server and Destination Managed Instance.
 
-1. Connect to the **source** server using Entra ID/administrator using xxxx as the password
+1. Connect to your machine using user name/password mentioned in Resources tab
 
 2. Click on the Windows/Start button after connecting to the source server and type “**Windows PowerShell ISE**” as appears below:
     ![PowerShell_Open](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img_PowerShell_Open.png?raw=true)
 
-3. Click on **File** menue from PowerShell ISE window and select **Open** file as appears below:
+3. Click on **File** Menu from PowerShell ISE window and select **Open** file as appears below:
 
     ![PowerShell_Open_File](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img_PowerShell_Open_File.png?raw=true)
 
@@ -78,22 +78,47 @@ After completing this section, you will be able to:
 
     ![PowerShell_Open_File_Restore_Execute](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img_PowerShell_Open_File_Restore_Execute.png?raw=true)
 
-6. Click on the Windows/Start button after connecting to the source server and type “**SQL Server Management Studio**” as appears below:
+6. Click on **File** Menu from PowerShell ISE window and select **Open** file as appears below:
+
+    ![PowerShell_Open_File](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img_PowerShell_Open_File.png?raw=true)
+
+7. Copy the file path and click **Open**: +++C:\SQLQueries\InstallWindowsFailoverClusterFeature.ps1+++
+
+    ![PowerShell_Open_File_InstallWindowsFailoverClusterFeature](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img_PowerShell_InstallWindowsFailoverClusterFeature.png?raw=true)
+
+8. Click on **Run Script** and wait for the script completion:
+
+    ![PowerShell_InstallWindowsFailoverClusterFeature_Execute](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img_PowerShell_InstallWindowsFailoverClusterFeature_Execute.png?raw=true)
+
+
+9. Click on **File** Menu from PowerShell ISE window and select **Open** file as appears below:
+
+    ![PowerShell_Open_File](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img_PowerShell_Open_File.png?raw=true)
+
+10. Copy the file path and click **Open**: +++C:\SQLQueries\CreateFailoverClusterWithOneNode.ps1+++
+
+    ![PowerShell_Open_File_CreateFailoverClusterWithOneNode](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img_CreateFailoverClusterWithOneNode.png?raw=true)
+
+11. Click on **Run Script** and wait for the script completion:
+
+    ![PowerShell_Open_File_CreateFailoverClusterWithOneNode_Execute](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img_CreateFailoverClusterWithOneNode_Execute.png?raw=true)
+
+12. Click on the Windows/Start button after connecting to the source server and type “**SQL Server Management Studio**” as appears below:
 
     ![AccessValidation_SSMS](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img1_AccessValidation_SSMS.png?raw=true)
 
 
-7. Click on the **Connect** and then select **Database Engine** from drop down which open Connect to Server window as appears below:
+13. Click on the **Connect** and then select **Database Engine** from drop down which open Connect to Server window as appears below:
 
     ![AccessValidation_SSMS_Connect](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img2_AccessValidation_SSMS_Connect.png?raw=true)
 
-8. Fill in the connection details as appears below and Click on the **Connect** button
+14. Fill in the connection details as appears below and Click on the **Connect** button
 
     ![AccessValidation_SSMS_ConnectToServer](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img3_AccessValidation_SSMS_ConnectToServer.png?raw=true)
 
 **Here:** Server is the Source server’s FQDN/IP
 
-9. Click on the **Databases** after connecting to the source SQL server and then click on the **AdventureWorks2019_xxx** xxx is unique ID for database
+15. Click on the **Databases** after connecting to the source SQL server and then click on the **AdventureWorks2019_xxx** xxx is unique ID for database
 
     ![AccessValidation_SSMS_ObjectExplorer](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img4_AccessValidation_SSMS_ObjectExplorer.png?raw=true)
 
@@ -116,20 +141,25 @@ If you can see the tables as appeared above, then the connectivity to the **sour
 
     ![AccessValidation_SQL Server Configuration Manager_SQL Service_AlwaysOnAG](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img7_AccessValidation_SQL%20Server%20Configuration%20Manager_SQL%20Service_AlwaysOnAG.png?raw=true)
 
-5. Select the **Startup Parameters** tab from properties windows, Specify a startup parameter -T1800 and -T9567 individually and click on Add
+5. Select the SQL Server Services from the left pane and select the SQL Server (MSSQLSERVER) from the right pane. Right click on SQL Server (MSSQLSERVER) and click on Properties
 
+    ![AccessValidation_SQLServer Configuration Manager_Services](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img6_AccessValidation_SQL%20Server%20Configuration%20Manager_Services.png?raw=true)
+
+6. Select the **Startup Parameters** tab from properties windows, Specify a startup parameter -T1800 and -T9567 individually and click on Add
+
+    ***If trace flag already present in existing parameter list then close the properties windows and go to step 8***
     ![AccessValidation_SQL Server Configuration Manager_StartupParameter_TraceFlag](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img8_AccessValidation_SQL%20Server%20Configuration%20Manager_StartupParameter_TraceFlag.png?raw=true)
 
-6. Once you add both trace flags, click on **Apply.** Select **OK** to close the Properties window.
-7. Select the SQL Server Services from the left pane, select the SQL Server (MSSQLSERVER) from the right pane, right click on SQL Server (MSSQLSERVER) and Select Restart
+7. Once you add both trace flags, click on **Apply.** Select **OK** to close the Properties window.
+8. Select the SQL Server Services from the left pane, select the SQL Server (MSSQLSERVER) from the right pane, right click on SQL Server (MSSQLSERVER) and Select Restart
 
     ![AccessValidation_SQL Server Configuration Manager_SQL Service_Restart](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img9_AccessValidation_SQL%20Server%20Configuration%20Manager_SQL%20Service_Restart.png?raw=true)
 
-8. After the restart, In SSMS click on **File** and Select **Open** it will open Open file window, open  +++C:\SQLQueries\Query_Validate Configuration.sql+++ script and execute on SQL Server to validate the configuration of your SQL Server instance using SQL Server management studio (SSMS):
+9. After the restart, In SQL Server management studio (SSMS) click on **File** and Select **Open** it will open Open file window, open  +++C:\SQLQueries\Query_Validate Configuration.sql+++ script and execute on SQL Server to validate the configuration of your SQL Server instance using SSMS:
 
     ![AccessValidation_SSMS_ValidationByQuery](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img10_AccessValidation_SSMS_ValidationByQuery.png?raw=true)
 
-9. Run the **C:\SQLQueries\Query_Master Key_Mirroring_EP.sql** script on SQL Server to create Master Key and Mirroring endpoint on your SQL server using SQL Server management studio (SSMS):
+10. In SQL Server management studio (SSMS) click on File and Select Open it will open Open file window, open +++C:\SQLQueries\Query_Master Key_Mirroring_EP.sql+++ script. This script will create Master Key and Mirroring endpoint on your SQL server:
 
     Create database master key in the master database, if one isn't already present. Insert your password in place of &lt;strong_password&gt; in the following script and keep it in a confidential and secure place. Create the certificate from above master key. After this create endpoint using this certificate
 
@@ -144,16 +174,11 @@ If you can see the tables as appeared above, then the connectivity to the **sour
 
 After completing this section, you will be able to: Check the connectivity to the **Target** **Server** from the source server
 
-1. Connect to the **source** server using Entra ID/administrator using xxxx as the password
-2. Click on the Windows/Start button after connecting to the source server and type “**SQL Server Management Studio**” as appears below:
-
-    ![AccessValidation_Target_SSMS](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img12_AccessValidation_Target_SSMS.png?raw=true)
-
-3. Click on the **Connect** and then select **Database Engine** from drop down which opens Connect to Server window as appears below:
+1. In SSMS Click on the **Connect** and then select **Database Engine** from drop down which opens Connect to Server window as appears below:
 
     ![AccessValidation_Target_SSMS_Connect](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img13_AccessValidation_Target_SSMS_Connect.png?raw=true)
 
-4. Fill in the connection details as appears below and Click on the **Connect** button
+2. Fill in the connection details as appears below and Click on the **Connect** button
 
     Server name: +++techready2025.46dfe54ef1ee.database.windows.net+++
     Authentication Type: SQL Authentication
@@ -187,16 +212,11 @@ If you connect successfully and see Databases folder as appeared above, then the
 
 After completing this section, you will be able to: Check the MI Link Test connection to **Target** **Server** from the source server
 
-1. Connect to the **source** server using Entra ID/administrator using xxxx as the password
-2. Click on the Windows/Start button after connecting to the source server and type “**SQL Server Management Studio**” as appears below:
-
-    ![AccessValidation_MILink_SSMS](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img17_AccessValidation_MILink_SSMS.png?raw=true)
-
-3. Click on the **Connect** and then select **Database Engine** from drop down which open Connect to Server window as appears below:
+1. Click on the **Connect** and then select **Database Engine** from drop down which open Connect to Server window as appears below:
 
     ![AccessValidation_MILink_SSMS_Connect](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img18_AccessValidation_MILink_SSMS_Connect.png?raw=true)
 
-4. Fill in the connection details as appears below and Click on the **Connect** button
+2. Fill in the connection details as appears below and Click on the **Connect** button
 
     ![AccessValidation_MILink_SSMS_ConnectToServer](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img19_AccessValidation_MILink_SSMS_ConnectToServer.png?raw=true)
 
@@ -359,7 +379,7 @@ Run **C:\SQLQueries\DBCount_Query.txt** on SQL Server to capture DB counts and T
 
     ![AccessValidation_MILink_SSMS_Failover_SignIn_SQLMI](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img51_AccessValidation_MILink_SSMS_Failover_SignIn_SQLMI.png?raw=true)
 
-5. Select the authentication type and click on Connect. Once
+5. Select the authentication type as SQL Server Authentication and click on Connect. Once
 
     ![AccessValidation_MILink_SSMS_Failover_SignIn_SQLMI_ConnectToServer](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img52_AccessValidation_MILink_SSMS_Failover_SignIn_SQLMI_ConnectToServer.png?raw=true)
 
@@ -385,67 +405,13 @@ Run **C:\SQLQueries\DBCount_Query.txt** on SQL Server to capture DB counts and T
 
 ===
 
-### Perform migration
 
-Stop applications servers so no new data will be executed on Databases and make sure no users are connected to the database.
+### Validate DB tables at Source and Destination database
 
-### Create logins in target
+Validate DB tables row count is matching with source DB, Execute the **C:\SQLQueries\To verify row count.SQL** script on source and target AdventureWorks2019_xxx database and both using SSMS and compare the result, row count for all tables on both side should match.
 
-Create logins on Target SQL DB using the query below:
 
-+++CREATE LOGIN testLogin1 WITH PASSWORD = '&lt;Strong_Password_Goes_Here&gt;';+++
 
-+++CREATE USER \[testLogin1\] FROM LOGIN \[testLogin1\] WITH DEFAULT_SCHEMA=dbo;+++
-
-### Check access/connectivity
-
-Follow the steps mentioned above
-
-===
-
-### Check source DB state
-
-Query to check the status on Source server:-
-
-+++SELECT name, state_desc  FROM sys.databases+++
-
-To change the database state to read only on Source server:-
-
-+++USE \[master\]+++
-+++GO+++
-
-+++**ALTER** **DATABASE** \[databasename\] **SET** READ_ONLY **WITH** NO_WAIT+++
-+++GO+++
-
-===
-
-### Validate DB tables
-
-Validate DB tables row count is matching with source DB, Execute the **C:\SQLQueries\To verify row count.txt** script on source and Target server both using SSMS.
-
-### Validate logins
-
-validate logins are created properly
-
-Try connecting with the SQL DB user to validate logins.
-
-![Validate Login](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img57_Validate%20Login.png?raw=true)
-
-===
-
-## Rollback
-
-### Change DB state
-
-To change the database state to read only on Source server:-
-
-+++USE \[master\]+++
-
-+++GO+++
-
-+++**ALTER** **DATABASE** \[databasename\] **SET** READ_ONLY **WITH** NO_WAIT+++
-
-GO
 
 ===
 
