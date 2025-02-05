@@ -283,7 +283,18 @@ If you connect successfully and see Databases folder as appeared above, then the
 
 Click on Sign In.. and follow the login step on browser. Once you login on browser you will see Authentication complete message. Close the browser and complete the remaining step on wizard
 
+
+![AccessValidation_MILink_SSMS_New_Specify_Secondary_Replica_SignIn_AuthComplete](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img_Portal_Login_MILink_Creation.png?raw=true)
+
+Select the user2 and provide password +++TechConnect@2025+++
+
+![AccessValidation_MILink_SSMS_New_Specify_Secondary_Replica_SignIn_AuthComplete](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img_Portal_Login_MILink_Creation_Password.png?raw=true)
+
+
 ![AccessValidation_MILink_SSMS_New_Specify_Secondary_Replica_SignIn_AuthComplete](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img37_AccessValidation_MILink_SSMS_New_Specify_Secondary_Replica_SignIn_AuthComplete.png?raw=true)
+
+
+
 
 Select the subscription, resource group and Managed Instance (Target). Click on **Sign in** to selected SQL Managed Instance as shown below
 
@@ -389,6 +400,7 @@ Run **C:\SQLQueries\DBCount_Query.txt** on SQL Server to capture DB counts and T
 
 Validate DB tables row count is matching with source DB, Execute the **C:\SQLQueries\To verify row count.SQL** script on source and target AdventureWorks2019_xxx database and both using SSMS and compare the result, row count for all tables on both side should match.
 
+![RowCountValidation_Source_Target](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img_RowCountValidation_Source_Target.png?raw=true)
 
 
 
