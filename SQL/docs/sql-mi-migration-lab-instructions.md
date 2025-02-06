@@ -95,17 +95,12 @@ This was devised to list the procedure/steps/instructions to migrate the (Advent
     ![AccessValidation_SSMS](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img1_AccessValidation_SSMS.png?raw=true)
 
 
-16. Click on the **Connect** and then select **Database Engine** from drop down which open Connect to Server window as appears below:
-
-    ![AccessValidation_SSMS_Connect](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img2_AccessValidation_SSMS_Connect.png?raw=true)
-
-17. Fill in the connection details, Server name as +++TechReadyGImage+++ and Authentication as Windows Authentication. Check Trust server certificate and  Click on the **Connect** button
+16. Fill in the connection details, Server name as +++TechReadyGImage+++ and Authentication as Windows Authentication. Check Trust server certificate and  Click on the **Connect** button
 
     ![AccessValidation_SSMS_ConnectToServer](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img3_AccessValidation_SSMS_ConnectToServer.png?raw=true)
 
-**Here:** Server is the Source server’s FQDN/IP
 
-18. Click on the **Databases** after connecting to the source SQL server and then click on the **AdventureWorks2019_xxx** xxx is unique ID for database
+17. Click on the **Databases** after connecting to the source SQL server and then click on the **AdventureWorks2019_xxx** xxx is unique ID for database
 
     ![AccessValidation_SSMS_ObjectExplorer](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img4_AccessValidation_SSMS_ObjectExplorer.png?raw=true)
 
@@ -114,12 +109,12 @@ If you can see the tables as appeared above, then the connectivity to the **sour
 
 ===
 
-19. Click on Search Icon from Taskbar and type “**SQL Server 2019 Configuration Manager**” as appears below:
+18. Click on Search Icon from Taskbar and type “**SQL Server 2019 Configuration Manager**” as appears below:
 
     ![AccessValidation_SQLServer Configuration Manager](https://raw.githubusercontent.com/Azure/tech-connect-migration-lab/refs/heads/main/SQL/docs/Images/Img5_AccessValidation_SQL%20Server%20Configuration%20Manager.png)
 
-20. Click on SQL Server 2019 Configuration Manager, which will open a new window.
-21. Select the SQL Server Services from the left pane and select the SQL Server (MSSQLSERVER) from the right pane. Right click on SQL Server (MSSQLSERVER) and click on Properties
+19. Click on SQL Server 2019 Configuration Manager, which will open a new window.
+20. Select the SQL Server Services from the left pane and select the SQL Server (MSSQLSERVER) from the right pane. Right click on SQL Server (MSSQLSERVER) and click on Properties
 
     ![AccessValidation_SQLServer Configuration Manager_Services](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img6_AccessValidation_SQL%20Server%20Configuration%20Manager_Services.png?raw=true)
 
