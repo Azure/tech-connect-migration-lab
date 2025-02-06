@@ -21,7 +21,7 @@ This was devised to list the procedure/steps/instructions to migrate the (Advent
 
 **Instructions:**
 
-1. Click on Windows/Start Button and type "Remote Desktop Connection" as it appears below
+1. Click on Search Icon from Taskbar and type "Remote Desktop Connection" as it appears below
 
     ![Remote_Desktop_Connection](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img_Remote_Desktop_Connection.png?raw=true)
 
@@ -33,8 +33,9 @@ This was devised to list the procedure/steps/instructions to migrate the (Advent
     Connect to your machine using user name/password provided by lab modertor.
     Do not use the username password from the resource tab.**
 
-2. Click on the Windows/Start button after connecting to the source server and type “**Windows PowerShell ISE**” as appears below:
-    ![PowerShell_Open](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img_PowerShell_Open.png?raw=true)
+2. Click on Search Icon from Taskbar after connecting to the source server and type “**Windows PowerShell ISE**” as appears below:
+
+![PowerShell_Open](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img_PowerShell_Open.png?raw=true)
 
 3. Click on **File** Menu from PowerShell ISE window and select **Open** file as appears below:
 
@@ -65,10 +66,18 @@ This was devised to list the procedure/steps/instructions to migrate the (Advent
 
     ![AV_Source_ADS_NewConnection](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img2_AV_Source_ADS_NewConnection.png?raw=true)
 
+    Click on Search button on taskbar and type **CMD** and click on Command Prompt 
+    
+    ![CMD_Open](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img_CMD_Open.png?raw=true)
+
+    Once CMD open type +++ipconfig+++ and hit enter, copy the IP4 Address as shown below
+
+    ![CMD_IPConfig](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img_CMD_IPConfig.png?raw=true)
+
 
 10. Fill in the connection details as appears below and Click on the **Connect** button
 
-    Server: Source Server IP (Get IP using CMD, instructions mentioned below)
+    Server: Source Server IP (copied from previous step)
     
     Authentication Type: SQL Login
 
@@ -78,16 +87,7 @@ This was devised to list the procedure/steps/instructions to migrate the (Advent
     ![AV_Source_ADS_NewConnection_Details](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img3_AV_Source_ADS_NewConnection_Details.png?raw=true)
 
 
-    **Here:** Server is the Source server’s IP, you can get the source IP address using CMD,
-    Open CMD and type +++ipconfig+++ and hit enter, copy the IP4 Address 
-
-    
-    ![CMD_Open](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img_CMD_Open.png?raw=true)
-
-
-    ![CMD_IPConfig](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img_CMD_IPConfig.png?raw=true)
-
-
+ 
 11. Click on the **Databases** after connecting to the source SQL server and then click on the **AdventureWorks2019_xxx**
 
     ![AV_Source_ADS_NewConnection_Details_DB_Tables](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img4_AV_Source_ADS_NewConnection_Details_DB_Tables.png?raw=true)
@@ -138,7 +138,7 @@ This was devised to list the procedure/steps/instructions to migrate the (Advent
 
     Fill in the connection details as appears below and Click on the **Connect** button
 
-    Server: +++techreadycon2025.database.windows.net+++
+    Server: +++techready2025sql.database.windows.net+++
 
     Authentication Type: SQL Authentication
     
@@ -164,13 +164,33 @@ If you can see any database name under the **system databases** as appeared abov
 
 **Instructions:**
 
+16. Click on Search Icon from Taskbar after connecting to the source server and type “**SQL Server Management Studio**” as appears below:
 
-16. Create an empty AdventureWorks2019_xxx (replace xxx with your user id) database **in the Target server** as appears below 
+    ![AccessValidation_SSMS](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img1_AccessValidation_SSMS.png?raw=true)
 
-    ![Migration_ADS_Target_CreateEmptyDatabase](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img24_Migration_ADS_Target_CreateEmptyDatabase.png?raw=true)
+17. Fill in the connection details as appears below and Click on the **Connect** button
+
+    Server: +++techready2025sql.database.windows.net+++
+
+    Authentication Type: SQL Authentication
+    
+    Login name: +++dbadmin+++
+
+    Password: +++b"9yVh](w-x@T3Y$)>}:s!+++
+
+16. Click on **File** and Select **Open** and then select **File** it will open Open file window 
+    
+    ![SSMS_File_Open](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img_SSMS_File_Open.png?raw=true)
+    
+    Open  +++C:\SQLQueries\Create_Database_In_Azure_SQL.sql+++ script and execute it
+    It will create new database as AdventureWorks2019_xxx as shown below, 
+
+    ***Please keep note of databse name** 
+
+    ![Img_SSMS_Create_Database](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img_SSMS_Create_Database.png?raw=true)
 
 
-17. Select the Source database & Double Click on the **Azure SQL Migration** as appears below:
+17. Go to **Azure Data Studio** Select the Source database & Double Click on the **Azure SQL Migration** as appears below:
 
     ![Migration_ADS_Source_Database_AzureSQLMigration](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img25_Migration_ADS_Source_Database_AzureSQLMigration.png?raw=true)
 
@@ -218,49 +238,9 @@ If you can see any database name under the **system databases** as appeared abov
     ![Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DB_Target_AzureSQL_DB](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img33_Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DB_Target_AzureSQL_DB.png?raw=true)
 
 
-25. Create Azure Database Migration Service **(DMS)** by clicking “**Create new**”
-
-    ![Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DMS](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img34_Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DMS.png?raw=true)
-
-
-26. Fill-in the DMS details as appears below
-
-    ![Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DMS_Create](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img35_Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DMS_Create.png?raw=true)
-
-
-    **Note:** Same Azure region for DMS as the target Azure SQL Database for Reduced Latency, No transfer Cost within the same region, Performance reasons.
-
-27. Select “**I want to setup self-hosted integration runtime on my machine (Machine where Azure Data Studio is running)**” as appears below and click on “**Execute script**”
-
-    ![Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DMS_Create_SHIR](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img36_Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DMS_Create_SHIR.png?raw=true)
-    
-
-Note: Click **Yes** if it prompts for the permission to execute:
-
-![Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DMS_Create_SHIR_UAC](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img37_Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DMS_Create_SHIR_UAC.png?raw=true)
-
-
-[**SHIR**](https://www.microsoft.com/en-us/download/details.aspx?id=39717) **Installation may take up to 20 min** if it is the first time installation.
-
-28. **Press Enter to continue**
-
-    ![Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DMS_Create_SHIR_UAC_PS](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img38_Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DMS_Create_SHIR_UAC_PS.png?raw=true)
-
-
-29. Click on “Done” on the Azure Data Studio for the “Create Azure Database Service”
-
-    ![Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DMS_Create_SHIR_UAC_PS_Done](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img39_Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DMS_Create_SHIR_UAC_PS_Done.png?raw=true)
-
-
-NOTE:
-
-You may choose the “Configure manually” option to **save the download time**
-
-![Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DMS_Create_SHIR_Manually](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img40_Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DMS_Create_SHIR_Manually.png?raw=true)
-
 ===
 
-30. Select the newly created DMS and refresh to review the DMS to SHIR connection status and click “**Next**”
+30. Select the  DMS and refresh to review the DMS to SHIR connection status and click “**Next**”
 
     Note: DMS connection to the SHIR must be **online** as appears below:
 
