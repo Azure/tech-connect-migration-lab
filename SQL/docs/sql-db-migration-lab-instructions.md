@@ -8,7 +8,6 @@ This document has been prepared to list the procedure/steps/instructions that ar
 
 This was devised to list the procedure/steps/instructions to migrate the (AdventureWorks2019_xxx) database running on Azure VM **to Azure SQL DB** using ADS and DMS.
 
-
 ===
 
 # Pre-Requisites
@@ -81,22 +80,16 @@ This was devised to list the procedure/steps/instructions to migrate the (Advent
     **Here:** Server is the Source server’s IP, you can get the source IP address using CMD,
     Open CMD and type +++ipconfig+++ and hit enter, copy the IP4 Address 
 
-    
     ![CMD_Open](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img_CMD_Open.png?raw=true)
 
-
     ![CMD_IPConfig](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img_CMD_IPConfig.png?raw=true)
-
 
 11. Click on the **Databases** after connecting to the source SQL server and then click on the **AdventureWorks2019_xxx**
 
     ![AV_Source_ADS_NewConnection_Details_DB_Tables](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img4_AV_Source_ADS_NewConnection_Details_DB_Tables.png?raw=true)
     
-
     If you can see the tables as appeared above, then the connectivity to the **source database is successful**.
-
 ===
-
 12. Click on the **Extensions** after connecting to the source SQL server
 
     ![AV_Source_ADS_Extensions](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img5_AV_Source_ADS_Extensions.png?raw=true)
