@@ -24,7 +24,7 @@ This was devised to list the procedure/steps/instructions to migrate the (Advent
 
 **Instructions:**
 
-1. Click on Windows/Start Button and type "Remote Desktop Connection" as it appears below
+1. Click on Search Icon from Taskbar and type "Remote Desktop Connection" as it appears below
 
     ![Remote_Desktop_Connection](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img_Remote_Desktop_Connection.png?raw=true)
 
@@ -36,7 +36,7 @@ This was devised to list the procedure/steps/instructions to migrate the (Advent
     Connect to your machine using user name/password provided by lab modertor.
     Do not use the username password from the resource tab.**
 
-2. Click on the Windows/Start button after connecting to the source server and type “**Windows PowerShell ISE**” as appears below:
+2. Click on Search Icon from Taskbar after connecting to the source server and type “**Windows PowerShell ISE**” as appears below:
     ![PowerShell_Open](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img_PowerShell_Open.png?raw=true)
 
 3. Click on **File** Menu from PowerShell ISE window and select **Open** file as appears below:
@@ -90,7 +90,7 @@ This was devised to list the procedure/steps/instructions to migrate the (Advent
 
     ![PowerShell_Open_File_OpenFireWallPortonWindows_Execute](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img_PowerShell_OpenFireWallPortonWindows_Execution.png?raw=true)
 
-15. Click on the Windows/Start button after connecting to the source server and type “**SQL Server Management Studio**” as appears below:
+15. Click on Search Icon from Taskbar after connecting to the source server and type “**SQL Server Management Studio**” as appears below:
 
     ![AccessValidation_SSMS](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img1_AccessValidation_SSMS.png?raw=true)
 
@@ -114,7 +114,7 @@ If you can see the tables as appeared above, then the connectivity to the **sour
 
 ===
 
-19. Click on the Windows/Start button type “**SQL Server 2019 Configuration Manager**” as appears below:
+19. Click on Search Icon from Taskbar and type “**SQL Server 2019 Configuration Manager**” as appears below:
 
     ![AccessValidation_SQLServer Configuration Manager](https://raw.githubusercontent.com/Azure/tech-connect-migration-lab/refs/heads/main/SQL/docs/Images/Img5_AccessValidation_SQL%20Server%20Configuration%20Manager.png)
 
@@ -142,7 +142,11 @@ If you can see the tables as appeared above, then the connectivity to the **sour
 
     ![AccessValidation_SQL Server Configuration Manager_SQL Service_Restart](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img9_AccessValidation_SQL%20Server%20Configuration%20Manager_SQL%20Service_Restart.png?raw=true)
 
-27. After the restart, In SQL Server management studio (SSMS) click on **File** and Select **Open** it will open Open file window, open  +++C:\SQLQueries\Query_Validate Configuration.sql+++ script and execute on SQL Server to validate the configuration of your SQL Server instance using SSMS:
+27. Go to SQL Server management studio (SSMS) click on **File** and Select **Open** and then select **File** it will open Open file window, 
+    
+    ![AccessValidation_SSMS_ValidationByQuery](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img10_AccessValidation_SSMS_OpenQuery.png?raw=true)
+    
+    open  +++C:\SQLQueries\Query_Validate Configuration.sql+++ script and execute on SQL Server to validate the configuration of your SQL Server instance using SSMS:
 
     ![AccessValidation_SSMS_ValidationByQuery](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img10_AccessValidation_SSMS_ValidationByQuery.png?raw=true)
 
@@ -191,31 +195,19 @@ If you connect successfully and see Databases folder as appeared above, then the
 
 **Instructions:**
 
-31. Click on the **Connect** and then select **Database Engine** from drop down which open Connect to Server window as appears below:
-
-    ![AccessValidation_MILink_SSMS_Connect](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img18_AccessValidation_MILink_SSMS_Connect.png?raw=true)
-
-32. Fill in the connection details as appears below and Click on the **Connect** button
-
-    ![AccessValidation_MILink_SSMS_ConnectToServer](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img19_AccessValidation_MILink_SSMS_ConnectToServer.png?raw=true)
-
-**Here:** Server is the Source server’s FQDN/IP
-
-===
-
-33. Click on the **Databases** after connecting to the source SQL server and then Right click on the **AdventureWorks2019** database**,** Select the **Azure SQL Managed Instance Link** then select **Test Connection** as shown below , it will open Network Checker wizard
+31. In SSMS, on Source Server, Click on the **Databases** then Right click on the **AdventureWorks2019** database**,** Select the **Azure SQL Managed Instance Link** then select **Test Connection** as shown below , it will open Network Checker wizard
 
     ![AccessValidation_MILink_SSMS_TestConnection](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img20_AccessValidation_MILink_SSMS_TestConnection.png?raw=true)
 
-34. Click Next on Network Checker wizards
+32. Click Next on Network Checker wizards
 
     ![AccessValidation_MILink_SSMS_TestConnection_NetworkChecker](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img21_AccessValidation_MILink_SSMS_TestConnection_NetworkChecker.png?raw=true)
 
-35. SQL Server prerequisites page, verify if all the requirements are met.
+33. SQL Server prerequisites page, verify if all the requirements are met.
 
     ![AccessValidation_MILink_SSMS_TestConnection_NetworkChecker_Prereq](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img22_AccessValidation_MILink_SSMS_TestConnection_NetworkChecker_Prereq.png?raw=true)
 
-36. Click Next to Login to Managed Instance and click on Login button
+34. Click Next to Login to Managed Instance and click on Login button
 
     ![AccessValidation_MILink_SSMS_TestConnection_NetworkChecker_LoginToMI](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img23_AccessValidation_MILink_SSMS_TestConnection_NetworkChecker_LoginToMI.png?raw=true)
 
@@ -228,19 +220,19 @@ If you connect successfully and see Databases folder as appeared above, then the
 
     ![AccessValidation_MILink_SSMS_TestConnection_NetworkChecker_LoginToMI_Connect](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img24_AccessValidation_MILink_SSMS_TestConnection_NetworkChecker_LoginToMI_Connect.png?raw=true)
 
-37. You will see **Sign In successful** message. Click next to proceed
+35. You will see **Sign In successful** message. Click next to proceed
 
     ![AccessValidation_MILink_SSMS_TestConnection_NetworkChecker_LoginToMI_Success](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img25_AccessValidation_MILink_SSMS_TestConnection_NetworkChecker_LoginToMI_Success.png?raw=true)
 
-38. SQL Managed Instance IP address is automatically detected. **Ensure the SQL server IP address specified below is correct**. Click next
+36. SQL Managed Instance IP address is automatically detected. **Ensure the SQL server IP address specified below is correct**. Click next
 
     ![AccessValidation_MILink_SSMS_TestConnection_NetworkChecker_NetworkOptions](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img26_AccessValidation_MILink_SSMS_TestConnection_NetworkChecker_NetworkOptions.png?raw=true)
 
-39. Review Summary and click **Finish**
+37. Review Summary and click **Finish**
 
     ![AccessValidation_MILink_SSMS_TestConnection_NetworkChecker_Summary](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img27_AccessValidation_MILink_SSMS_TestConnection_NetworkChecker_Summary.png?raw=true)
 
-40. Verify the results and make sure all tests are successful and have no issue. Click on close to end the result.
+38. Verify the results and make sure all tests are successful and have no issue. Click on close to end the result.
 
     ![AccessValidation_MILink_SSMS_TestConnection_NetworkChecker_Results](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img28_AccessValidation_MILink_SSMS_TestConnection_NetworkChecker_Results.png?raw=true)
 
@@ -249,31 +241,31 @@ If you connect successfully and see Databases folder as appeared above, then the
 
 #### MI Link Creation
 
-41. Connect to Source SQL server and right click on **AdventureWorks2019** database and click on **Azure SQL Managed Instance link** and select **New…** as shown below
+39. Connect to Source SQL server and right click on **AdventureWorks2019** database and click on **Azure SQL Managed Instance link** and select **New…** as shown below
 
     ![AccessValidation_MILink_SSMS_New](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img29_AccessValidation_MILink_SSMS_New.png?raw=true)
 
-42. Click Next on New Managed Instance link wizard
+40. Click Next on New Managed Instance link wizard
 
     ![AccessValidation_MILink_SSMS_New_Introduction](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img30_AccessValidation_MILink_SSMS_New_Introduction.png?raw=true)
 
-43. Specify the Link Name in next screen and select the **Enable connectivity troubleshooting** option as shown below and click **Next**
+41. Specify the Link Name in next screen and select the **Enable connectivity troubleshooting** option as shown below and click **Next**
 
     ![AccessValidation_MILink_SSMS_New_Specify_LinkOptions](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img31_AccessValidation_MILink_SSMS_New_Specify_LinkOptions.png?raw=true)
 
-44. Verify Server readiness and make sure **Server is Ready**. Click on **Availability group readiness** and verify readiness. Click **Next**
+42. Verify Server readiness and make sure **Server is Ready**. Click on **Availability group readiness** and verify readiness. Click **Next**
 
     ![AccessValidation_MILink_SSMS_New_Requirements_ServerReadiness](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img32_AccessValidation_MILink_SSMS_New_Requirements_ServerReadiness.png?raw=true)
 
     ![AccessValidation_MILink_SSMS_New_Requirements_AGReadiness](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img33_AccessValidation_MILink_SSMS_New_Requirements_AGReadiness.png?raw=true)
 
-45. Click on checkbox in front of AdventureWorks2019 database and verify the status as Ready as shown below. Click **Next**
+43. Click on checkbox in front of AdventureWorks2019 database and verify the status as Ready as shown below. Click **Next**
 
     ![AccessValidation_MILink_SSMS_New_Select_Databases](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img34_AccessValidation_MILink_SSMS_New_Select_Databases.png?raw=true)
 
 ===
 
-46. Specify secondary replica by clicking on **Add secondary replica** button as shown below
+44. Specify secondary replica by clicking on **Add secondary replica** button as shown below
 
     ![AccessValidation_MILink_SSMS_New_Specify_Secondary_Replica](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img35_AccessValidation_MILink_SSMS_New_Specify_Secondary_Replica.png?raw=true)
 
@@ -314,23 +306,23 @@ You will see the SQL MI added as Secondary role. Click **Next** to proceed
 
 ![AccessValidation_MILink_SSMS_New_Specify_Secondary_Replica_Success](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img41_AccessValidation_MILink_SSMS_New_Specify_Secondary_Replica_Success.png?raw=true)
 
-47. If all validations are successful click Next to proceed
+45. If all validations are successful click Next to proceed
 
     ![AccessValidation_MILink_SSMS_New_Validation](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img42_AccessValidation_MILink_SSMS_New_Validation.png?raw=true)
 
-48. Verify the choices made in this wizard and click **Finish**
+46. Verify the choices made in this wizard and click **Finish**
 
     ![AccessValidation_MILink_SSMS_New_Summary](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img43_AccessValidation_MILink_SSMS_New_Summary.png?raw=true)
 
-49. Verify the result and click Close.
+47. Verify the result and click Close.
 
     ![AccessValidation_MILink_SSMS_New_Results](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img44_AccessValidation_MILink_SSMS_New_Results.png?raw=true)
 
-50. Verify the MI Link from SSMS as well as shown below. Database will be shown as available and started syncing with source database will show as Synchronized
+48. Verify the MI Link from SSMS as well as shown below. Database will be shown as available and started syncing with source database will show as Synchronized
 
     ![AccessValidation_MILink_SSMS_New_MI_Link_Verification](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img45_AccessValidation_MILink_SSMS_New_MI_Link_Verification.png?raw=true)
 
-51. Synchronization status from AG dashboard
+49. Synchronization status from AG dashboard
 
     ![AccessValidation_MILink_SSMS_New_MI_Link_SyncStatus_AGDashboard](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img46_AccessValidation_MILink_SSMS_New_MI_Link_SyncStatus_AGDashboard.png?raw=true)
 
@@ -349,19 +341,19 @@ Run **C:\SQLQueries\DBCount_Query.txt** on SQL Server to capture DB counts and T
 
 ### Failover Database
 
-52. Connect to Source SQL server using SQL Server management Studio, expand the Databases folder and Right click on **AdventureWorks2019** database and select **Azure SQL Managed Instance link** and select **Failover…** as shown below
+50. Connect to Source SQL server using SQL Server management Studio, expand the Databases folder and Right click on **AdventureWorks2019** database and select **Azure SQL Managed Instance link** and select **Failover…** as shown below
 
     ![AccessValidation_MILink_SSMS_Failover](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img47_AccessValidation_MILink_SSMS_Failover.png?raw=true)
 
-53. Click Next on Introduction page as shown below
+51. Click Next on Introduction page as shown below
 
     ![AccessValidation_MILink_SSMS_Failover_Introduction](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img48_AccessValidation_MILink_SSMS_Failover_Introduction.png?raw=true)
 
-54. On Failover type page, Planned manual failover selected by default. Click Next on as shown below
+52. On Failover type page, Planned manual failover selected by default. Click Next on as shown below
 
     ![AccessValidation_MILink_SSMS_Failover_Choose_FailoverType](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img49_AccessValidation_MILink_SSMS_Failover_Choose_FailoverType.png?raw=true)
 
-55. Click on Sign In to Login to Azure
+53. Click on Sign In to Login to Azure
 
     ![AccessValidation_MILink_SSMS_Failover_SignIn](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img50_AccessValidation_MILink_SSMS_Failover_SignIn.png?raw=true)
 
@@ -369,29 +361,29 @@ Run **C:\SQLQueries\DBCount_Query.txt** on SQL Server to capture DB counts and T
 
     ![AccessValidation_MILink_SSMS_Failover_SignIn_SQLMI](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img51_AccessValidation_MILink_SSMS_Failover_SignIn_SQLMI.png?raw=true)
 
-56. Select the authentication type as SQL Server Authentication and click on Connect. Once
+54. Select the authentication type as SQL Server Authentication and click on Connect. Once
 
     ![AccessValidation_MILink_SSMS_Failover_SignIn_SQLMI_ConnectToServer](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img52_AccessValidation_MILink_SSMS_Failover_SignIn_SQLMI_ConnectToServer.png?raw=true)
 
-57. Once Sign in successful click Next to proceed
+55. Once Sign in successful click Next to proceed
 
     ![AccessValidation_MILink_SSMS_Failover_SignIn_SQLMI_Success](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img53_AccessValidation_MILink_SSMS_Failover_SignIn_SQLMI_Success.png?raw=true)
 
-58. Select the appropriate option for Link removal and AG removal post migration. This is recommended to remove the MI link and Delete AG on Source database post successful migration. Click Next to proceed
+56. Select the appropriate option for Link removal and AG removal post migration. This is recommended to remove the MI link and Delete AG on Source database post successful migration. Click Next to proceed
 
     ![AccessValidation_MILink_SSMS_Failover_PostFailover_Operations](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img54_AccessValidation_MILink_SSMS_Failover_PostFailover_Operations.png?raw=true)
 
-59. Verify the choices made and click **Finish**
+57. Verify the choices made and click **Finish**
 
     ![AccessValidation_MILink_SSMS_Failover_Summary](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img55_AccessValidation_MILink_SSMS_Failover_Summary.png?raw=true)
 
 ===
 
-60. Review the result and make sure all tasks are completed successfully as shown below
+58. Review the result and make sure all tasks are completed successfully as shown below
 
     ![AccessValidation_MILink_SSMS_Failover_Results](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img56_AccessValidation_MILink_SSMS_Failover_Results.png?raw=true)
 
-61. Verify if the database on SQL MI is online and in Read Write Mode using SQL Server Management Studio. Point the application connection to the database on SQL MI.
+59. Verify if the database on SQL MI is online and in Read Write Mode using SQL Server Management Studio. Point the application connection to the database on SQL MI.
 
 ===
 
