@@ -178,7 +178,7 @@ If you can see any database name under the **system databases** as appeared abov
 
     Password: +++b"9yVh](w-x@T3Y$)>}:s!+++
 
-16. Click on **File** and Select **Open** and then select **File** it will open Open file window 
+17. Click on **File** and Select **Open** and then select **File** it will open Open file window 
     
     ![SSMS_File_Open](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img_SSMS_File_Open.png?raw=true)
     
@@ -190,38 +190,38 @@ If you can see any database name under the **system databases** as appeared abov
     ![Img_SSMS_Create_Database](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img_SSMS_Create_Database.png?raw=true)
 
 
-17. Go to **Azure Data Studio** Select the Source database & Double Click on the **Azure SQL Migration** as appears below:
+18. Go to **Azure Data Studio** Select the Source database & Double Click on the **Azure SQL Migration** as appears below:
 
     ![Migration_ADS_Source_Database_AzureSQLMigration](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img25_Migration_ADS_Source_Database_AzureSQLMigration.png?raw=true)
 
 
-18. Click on New migration as appears below
+19. Click on New migration as appears below
 
     ![Migration_ADS_Source_Database_AzureSQLMigration_NewMigration](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img26_Migration_ADS_Source_Database_AzureSQLMigration_NewMigration.png?raw=true)
     
 
-19. Select the **AdventureWorks2019_xxx** database to be migrated as appears below and click **next**
+20. Select the **AdventureWorks2019_xxx** database to be migrated as appears below and click **next**
 
     ![Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DB](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img27_Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DB.png?raw=true)
     
 
-20. Wait a few minutes for the assessment to complete, then click "**Next**."
+21. Wait a few minutes for the assessment to complete, then click "**Next**."
 
     ![Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DB_Assessment](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img28_Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DB_Assessment.png?raw=true)
 
 ===
 
-21. Select the **Target Type** as Azure SQL DB as appears below
+22. Select the **Target Type** as Azure SQL DB as appears below
 
     ![Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DB_Target](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img29_Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DB_Target.png?raw=true)
 
 
-22. Review the result and Click “Next” as appears below
+23. Review the result and Click “Next” as appears below
 
     ![Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DB_Target_AssessmentResults](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img30_Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DB_Target_AssessmentResults.png?raw=true)
     
 
-23. Fill-in the Azure SQL Target details as appears below and Click on “**Connect**”
+24. Fill-in the Azure SQL Target details as appears below and Click on “**Connect**”
 
     ![Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DB_Target_AzureSQL](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img31_Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DB_Target_AzureSQL.png?raw=true)
     
@@ -233,41 +233,41 @@ If you can see any database name under the **system databases** as appeared abov
 
 ===
 
-24. Map the source database (AdventureWorks2019_xxx) to Target database (**AdventureWorks2019_xxx** i.e. Created previously in the Target server) and Click “**Next**” as appears below
+25. Map the source database (AdventureWorks2019_xxx) to Target database (**AdventureWorks2019_xxx** i.e. Created previously in the Target server) and Click “**Next**” as appears below
 
     ![Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DB_Target_AzureSQL_DB](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img33_Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DB_Target_AzureSQL_DB.png?raw=true)
 
 
 ===
 
-30. Select the  DMS and refresh to review the DMS to SHIR connection status and click “**Next**”
+26. Select the  DMS and refresh to review the DMS to SHIR connection status and click “**Next**”
 
     Note: DMS connection to the SHIR must be **online** as appears below:
 
     ![Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DMS_Create_SHIR_Online](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img41_Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DMS_Create_SHIR_Online.png?raw=true)
 
 
-31. Click on “Edit” under Select tables
+27. Click on “Edit” under Select tables
 
     ![Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DMS_DataSourceConfig](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img42_Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DMS_DataSourceConfig.png?raw=true)
     
 
-32. Select “Migrate schema to target” and click on “**Update**”
+28. Select “Migrate schema to target” and click on “**Update**”
 
     ![Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DMS_DataSourceConfig_Tables](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img43_Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DMS_DataSourceConfig_Tables.png?raw=true)
     
 
-33. click on “**Run Validation**” as appears below:
+29. click on “**Run Validation**” as appears below:
 
     ![Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DMS_DataSourceConfig_Validation](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img44_Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DMS_DataSourceConfig_Validation.png?raw=true)
     
 
-34. Click on “Done” on click on “**Next**” to go to the last step (7) of the migration
+30. Click on “Done” on click on “**Next**” to go to the last step (7) of the migration
 
     ![Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DMS_DataSourceConfig_Validation_Details](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img45_Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DMS_DataSourceConfig_Validation_Details.png?raw=true)
     
 
-35. Review the summary and click on “**Start Migration”**
+31. Review the summary and click on “**Start Migration”**
 
     ![Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DMS_DataSourceConfig_Validation_Summary](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img46_Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DMS_DataSourceConfig_Validation_Summary.png?raw=true)
 
@@ -278,12 +278,12 @@ If you can see any database name under the **system databases** as appeared abov
 
 ## Monitor the migration
 
-36. Click on the **Databases** after connecting to the source SQL server and then click on the **AdventureWorks2019_xxx**
+32. Click on the **Databases** after connecting to the source SQL server and then click on the **AdventureWorks2019_xxx**
 
     ![Monitor_Migration_ADS_NewConnection_DB_Tables](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img50_Monitor_Migration_ADS_NewConnection_DB_Tables.png?raw=true)
 
 
-37. Click on the **Azure SQL migration** and click on “Migrations” as appears below:
+33. Click on the **Azure SQL migration** and click on “Migrations” as appears below:
 
     ![Monitor_Migration_ADS_SQLMigration_Status](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img51_Monitor_Migration_ADS_SQLMigration_Status.png?raw=true)
 
@@ -313,35 +313,35 @@ If you can see any database name under the **system databases** as appeared abov
 
 After completing this section, you will be able to: Validate the migration by comparing schemas between two databases, View comparison results and Save the Comparison
 
-38. Click on the **Extensions** as appears below
+34. Click on the **Extensions** as appears below
 
     ![Validation_ADS_Extension](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img55_Validation_ADS_Extension.png?raw=true)
 
 
-39. Type **Schema Compare**  in the text box as appears below
+35. Type **Schema Compare**  in the text box as appears below
 
     ![Validation_ADS_Extension_SchemaCompare](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img56_Validation_ADS_Extension_SchemaCompare.png?raw=true)
 
 
 Note: Once installed, **Reload** to enable the extension in Azure Data Studio (only required when installing an extension for the first time).
 
-40. Click on the **Databases** after connecting to the source SQL server and then click on the **AdventureWorks2019_xxx**
+36. Click on the **Databases** after connecting to the source SQL server and then click on the **AdventureWorks2019_xxx**
 
     ![Validation_ADS_DB_Tables](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img57_Validation_ADS_DB_Tables.png?raw=true)
 
 
-41. To open the **Schema Compare** dialog box, right-click the **AdventureWorks2019_xxx** database in Object Explorer and select Schema Compare. **The database you select is set as the Source database** in the comparison.
+37. To open the **Schema Compare** dialog box, right-click the **AdventureWorks2019_xxx** database in Object Explorer and select Schema Compare. **The database you select is set as the Source database** in the comparison.
 
     ![Validation_ADS_DB_Tables_SchemaCompare](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img58_Validation_ADS_DB_Tables_SchemaCompare.png?raw=true)
 
 ===
 
-42. Select one of the ellipses (...) to change the Source and Target of your Schema Compare and select **OK**.
+38. Select one of the ellipses (...) to change the Source and Target of your Schema Compare and select **OK**.
 
     ![Validation_ADS_DB_Tables_SchemaCompare_SourceTarget](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img59_Validation_ADS_DB_Tables_SchemaCompare_SourceTarget.png?raw=true)
 
 
-43. Please select “Script database properties” in the option
+39. Please select “Script database properties” in the option
 
     ![Validation_ADS_DB_Tables_SchemaCompare_SourceTarget_Script](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img60_Validation_ADS_DB_Tables_SchemaCompare_SourceTarget_Script.png?raw=true)
 
@@ -349,7 +349,7 @@ Note: Once installed, **Reload** to enable the extension in Azure Data Studio (o
     ![Validation_ADS_DB_Tables_SchemaCompare_SourceTarget_Script_Options](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img61_Validation_ADS_DB_Tables_SchemaCompare_SourceTarget_Script_Options.png?raw=true)
 
 
-44. Click on **“Compare”**
+40. Click on **“Compare”**
 
     ![Validation_ADS_DB_Tables_SchemaCompare_Compare](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img62_Validation_ADS_DB_Tables_SchemaCompare_Compare.png?raw=true)
 
