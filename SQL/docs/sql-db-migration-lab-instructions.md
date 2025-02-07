@@ -262,7 +262,7 @@ If you can see any database name under the **system databases** as appeared abov
 
 ===
 
-26. Map the source database (AdventureWorks2019_xxx) to Target database (**+++@lab.Variable(databaseName)+++**, created previously in the Target server) and Click “**Next**” as appears below
+26. Map the source database (AdventureWorks2019_xxx) to Target database (**@lab.Variable(databaseName)**, created previously in the Target server) and Click “**Next**” as appears below
 
     ![Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DB_Target_AzureSQL_DB](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img33_Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DB_Target_AzureSQL_DB.png?raw=true)
 
