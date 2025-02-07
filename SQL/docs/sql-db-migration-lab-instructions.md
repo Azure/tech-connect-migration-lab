@@ -244,6 +244,9 @@ If you can see any database name under the **system databases** as appeared abov
 25. Click on Link account which will open browser,  login with the provided Azure credentials on browser. Once you login on browser you will see Authentication complete message. Close the browser and complete the remaining step on wizard
 
     Microsoft Entra tenant, Subscription, location, Resource Group, and Azure SQL Database server will auto populate
+
+    Azure username: +++user2@MngEnvMCAP560650.onmicrosoft.com+++
+    Azure password: +++TechConnect@2025+++
     
     Fill-in the Azure SQL Target credentials as appears below and Click on “**Connect**”
 
