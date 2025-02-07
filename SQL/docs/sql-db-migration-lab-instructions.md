@@ -203,7 +203,7 @@ If you can see any database name under the **system databases** as appeared abov
     Open  +++C:\SQLQueries\Create_Database_In_Azure_SQL.sql+++ script and execute it.
     It will create new database as AdventureWorks2019_xxx as shown below, 
 
-    **Enter the database name below for future use:**
+    **Enter the database name as it appears in your SSMS window for future use:**
 
     @lab.TextBox(databaseName)
 
