@@ -8,12 +8,21 @@ This document has been prepared to list the procedure/steps/instructions that ar
 
 This was devised to list the procedure/steps/instructions to migrate the (AdventureWorks2019) database running on Azure VM **to Azure SQL MI** using MI Link.
 
+Note that this lab assumes a SQL MI instance is already pre-deployed for you.
 
 ===
 
 
 # Execution
 
+**Log In to the machine**
+When you launch the lab, you will be prompted to log in to a Windows machine.
+
+ ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/skillable_img1.png?raw=true)
+
+ The Windows user and password information will be displayed at the bottom of the "Resources" tab. Whenever you see a ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/skillable_img5.png?raw=true) preceding a text, you can click on it and the text will be typed for you in the text box or application that is active in the UI of the lab screen. 
+ 
+  ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/skillable_img2.png?raw=true)
 
 ### Access validation
 
@@ -33,7 +42,7 @@ This was devised to list the procedure/steps/instructions to migrate the (Advent
     ![Remote_Desktop_ConnectionOpen](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img_Remote_Desktop_Connection_Open.png?raw=true)
 
     **Please contact lab moderator for the IP address, username and password
-    Connect to your machine using user name/password provided by lab modertor.
+    Connect to your machine using user name/password provided by lab moderator.
     Do not use the username password from the resource tab.**
 
 2. Click on Search Icon from Taskbar after connecting to the source server and type “**Windows PowerShell ISE**” as appears below:

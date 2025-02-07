@@ -8,10 +8,21 @@ This document has been prepared to list the procedure/steps/instructions that ar
 
 This was devised to list the procedure/steps/instructions to migrate the (AdventureWorks2019_xxx) database running on Azure VM **to Azure SQL DB** using ADS and DMS.
 
+Note that this lab assumes a SQL DB instance is already pre-deployed for you.
 
 ===
 
 # Pre-Requisites
+
+**Log In to the machine**
+When you launch the lab, you will be prompted to log in to a Windows machine.
+
+ ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/skillable_img1.png?raw=true)
+
+ The Windows user and password information will be displayed at the bottom of the "Resources" tab. Whenever you see a ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/skillable_img5.png?raw=true) preceding a text, you can click on it and the text will be typed for you in the text box or application that is active in the UI of the lab screen. 
+ 
+  ![](https://github.com/Azure/tech-connect-migration-lab/blob/main/MySQL/docs/media/skillable_img2.png?raw=true)
+
 
 ## Pre-migration tasks and validation
 
@@ -32,7 +43,7 @@ This was devised to list the procedure/steps/instructions to migrate the (Advent
     ![Remote_Desktop_ConnectionOpen](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/Images/Img_Remote_Desktop_Connection_Open.png?raw=true)
 
     **Please contact lab moderator for the IP address, username and password
-    Connect to your machine using user name/password provided by lab modertor.
+    Connect to your machine using user name/password provided by lab moderator.
     Do not use the username password from the resource tab.**
 
 2. Click on Search Icon from Taskbar after connecting to the source server and type “**Windows PowerShell ISE**” as appears below:
@@ -192,12 +203,14 @@ If you can see any database name under the **system databases** as appeared abov
     Open  +++C:\SQLQueries\Create_Database_In_Azure_SQL.sql+++ script and execute it.
     It will create new database as AdventureWorks2019_xxx as shown below, 
 
-    ***Please keep note of databse name** 
+    **Enter the database name below for future use:**
+
+    @lab.TextBox(databaseName)
 
     ![Img_SSMS_Create_Database](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img_SSMS_Create_Database.png?raw=true)
 
 
-19. Go to **Azure Data Studio** double click on Source database and then Click on the **Azure SQL Migration** as appears below:
+19. Go to **Azure Data Studio**, right click and choose 'Manage' on the Source database and then Click on the **Azure SQL Migration** as appears below:
 
     ![Migration_ADS_Source_Database_AzureSQLMigration](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img25_Migration_ADS_Source_Database_AzureSQLMigration.png?raw=true)
 
@@ -230,9 +243,9 @@ If you can see any database name under the **system databases** as appeared abov
 
 25. Click on Link account which will open browser,  login with the provided Azure credentials on browser. Once you login on browser you will see Authentication complete message. Close the browser and complete the remaining step on wizard
 
-    Microsoft Entra tenant, Subscription, locaton, Resource Group, and Azure SQL Database server will auto populate
+    Microsoft Entra tenant, Subscription, location, Resource Group, and Azure SQL Database server will auto populate
     
-    Fill-in the Azure SQL Target creadentials as appears below and Click on “**Connect**”
+    Fill-in the Azure SQL Target credentials as appears below and Click on “**Connect**”
 
     Target user name: +++dbadmin+++
 
@@ -249,7 +262,7 @@ If you can see any database name under the **system databases** as appeared abov
 
 ===
 
-26. Map the source database (AdventureWorks2019_xxx) to Target database (**AdventureWorks2019_xxx** i.e. Created previously in the Target server) and Click “**Next**” as appears below
+26. Map the source database (AdventureWorks2019_xxx) to Target database (**+++@lab.Variable(databaseName)+++**, created previously in the Target server) and Click “**Next**” as appears below
 
     ![Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DB_Target_AzureSQL_DB](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img33_Migration_ADS_Source_Database_AzureSQLMigration_NewMigration_DB_Target_AzureSQL_DB.png?raw=true)
 
@@ -358,7 +371,7 @@ Note: Once installed, **Close and reopen Azure Data Studio ** to enable the exte
     ![Validation_ADS_DB_Tables_SchemaCompare_SourceTarget](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img59_Validation_ADS_DB_Tables_SchemaCompare_SourceTarget.png?raw=true)
 
 
-40. Please select “Script database properties” in the option and select **Exclude extended properties**'** as shown in the image and click OK
+40. Please select **Script database properties** and **Exclude extended properties** in the Options as shown in the image and click OK
 
     ![Validation_ADS_DB_Tables_SchemaCompare_SourceTarget_Script](https://github.com/Azure/tech-connect-migration-lab/blob/main/SQL/docs/sqldbimages/Img60_Validation_ADS_DB_Tables_SchemaCompare_SourceTarget_Script.png?raw=true)
 
